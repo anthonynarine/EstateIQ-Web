@@ -1,26 +1,140 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030607;
+  --foreground: #f8fafc;
+  --selection: rgba(34, 211, 238, 0.28);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-background-app: #030607;
+  --color-background-app-soft: #071011;
+  --color-background-app-panel: #090d0f;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surface-elevated: rgba(255, 255, 255, 0.06);
+  --color-surface-strong: rgba(255, 255, 255, 0.09);
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-soft: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-text-faint: #52525b;
+  --color-brand-cyan: #22d3ee;
+  --color-brand-emerald: #34d399;
+  --color-brand-violet: #a78bfa;
+  --color-brand-amber: #fbbf24;
+  --color-brand-rose: #fb7185;
+  --radius-card: 1.5rem;
+  --radius-panel: 2rem;
+  --radius-button: 9999px;
+  --shadow-glow-cyan: 0 0 36px rgba(34, 211, 238, 0.22);
+  --shadow-glow-emerald: 0 0 36px rgba(52, 211, 153, 0.2);
+  --shadow-glow-violet: 0 0 36px rgba(167, 139, 250, 0.22);
+  --shadow-card-soft: 0 24px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility bg-radial-cyan-glow {
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    rgba(34, 211, 238, 0.22),
+    transparent 34rem
+  );
+}
+
+@utility bg-radial-violet-glow {
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    rgba(167, 139, 250, 0.2),
+    transparent 34rem
+  );
+}
+
+@utility bg-dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.14) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-underline-offset: 4px;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--foreground);
+}
+
+.app-shell {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 32rem),
+    radial-gradient(circle at top right, rgba(167, 139, 250, 0.1), transparent 34rem),
+    var(--background);
+  color: var(--foreground);
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.03)
+  );
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.18), transparent 34rem);
+  background-size:
+    64px 64px,
+    64px 64px,
+    auto;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(90deg, #f8fafc 0%, #67e8f9 48%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-ai {
+  background: linear-gradient(90deg, #f8fafc 0%, #c4b5fd 44%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
