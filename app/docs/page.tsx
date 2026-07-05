@@ -58,31 +58,33 @@ export default function DocsPage() {
     <>
       <ProductHero
         badge="Documentation"
-        description="A central documentation hub for product guides, financial system notes, AI architecture, security, and release history."
+        description="When you want to understand how EstateIQ works, start here. This hub will collect product guides, financial system notes, AI explanations, security information, and release history."
         eyebrow="Docs"
         previewItems={[
-          "Getting Started",
-          "Product Guides",
-          "Financial System",
-          "AI Academy",
+          { label: "Getting Started", href: "#documentation-sections" },
+          { label: "Product Guides", href: "#documentation-sections" },
+          { label: "Financial System", href: "#documentation-sections" },
+          { label: "AI Academy", href: "#documentation-sections" },
         ]}
         previewTitle="Documentation index"
-        title="EstateIQ documentation starts here."
+        title="Need to understand how something works?"
       />
 
       <ProductSection
         background="soft"
-        description="This index defines where documentation will live as the product and public knowledge base grow."
+        description="This page is the starting point for future guides. It keeps product help, financial concepts, AI architecture, security, and release history in predictable places."
         eyebrow="Documentation sections"
-        title="A structured home for product and technical documentation."
+        id="documentation-sections"
+        tabIndex={-1}
+        title="Find the right explanation without digging through the product."
       >
         <DocumentationSectionGrid sections={documentationSections} />
       </ProductSection>
 
       <ProductSection
-        description="No product guides are being fabricated in this phase. This page creates the publishing structure that future documentation can fill."
+        description="No product guides are being fabricated here. The structure is ready so future documentation can be added clearly as the product grows."
         eyebrow="Documentation foundation"
-        title="Ready for future guides, search, and versioned content."
+        title="The help center can grow without becoming a maze."
       >
         <ComingSoonCard
           description="Future documentation can be powered by MDX, grouped by section, filtered by product area, and expanded into technical references without restructuring the public docs hub."

@@ -11,9 +11,9 @@ export function BetaCallout() {
       </h3>
       <p className="mt-4 max-w-3xl text-base leading-7 text-text-secondary">
         Early feedback helps EstateIQ decide which workflows, reports, and
-        deterministic analyst tools should be improved next. AI coverage can
-        expand through reviewed product work informed by the Gap Tool process,
-        not through autonomous learning.
+        analyst tools should be improved next. AI coverage can expand through
+        reviewed product work informed by the Gap Tool process, not by allowing
+        AI to change financial coverage on its own.
       </p>
     </Card>
   );

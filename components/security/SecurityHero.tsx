@@ -14,12 +14,12 @@ export function SecurityHero() {
               Security & Trust
             </p>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
-              Security begins with trustworthy financial records.
+              Your portfolio records should stay private, traceable, and under control.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg">
-              EstateIQ is designed around organization-scoped access,
-              deterministic records, private document handling, and careful AI
-              boundaries.
+              EstateIQ is designed around private portfolio workspaces,
+              permission-aware data access, private document handling, and AI
+              boundaries that keep records in control.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={siteConfig.primaryCta.href} size="lg">
@@ -42,8 +42,8 @@ export function SecurityHero() {
             <div className="mt-5 grid gap-3">
               {[
                 "Organization isolation",
-                "Role-aware access patterns",
-                "Deterministic financial records",
+                "Permission-aware access",
+                "Traceable financial records",
                 "Permission-checked file access",
               ].map((item) => (
                 <div

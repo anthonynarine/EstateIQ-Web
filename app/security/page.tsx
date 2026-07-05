@@ -13,7 +13,7 @@ export const metadata: Metadata = createPageMetadata("/security");
 
 const engineeringPrinciples = [
   {
-    title: "Multi-tenancy",
+    title: "Private portfolio workspaces",
     description:
       "EstateIQ is designed around private organization workspaces for each portfolio.",
     label: "Boundary",
@@ -27,14 +27,14 @@ const engineeringPrinciples = [
     tone: "success" as const,
   },
   {
-    title: "Role-based access",
+    title: "Permission-aware access",
     description:
       "Authentication and authorization are treated as separate responsibilities.",
     label: "Access",
     tone: "neutral" as const,
   },
   {
-    title: "Deterministic records",
+    title: "Traceable records",
     description:
       "Financial facts come from ledger, expense, document, and reporting records.",
     label: "Records",
@@ -86,17 +86,17 @@ export default function SecurityPage() {
 
       <ProductSection
         background="soft"
-        description="EstateIQ handles financial records, tenant context, lease data, payment records, expenses, receipts, reports, and documents. The trust model starts with disciplined engineering boundaries."
-        eyebrow="Engineering principles"
-        title="Trust is designed into the data model."
+        description="EstateIQ handles financial records, tenant context, lease data, payment records, expenses, receipts, reports, and documents. The owner benefit is control; the engineering layer is organization isolation, scoped access, and traceable records."
+        eyebrow="Trust principles"
+        title="Keep each portfolio's records in the right place."
       >
         <FeatureGrid items={engineeringPrinciples} />
       </ProductSection>
 
       <ProductSection
-        description="These are architecture-level claims supported by the project documentation. This page intentionally avoids unsupported compliance claims."
+        description="EstateIQ explains concrete controls and intentionally avoids unsupported compliance claims."
         eyebrow="Data protection"
-        title="Concrete controls, not vague promises."
+        title="Clear controls, not vague security promises."
       >
         <div className="grid gap-4">
           <div className="grid gap-4 sm:grid-cols-2">

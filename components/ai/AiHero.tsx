@@ -7,15 +7,15 @@ import { siteConfig } from "@/lib/site";
 export function AiHero() {
   const previewLinks = [
     {
-      label: "References structured records",
+      label: "Answers from your records",
       href: "#structured-records",
     },
     {
-      label: "Uses ledger-backed context",
+      label: "Uses ledger context",
       href: "#ledger-backed-context",
     },
     {
-      label: "Explains reports and documents",
+      label: "Explains reports and supported documents",
       href: "#reports-documents",
     },
     {
@@ -35,12 +35,13 @@ export function AiHero() {
               EstateIQ AI Copilot
             </p>
             <h1 className="mt-5 text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
-              AI grounded in verified financial records.
+              AI that explains your portfolio, not generic internet answers.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg">
-              EstateIQ Copilot explains structured portfolio data, ledger
-              records, documents, and reports. It helps interpret financial
-              truth without replacing the records that prove it.
+              Ask questions in plain English about your portfolio, reports, and
+              supported documents. EstateIQ Copilot explains the information you
+              manage inside the product without replacing the records that prove
+              it.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={siteConfig.primaryCta.href} size="lg">
@@ -57,7 +58,7 @@ export function AiHero() {
           </div>
 
           <Card className="p-5 sm:p-6" variant="glass">
-            <Badge variant="ai">Grounded, deterministic, traceable</Badge>
+            <Badge variant="ai">Grounded in EstateIQ records</Badge>
             <div className="mt-5 grid gap-3">
               {previewLinks.map((item) => (
                 <a

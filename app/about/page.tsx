@@ -34,7 +34,7 @@ const productPrinciples = [
     tone: "warning" as const,
   },
   {
-    title: "Deterministic reporting",
+    title: "Reports you can trace",
     description:
       "Reports should trace back to the records behind the numbers.",
     label: "Reports",
@@ -54,29 +54,31 @@ export default function AboutPage() {
     <>
       <ProductHero
         badge="Built for small landlords"
-        description="EstateIQ began from a practical need: help small real estate owners understand what their portfolio earns, spends, and owes without forcing them into enterprise property software."
+        description="EstateIQ began from a practical need: help small real estate owners manage buildings, money records, documents, reports, and AI without forcing them into enterprise property software."
         eyebrow="About EstateIQ"
         previewItems={[
-          "Financial clarity first",
-          "Built around trusted records",
-          "Designed for 1-50 units",
-          "AI grounded in verified context",
+          { label: "Financial clarity first", href: "#why-estateiq-exists" },
+          { label: "Built around trusted records", href: "#product-principles" },
+          { label: "Designed for 1-50 units", href: "#small-landlords" },
+          { label: "AI grounded in verified context", href: "#engineering-philosophy" },
         ]}
         previewTitle="A focused financial operating system"
-        title="EstateIQ is built for the portfolios most software overlooks."
+        title="EstateIQ is built for owners who want their rental business to make sense."
       />
 
       <ProductSection
         background="soft"
         description="Independent landlords run real financial businesses, but their records often live across spreadsheets, inboxes, bank statements, PDFs, and memory."
         eyebrow="Why EstateIQ exists"
-        title="Small owners need a clearer financial system of record."
+        id="why-estateiq-exists"
+        tabIndex={-1}
+        title="Small owners need one place to understand the business."
       >
         <Card className="p-6 sm:p-8" variant="glass">
           <p className="max-w-3xl text-base leading-7 text-text-secondary">
             EstateIQ exists to reduce ambiguity. The product organizes property,
-            lease, ledger, expense, document, and reporting records so owners can
-            make decisions from a dependable operating picture.
+            lease, ledger, expense, supported document, and reporting records so
+            owners can make decisions from a dependable operating picture.
           </p>
         </Card>
       </ProductSection>
@@ -84,7 +86,9 @@ export default function AboutPage() {
       <ProductSection
         description="EstateIQ is intentionally designed for independent owners and family-run portfolios, not large property management companies."
         eyebrow="Built for small landlords"
-        title="Professional financial visibility without enterprise complexity."
+        id="small-landlords"
+        tabIndex={-1}
+        title="Enterprise-grade financial intelligence without enterprise complexity."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -104,14 +108,18 @@ export default function AboutPage() {
         background="soft"
         description="The product is calm, finance-first, and built around the records that explain portfolio performance."
         eyebrow="Product principles"
-        title="EstateIQ organizes financial truth before interpretation."
+        id="product-principles"
+        tabIndex={-1}
+        title="The product starts with records before interpretation."
       >
         <PrincipleGrid principles={productPrinciples} />
       </ProductSection>
 
       <ProductSection
-        description="The engineering approach favors clear domain boundaries, deterministic records, organization-scoped data, and AI that stays grounded in source-backed context."
+        description="The engineering approach favors clear domain boundaries, traceable records, organization-scoped data, and AI that stays grounded in source-backed context."
         eyebrow="Engineering philosophy"
+        id="engineering-philosophy"
+        tabIndex={-1}
         title="Trust comes from systems that remain explainable."
       >
         <Card className="p-6 sm:p-8" variant="glass">

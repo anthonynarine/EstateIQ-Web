@@ -35,10 +35,10 @@ export default function GapToolPage() {
         description="When EstateIQ cannot answer a question, that failure becomes useful product signal without allowing the AI to guess."
         eyebrow="AI Academy"
         previewItems={[
-          "Unsupported question detected",
-          "Structured gap event captured",
-          "Taxonomy categorizes the gap",
-          "New coverage is reviewed before release",
+          { label: "Unsupported question detected", href: "#unanswered-questions" },
+          { label: "Structured gap event captured", href: "#gap-capture" },
+          { label: "Taxonomy categorizes the gap", href: "#gap-taxonomy" },
+          { label: "New coverage is reviewed before release", href: "#new-coverage" },
         ]}
         previewTitle="Coverage learning loop"
         title="A gap is a signal, not permission to hallucinate."
@@ -48,6 +48,8 @@ export default function GapToolPage() {
         background="soft"
         description="Unsupported questions are valuable because they show what landlords expected the system to understand."
         eyebrow="Why unanswered questions matter"
+        id="unanswered-questions"
+        tabIndex={-1}
         title="A failed answer can still teach the product team what to build next."
       >
         <PrincipleCallout
@@ -63,6 +65,8 @@ export default function GapToolPage() {
       <ProductSection
         description="Gap capture is structured so the team can learn from demand while protecting financial trust."
         eyebrow="How a gap is captured"
+        id="gap-capture"
+        tabIndex={-1}
         title="The system records safe metadata about missing coverage."
       >
         <GapLifecycleDiagram />
@@ -72,6 +76,8 @@ export default function GapToolPage() {
         background="soft"
         description="A deterministic taxonomy creates consistent signal before any later clustering groups repeated gaps."
         eyebrow="Gap taxonomy"
+        id="gap-taxonomy"
+        tabIndex={-1}
         title="Gaps are categorized before they are grouped."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -86,6 +92,8 @@ export default function GapToolPage() {
       <ProductSection
         description="Repeated gaps can reveal a missing product capability, but they still require deliberate implementation."
         eyebrow="From gap to new analyst tool"
+        id="new-coverage"
+        tabIndex={-1}
         title="New AI coverage must be built, tested, and reviewed."
       >
         <div className="grid gap-4 sm:grid-cols-2">

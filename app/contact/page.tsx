@@ -18,23 +18,25 @@ export default function ContactPage() {
     <>
       <ProductHero
         badge="Beta interest"
-        description="EstateIQ is building a finance-first operating system for independent landlords. Use this page to understand the current contact path and beta-interest status."
+        description="EstateIQ is building one place for independent landlords to manage portfolio records, money, documents, reports, and grounded AI. Use this page to understand the current contact path and beta-interest status."
         eyebrow="Contact"
         previewItems={[
-          "Join the beta",
-          "Ask a product question",
-          "Request a demo",
-          "Security or trust questions",
+          { label: "Join the beta", href: siteConfig.registerUrl },
+          { label: "Ask a product question", href: "#contact-intents" },
+          { label: "Request a demo", href: siteConfig.demoUrl },
+          { label: "Security or trust questions", href: "#trust-note" },
         ]}
         previewTitle="Contact paths"
-        title="Start a conversation about EstateIQ."
+        title="Start a conversation about running your rental business with more clarity."
       />
 
       <ProductSection
         background="soft"
         description="Choose the intent that best matches why you are reaching out."
         eyebrow="Contact intents"
-        title="A focused path for product and beta questions."
+        id="contact-intents"
+        tabIndex={-1}
+        title="Choose the path that matches what you need."
       >
         <div className="grid gap-4">
           <BetaBanner />
@@ -45,7 +47,9 @@ export default function ContactPage() {
       <ProductSection
         description="The beta path should be direct about what exists now and how early feedback will be used."
         eyebrow="Beta program"
-        title="Early users help shape the product."
+        id="beta-program"
+        tabIndex={-1}
+        title="Early users help shape the workflows that matter most."
       >
         <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
           <BetaCallout />
@@ -83,8 +87,10 @@ export default function ContactPage() {
       </ProductSection>
 
       <ProductSection
-        description="EstateIQ handles financial records, documents, and AI interpretation. Contact and beta workflows should preserve that same trust standard."
+        description="EstateIQ handles financial records, connected evidence, and AI explanation. Contact and beta workflows should preserve that same trust standard."
         eyebrow="Trust note"
+        id="trust-note"
+        tabIndex={-1}
         title="The contact experience should be as honest as the product."
       >
         <Card className="p-6 sm:p-8" variant="outline">

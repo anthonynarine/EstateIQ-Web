@@ -4,33 +4,33 @@ import { Section } from "@/components/ui/Section";
 
 const pillars = [
   {
-    title: "Property Organization",
+    title: "Manage your portfolio",
     body: "Structure buildings, units, tenants, and leases so every record has a clear home.",
     variant: "brand" as const,
   },
   {
-    title: "Ledger Accounting",
-    body: "Track charges, payments, and allocations instead of relying on manually edited balances.",
+    title: "Know what is owed",
+    body: "Track charges, payments, and allocations so balances stay tied to real activity.",
     variant: "success" as const,
   },
   {
-    title: "Expense Tracking",
+    title: "Understand your spending",
     body: "Capture operating spend with category, vendor, property, unit, lease, and document context.",
     variant: "neutral" as const,
   },
   {
-    title: "Document Intelligence",
-    body: "Organize receipts, invoices, statements, leases, and supporting records around financial truth.",
+    title: "Turn documents into evidence",
+    body: "Organize supported documents around the records they explain and review context before it affects financial records.",
     variant: "warning" as const,
   },
   {
-    title: "Portfolio Reporting",
-    body: "See expected rent, collected cash, expenses, net cash flow, occupancy, and attention areas.",
+    title: "Trust your reports",
+    body: "See expected rent, collected cash, expenses, net cash flow, occupancy, and attention areas from recorded activity.",
     variant: "brand" as const,
   },
   {
-    title: "AI Copilot",
-    body: "Interpret verified records, ledger data, documents, and reports with grounded AI assistance.",
+    title: "Ask plain-English questions",
+    body: "Use AI to explain recorded activity, reports, and supported documents without turning AI into the financial record.",
     variant: "ai" as const,
   },
 ];
@@ -40,7 +40,8 @@ export function ProductPillarsSection() {
     <Section
       background="soft"
       eyebrow="Product pillars"
-      title="One operating layer for the records small landlords already depend on."
+      title="What can you actually manage in EstateIQ?"
+      description="The product is organized around the work small landlords already do: managing properties, recording money, connecting evidence, reading reports, and asking better questions."
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {pillars.map((pillar) => (

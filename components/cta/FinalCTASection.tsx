@@ -14,13 +14,13 @@ type FinalCTASectionProps = {
 };
 
 export function FinalCTASection({
-  description = "Move from scattered records to a financial operating system built for independent landlords.",
+  description = "Bring your buildings, money records, supported documents, reports, and AI into one place built for independent landlords.",
   eyebrow = "EstateIQ",
   primaryHref,
   primaryLabel,
   secondaryHref,
   secondaryLabel,
-  title = "Ready to understand your portfolio with confidence?",
+  title = "Ready to run your rental business from one clearer system?",
 }: FinalCTASectionProps) {
   return (
     <section className="py-16 sm:py-20 lg:py-24">

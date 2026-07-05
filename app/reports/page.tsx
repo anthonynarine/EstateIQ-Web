@@ -48,31 +48,35 @@ export default function ReportsPage() {
   return (
     <>
       <ProductHero
-        badge="Deterministic reporting"
-        description="EstateIQ reports are built from the source records behind the numbers: leases, ledger entries, expenses, documents, buildings, and units."
+        badge="Traceable reporting"
+        description="See what changed, what needs attention, and where the numbers came from. EstateIQ reports are built from recorded activity across leases, ledger entries, expenses, supported documents, buildings, and units."
         eyebrow="Reports"
         previewItems={[
-          "Portfolio overview",
-          "Expense summaries",
-          "Ledger balances",
-          "Building performance",
+          { label: "Portfolio overview", href: "#reporting-areas" },
+          { label: "Expense summaries", href: "#reporting-areas" },
+          { label: "Ledger balances", href: "#deterministic-reports" },
+          { label: "Building performance", href: "#ai-report-relationship" },
         ]}
         previewTitle="Reports with record context"
-        title="Reports built from the records behind the numbers."
+        title="Reports you can trace back to real records."
       />
 
       <ProductSection
         background="soft"
-        description="Current reporting surfaces are focused on portfolio visibility, cash flow, expense context, balances, delinquency, and building performance."
+        description="Use reports to understand cash flow, expense context, balances, delinquency, occupancy, and building performance without losing the record trail."
         eyebrow="Reporting areas"
-        title="See what changed, what needs attention, and where the records point."
+        id="reporting-areas"
+        tabIndex={-1}
+        title="See the health of the portfolio without rebuilding the numbers yourself."
       >
         <ReportAreaGrid />
       </ProductSection>
 
       <ProductSection
-        description="Financial reporting should be explainable. EstateIQ's reporting posture starts from deterministic source records."
-        eyebrow="Why deterministic reports matter"
+        description="A report is more useful when the owner can trace it back to leases, charges, payments, allocations, expenses, and connected evidence. Technically, EstateIQ treats reports as deterministic read models over source records."
+        eyebrow="Why traceable reports matter"
+        id="deterministic-reports"
+        tabIndex={-1}
         title="The number is more useful when you know where it came from."
       >
         <ReportTrustDiagram />
@@ -80,9 +84,11 @@ export default function ReportsPage() {
 
       <ProductSection
         background="soft"
-        description="AI can help interpret reporting context, but it should not invent the report or replace the underlying records."
+        description="AI can help explain reporting context, but it should not invent the report or replace the underlying records."
         eyebrow="AI relationship"
-        title="AI explains reports. It does not create financial truth."
+        id="ai-report-relationship"
+        tabIndex={-1}
+        title="AI explains the report. It does not create the numbers."
       >
         <FeatureGrid items={deterministicReasons} />
       </ProductSection>

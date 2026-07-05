@@ -5,7 +5,7 @@ const documentTypes = [
   "Invoices",
   "Lease documents",
   "Maintenance records",
-  "Tax-supporting files",
+  "Tax-supporting documents",
 ];
 
 export function DocumentTypeGrid() {

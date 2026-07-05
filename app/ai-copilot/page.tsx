@@ -16,10 +16,10 @@ export const metadata: Metadata = createPageMetadata("/ai-copilot");
 
 const groundedRules = [
   {
-    title: "References structured records",
+    title: "Answers from your EstateIQ records",
     id: "structured-records",
     description:
-      "Copilot works from portfolio, lease, ledger, expense, document, and reporting context.",
+      "Copilot works from portfolio, lease, ledger, expense, supported document, and reporting context.",
     label: "Records",
     tone: "ai" as const,
   },
@@ -27,7 +27,7 @@ const groundedRules = [
     title: "Does not invent balances",
     id: "does-not-invent-balances",
     description:
-      "Financial values must come from deterministic records and analyst tools, not model guesses.",
+      "Financial values must come from recorded activity and analyst tools, not model guesses.",
     label: "Deterministic",
     tone: "success" as const,
   },
@@ -41,7 +41,7 @@ const groundedRules = [
   {
     title: "Designed to be explainable",
     description:
-      "The product emphasizes source-backed context, confidence, and traceable financial reasoning.",
+      "The product emphasizes source-backed context, confidence, and answers you can trace.",
     label: "Traceable",
     tone: "brand" as const,
   },
@@ -51,17 +51,17 @@ const comparisonRows = [
   {
     oldWay: "Generic AI can sound confident without knowing which records prove the answer.",
     estateIq:
-      "EstateIQ AI is grounded in structured portfolio records, ledger data, documents, and reports.",
+      "EstateIQ AI explains portfolio records, ledger data, supported documents, and reports you manage inside the product.",
   },
   {
     oldWay: "Generic AI may guess when context is missing.",
     estateIq:
-      "EstateIQ is designed to rely on deterministic analyst tools and avoid unsupported financial answers.",
+      "EstateIQ routes supported questions through analyst tools and avoids unsupported financial answers.",
   },
   {
     oldWay: "Generic AI can blur the line between explanation and source of truth.",
     estateIq:
-      "EstateIQ keeps financial records as the source of truth and uses AI as an interpretation layer.",
+      "EstateIQ keeps confirmed financial records as the source of truth and uses AI to explain them.",
   },
 ];
 
@@ -71,18 +71,18 @@ export default function AiCopilotPage() {
       <AiHero />
 
       <ProductSection
-        description="The system starts with structured financial truth. Analyst tools prepare grounded context before AI explains it."
+        description="First, EstateIQ finds the relevant records and reports. Then analyst tools prepare the answer before AI explains it in plain language."
         eyebrow="How EstateIQ AI works"
         id="ledger-backed-context"
         tabIndex={-1}
-        title="From portfolio data to source-backed interpretation."
+        title="From your portfolio question to an answer you can trace."
       >
         <AnalystWorkflowDiagram />
       </ProductSection>
 
       <ProductSection
         background="soft"
-        description="These examples reflect current grounded portfolio, revenue, expense, report, and building analysis directions."
+        description="These examples show the kind of portfolio, revenue, expense, report, and building questions EstateIQ is designed to explain from product data."
         eyebrow="What you can ask"
         id="reports-documents"
         tabIndex={-1}
@@ -92,20 +92,20 @@ export default function AiCopilotPage() {
       </ProductSection>
 
       <ProductSection
-        description="EstateIQ AI should reinforce trust. It interprets records; it does not replace them."
+        description="Grounded AI means the answer starts from EstateIQ records, reports, and supported documents instead of generic internet knowledge."
         eyebrow="Grounded AI"
         id="grounded-ai-rules"
         tabIndex={-1}
-        title="Financial facts stay deterministic."
+        title="The facts stay in the records."
       >
         <FeatureGrid items={groundedRules} />
       </ProductSection>
 
       <ProductSection
         background="soft"
-        description="The difference is not louder AI. The difference is a stronger source of truth underneath the answer."
+        description="The difference is not louder AI. The difference is that the product knows where the answer should come from."
         eyebrow="Why grounding matters"
-        title="EstateIQ is not a free-roaming chatbot attached to financial records."
+        title="EstateIQ AI explains your software. It does not wander away from it."
       >
         <ComparisonTable rows={comparisonRows} />
       </ProductSection>

@@ -17,14 +17,14 @@ const topics = [
   {
     title: "Grounded AI",
     description:
-      "How EstateIQ keeps AI answers tied to verified portfolio records instead of unsupported assumptions.",
+      "Why EstateIQ answers from the records you manage instead of unsupported assumptions.",
     href: "/ai-academy/grounded-ai",
     label: "Grounding",
   },
   {
     title: "Analyst Tools",
     description:
-      "How structured user questions route through deterministic tools before the AI explains the result.",
+      "How supported questions are answered by product logic before AI explains the result.",
     href: "/ai-academy/analyst-tools",
     label: "Architecture",
   },
@@ -38,7 +38,7 @@ const topics = [
   {
     title: "Financial Truth Before AI",
     description:
-      "Why ledger records, documents, reports, leases, expenses, and payments remain the source of truth.",
+      "Why confirmed ledger records, reports, leases, expenses, and payments remain the financial facts.",
     href: "/ai-academy/financial-truth",
     label: "Trust",
   },
@@ -53,7 +53,7 @@ const comparisonItems = [
   {
     generic: "Generic AI can blur the line between confident wording and verified financial truth.",
     estateIq:
-      "EstateIQ keeps ledger records, documents, expenses, leases, payments, and reports as the source of truth.",
+      "EstateIQ keeps confirmed ledger records, expenses, leases, payments, and reports as the financial facts, while documents provide connected evidence and context.",
   },
   {
     generic: "Generic AI may try to fill missing context with assumptions.",
@@ -67,31 +67,35 @@ export default function AiAcademyPage() {
     <>
       <ProductHero
         badge="AI Academy"
-        description="Learn how EstateIQ uses AI to explain real portfolio data without replacing financial truth."
+        description="Learn how EstateIQ uses AI to explain your portfolio without turning AI into the financial record. Start with the owner question, then see the architecture behind the answer."
         eyebrow="AI Academy"
         previewItems={[
-          "Records remain the source of truth",
-          "Analyst tools answer structured questions",
-          "AI explains structured outputs",
-          "Gaps help the team improve coverage",
+          { label: "Answers come from records", href: "#ai-difference" },
+          { label: "Tools prepare the answer", href: "#ai-stack" },
+          { label: "AI explains the result", href: "#core-principle" },
+          { label: "Gaps help the team improve coverage", href: "#academy-topics" },
         ]}
-        previewTitle="AI built on financial records"
-        title="AI Academy"
+        previewTitle="AI built on your records"
+        title="Understand how EstateIQ AI earns trust."
       />
 
       <ProductSection
         background="soft"
-        description="The difference is the foundation. EstateIQ starts with records and uses AI as an explanation layer."
+        description="The difference is where the answer begins. EstateIQ starts with the records, reports, and supported documents inside the product, then uses AI to explain them."
         eyebrow="What makes EstateIQ AI different"
+        id="ai-difference"
+        tabIndex={-1}
         title="EstateIQ AI is not a generic chatbot."
       >
         <ComparisonGrid items={comparisonItems} />
       </ProductSection>
 
       <ProductSection
-        description="Each layer has a job. Financial records hold truth, deterministic code prepares answers, and AI explains those answers in plain language."
+        description="Each layer has a job. Records hold the facts, product logic prepares answers, and AI explains those answers in plain language."
         eyebrow="The AI stack"
-        title="Grounded answers come from a layered system."
+        id="ai-stack"
+        tabIndex={-1}
+        title="Good AI answers need a clear path back to records."
       >
         <AiSystemFlow
           steps={[
@@ -108,6 +112,8 @@ export default function AiAcademyPage() {
         background="soft"
         description="These pages explain the architecture in plain language for landlords who want AI help without sacrificing financial control."
         eyebrow="Academy topics"
+        id="academy-topics"
+        tabIndex={-1}
         title="Understand the system behind the answer."
       >
         <AcademyTopicGrid topics={topics} />
@@ -116,11 +122,13 @@ export default function AiAcademyPage() {
       <ProductSection
         description="The AI layer can make records easier to understand. It does not replace the records, reports, or workflows that create financial truth."
         eyebrow="Core principle"
+        id="core-principle"
+        tabIndex={-1}
         title="Explain the truth. Do not become the truth."
       >
         <PrincipleCallout
           eyebrow="Financial trust"
-          title="EstateIQ keeps AI downstream of deterministic records."
+        title="EstateIQ keeps AI downstream of confirmed records."
         >
           Ledger records, documents, expenses, reports, leases, and payments
           remain the facts. AI can summarize and explain what the system knows,

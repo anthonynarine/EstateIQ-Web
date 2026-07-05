@@ -61,10 +61,10 @@ export default function ChangelogPage() {
         description="A transparent record of the public website foundation and product education work completed so far."
         eyebrow="Changelog"
         previewItems={[
-          "Design system",
-          "Site shell",
-          "Product pages",
-          "AI Academy",
+          { label: "Design system", href: "#changelog-timeline" },
+          { label: "Site shell", href: "#changelog-timeline" },
+          { label: "Product pages", href: "#changelog-timeline" },
+          { label: "AI Academy", href: "#changelog-timeline" },
         ]}
         previewTitle="Release history"
         title="EstateIQ changelog."
@@ -74,6 +74,8 @@ export default function ChangelogPage() {
         background="soft"
         description="This timeline records completed website phases only. Future product releases can be added here when they are real."
         eyebrow="Timeline"
+        id="changelog-timeline"
+        tabIndex={-1}
         title="Transparent product and website evolution."
       >
         <ChangelogTimeline entries={changelogEntries} />

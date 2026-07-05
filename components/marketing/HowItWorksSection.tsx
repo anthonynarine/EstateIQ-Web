@@ -1,37 +1,48 @@
-import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+import { FlowDiagram } from "@/components/visualizations/FlowDiagram";
 
 const steps = [
-  "Buildings",
-  "Leases",
-  "Financial Ledger",
-  "Expenses",
-  "Documents",
-  "Reports",
-  "AI Copilot",
+  {
+    title: "Portfolio",
+    description: "Buildings, units, leases, and rent context.",
+    tone: "brand" as const,
+  },
+  {
+    title: "Financial records",
+    description: "Charges, payments, allocations, and expenses.",
+    tone: "success" as const,
+  },
+  {
+    title: "Connected documents",
+    description: "Supported evidence reviewed beside the records it explains.",
+    tone: "ai" as const,
+  },
+  {
+    title: "Reports",
+    description: "Traceable views of performance and attention areas.",
+    tone: "brand" as const,
+  },
+  {
+    title: "Grounded AI",
+    description: "Plain-English explanations based on EstateIQ records.",
+    tone: "ai" as const,
+  },
 ];
 
 export function HowItWorksSection() {
   return (
     <Section
       eyebrow="How EstateIQ works"
-      title="A simple flow from portfolio structure to grounded insight."
-      description="EstateIQ connects the records that determine what is true about the portfolio, then turns those records into reporting and AI-powered interpretation."
+      title="How does it all fit together?"
+      description="EstateIQ starts with the portfolio, connects the records that explain the money, then turns those records into reports and AI explanations you can trust."
     >
-      <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-7">
-        {steps.map((step, index) => (
-          <li className="relative" key={step}>
-            <Card className="h-full p-4" variant="glass">
-              <span className="text-xs font-semibold text-brand-cyan">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <p className="mt-3 text-sm font-medium text-text-primary">
-                {step}
-              </p>
-            </Card>
-          </li>
-        ))}
-      </ol>
+      <FlowDiagram
+        aria-label="EstateIQ homepage flow from portfolio records to grounded AI"
+        description="Each layer gives the next one better context."
+        steps={steps}
+        title="Portfolio records become reports, explanations, and better decisions."
+        tone="brand"
+      />
     </Section>
   );
 }

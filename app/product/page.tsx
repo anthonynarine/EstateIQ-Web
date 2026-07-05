@@ -32,7 +32,7 @@ const systemFlow = [
 
 const productAreas = [
   {
-    title: "Portfolio Organization",
+    title: "Manage the portfolio",
     description:
       "Structure buildings, units, tenants, and leases so every financial record has a clear place.",
     label: "Structure",
@@ -46,7 +46,7 @@ const productAreas = [
     tone: "neutral" as const,
   },
   {
-    title: "Ledger Accounting",
+    title: "Know what is owed",
     description:
       "Track charges, payments, allocations, and derived balances from ledger records.",
     label: "Ledger",
@@ -60,21 +60,21 @@ const productAreas = [
     tone: "neutral" as const,
   },
   {
-    title: "Document Intelligence",
+    title: "Connect the documents",
     description:
-      "Keep receipts, invoices, leases, bills, and supporting documents connected to financial records.",
+      "Keep receipts, invoices, leases, bills, and supported documents connected to the records they explain.",
     label: "Documents",
     tone: "warning" as const,
   },
   {
-    title: "Reporting",
+    title: "Trust the reports",
     description:
       "Understand expected rent, collected cash, expenses, net cash flow, occupancy, and attention areas.",
     label: "Reports",
     tone: "brand" as const,
   },
   {
-    title: "AI Copilot",
+    title: "Ask better questions",
     description:
       "Use AI as an interpretation layer grounded in verified records, documents, ledger data, and reports.",
     label: "Grounded AI",
@@ -96,7 +96,7 @@ const comparisonRows = [
   {
     oldWay: "AI answers that are not grounded in source records.",
     estateIq:
-      "AI positioned as an explanation layer over deterministic records and reports.",
+      "AI explains confirmed records, supported documents, and reports instead of becoming the financial record.",
   },
 ];
 
@@ -105,23 +105,25 @@ export default function ProductPage() {
     <>
       <ProductHero
         badge="Financial Operating System"
-        description="EstateIQ organizes property, lease, expense, document, and ledger records into one financial command center for independent landlords."
+        description="Manage your buildings, leases, expenses, documents, reports, and AI in one place. EstateIQ organizes the records behind your rental business so you can understand what changed and why."
         eyebrow="Product"
         previewItems={[
-          "Portfolio structure",
-          "Lease and ledger truth",
-          "Expenses and documents",
-          "Reports and AI interpretation",
+          { label: "Portfolio structure", href: "#portfolio-structure" },
+          { label: "Lease and ledger truth", href: "#system-overview" },
+          { label: "Expenses and documents", href: "#product-areas" },
+          { label: "Reports and AI interpretation", href: "#why-different" },
         ]}
         previewTitle="One connected financial spine"
-        title="A financial operating system for the rental portfolio you actually own."
+        title="Run your rental business from one connected financial system."
       />
 
       <ProductSection
         background="soft"
-        description="EstateIQ is designed for small real estate portfolios that need reliable financial visibility without enterprise software weight."
+        description="EstateIQ is designed for owners who need enterprise-grade financial intelligence without enterprise software weight."
         eyebrow="Who it is for"
-        title="Built for owners who need clarity before complexity."
+        id="portfolio-structure"
+        tabIndex={-1}
+        title="Built for owners who want more than bookkeeping."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {audienceItems.map((item) => (
@@ -133,9 +135,11 @@ export default function ProductPage() {
       </ProductSection>
 
       <ProductSection
-        description="The product flow starts with the real-world shape of a portfolio, then builds financial records and reporting on top."
+        description="The product flow starts with the real-world shape of a portfolio, then connects money records, documents, reports, and AI explanation."
         eyebrow="System overview"
-        title="From property structure to grounded insight."
+        id="system-overview"
+        tabIndex={-1}
+        title="From buildings and leases to answers you can trust."
       >
         <FlowDiagram items={systemFlow} />
       </ProductSection>
@@ -151,20 +155,24 @@ export default function ProductPage() {
 
       <ProductSection
         eyebrow="Product areas"
-        title="The operating layer for the records that determine financial truth."
+        id="product-areas"
+        tabIndex={-1}
+        title="The operating layer for the rental business you actually run."
       >
         <FeatureGrid items={productAreas} />
       </ProductSection>
 
       <ProductSection
-        description="EstateIQ is data-first and finance-first. It is not generic property management software, and it is not AI-first guessing."
+        description="EstateIQ starts with the owner problem first: scattered tools make it hard to trust the answer. The technical difference is that records, reports, and AI all stay connected."
         eyebrow="Why it is different"
-        title="EstateIQ starts with deterministic records and uses AI to explain them."
+        id="why-different"
+        tabIndex={-1}
+        title="AI is useful because the records come first."
       >
         <ComparisonTable rows={comparisonRows} />
       </ProductSection>
 
-      <FinalCTASection title="Bring the financial life of your portfolio into one system." />
+      <FinalCTASection title="Bring the financial life of your portfolio into one connected system." />
     </>
   );
 }

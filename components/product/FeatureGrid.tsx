@@ -18,7 +18,7 @@ export function FeatureGrid({ items }: FeatureGridProps) {
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <Card
-          className="scroll-mt-28 p-5"
+          className="scroll-mt-20 p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
           id={item.id}
           interactive
           key={item.title}

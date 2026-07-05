@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site";
+
 export type NavigationItem = {
   label: string;
   href: string;
@@ -20,8 +22,8 @@ export const mainNavigation: NavigationItem[] = [
 ];
 
 export const ctaNavigation: NavigationItem[] = [
-  { label: "Login", href: "/login" },
-  { label: "Join the beta", href: "/contact" },
+  { label: siteConfig.login.label, href: siteConfig.login.href },
+  { label: siteConfig.primaryCta.label, href: siteConfig.primaryCta.href },
 ];
 
 export const footerNavigation: NavigationGroup[] = [

@@ -21,7 +21,7 @@ const beliefs = [
     tone: "brand" as const,
   },
   {
-    title: "Ledger-first accounting matters",
+    title: "Every balance should explain itself",
     description:
       "Balances should trace back to charges, payments, and allocations.",
     label: "Ledger",
@@ -44,7 +44,7 @@ const beliefs = [
   {
     title: "AI should explain, not invent",
     description:
-      "AI becomes useful when it is grounded in structured financial truth.",
+      "AI becomes useful when it explains records instead of guessing.",
     label: "AI",
     tone: "ai" as const,
   },
@@ -78,16 +78,16 @@ export default function WhyEstateIQPage() {
     <>
       <ProductHero
         badge="Why EstateIQ"
-        description="EstateIQ exists because independent landlords need financial systems that are clearer, calmer, and more trustworthy than scattered spreadsheets and generic rent trackers."
+        description="EstateIQ exists because independent landlords need one place to understand buildings, money, documents, reports, and AI without losing control of the records."
         eyebrow="Why EstateIQ"
         previewItems={[
-          "Financial truth before AI",
-          "Ledger-backed balances",
-          "Documents as evidence",
-          "Reports that trace back to records",
+          { label: "Records before AI", href: "#financial-truth-before-ai" },
+          { label: "Balances that explain themselves", href: "#belief-system" },
+          { label: "Documents as connected evidence", href: "#traditional-tools" },
+          { label: "Reports that trace back to records", href: "#compromises" },
         ]}
         previewTitle="A finance-first belief system"
-        title="Small landlords need better financial systems."
+        title="Small landlords deserve software that understands the business."
       />
 
       <ProductSection
@@ -108,13 +108,15 @@ export default function WhyEstateIQPage() {
       <ProductSection
         description="Spreadsheets and rent trackers can help at the start, but they often fall short once owners need lease history, ledger-backed balances, document context, reporting, and grounded AI."
         eyebrow="Why traditional tools fall short"
+        id="traditional-tools"
+        tabIndex={-1}
         title="Task tracking is not the same as financial clarity."
       >
         <div className="grid gap-4 sm:grid-cols-2">
           {[
             "Spreadsheets become fragile as the portfolio grows.",
             "Rent trackers can hide the records behind a balance.",
-            "Documents are often stored away from the records they explain.",
+            "Documents should become connected evidence, not disconnected storage.",
             "Generic AI is risky when it is not grounded in source records.",
           ].map((item) => (
             <Card className="p-5" key={item} variant="outline">
@@ -128,19 +130,23 @@ export default function WhyEstateIQPage() {
         background="soft"
         description="EstateIQ is intentionally calm, focused, and financial-first."
         eyebrow="The EstateIQ belief system"
-        title="Financial truth should come before dashboards, automation, or AI."
+        id="belief-system"
+        tabIndex={-1}
+        title="The answer should come from records before dashboards, automation, or AI."
       >
         <BeliefSystemGrid beliefs={beliefs} />
       </ProductSection>
 
       <ProductSection
-        description="AI is valuable only when it can reason over structured, traceable information."
+        description="AI is valuable only when it can explain records, reports, and supported documents the owner can trace."
         eyebrow="Financial truth before AI"
-        title="EstateIQ creates the records first, then lets AI explain them."
+        id="financial-truth-before-ai"
+        tabIndex={-1}
+        title="EstateIQ creates the record trail first, then lets AI explain it."
       >
         <Card className="p-6 sm:p-8" variant="glass">
           <p className="max-w-3xl text-base leading-7 text-text-secondary">
-            The product philosophy is direct: deterministic financial records
+            The product philosophy is direct: confirmed financial records
             provide the facts. Reports summarize those facts. AI can help
             explain them, but it should never invent the numbers or replace the
             record system.
@@ -152,6 +158,8 @@ export default function WhyEstateIQPage() {
         background="soft"
         description="A financial operating system should make tradeoffs visible."
         eyebrow="What EstateIQ refuses to compromise"
+        id="compromises"
+        tabIndex={-1}
         title="Trust depends on what the product chooses not to do."
       >
         <CompromiseList items={compromises} />

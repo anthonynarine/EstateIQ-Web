@@ -53,10 +53,10 @@ export default function GroundedAiPage() {
         description="Grounded AI means answers are based on verified EstateIQ records, not unsupported financial assumptions."
         eyebrow="AI Academy"
         previewItems={[
-          "Verified records first",
-          "Structured answers before explanation",
-          "No invented balances",
-          "AI explains the system's truth",
+          { label: "Verified records first", href: "#generic-vs-grounded" },
+          { label: "Structured answers before explanation", href: "#how-grounding-works" },
+          { label: "No invented balances", href: "#grounding-guardrails" },
+          { label: "AI explains the system's truth", href: "#why-grounding-matters" },
         ]}
         previewTitle="Grounding rules"
         title="AI should explain real portfolio data."
@@ -66,6 +66,8 @@ export default function GroundedAiPage() {
         background="soft"
         description="For financial software, the question is not whether AI sounds fluent. The question is whether the answer can trace back to records."
         eyebrow="Generic AI vs grounded AI"
+        id="generic-vs-grounded"
+        tabIndex={-1}
         title="Grounding changes what the AI is allowed to rely on."
       >
         <ComparisonGrid items={comparisonItems} />
@@ -74,6 +76,8 @@ export default function GroundedAiPage() {
       <ProductSection
         description="Landlords make decisions from balances, lease terms, expenses, and reports. Those answers need a source of truth below the model."
         eyebrow="Why financial software requires grounding"
+        id="why-grounding-matters"
+        tabIndex={-1}
         title="Financial answers need more than plausible wording."
       >
         <PrincipleCallout
@@ -90,6 +94,8 @@ export default function GroundedAiPage() {
         background="soft"
         description="EstateIQ grounds answers by keeping the model downstream of structured system outputs."
         eyebrow="How EstateIQ grounds answers"
+        id="how-grounding-works"
+        tabIndex={-1}
         title="Records become structured context before they become natural language."
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -109,6 +115,8 @@ export default function GroundedAiPage() {
       <ProductSection
         description="Clear boundaries make the AI more useful because users know what it can and cannot do."
         eyebrow="Guardrails"
+        id="grounding-guardrails"
+        tabIndex={-1}
         title="What the AI is not allowed to do."
       >
         <div className="grid gap-4 sm:grid-cols-2">

@@ -14,8 +14,8 @@ export function ProblemSection() {
   return (
     <Section
       eyebrow="The current reality"
-      title="Small landlords run financial businesses with scattered records."
-      description="Independent owners often make decisions from records spread across tools, documents, inboxes, and memory. EstateIQ starts by respecting that reality."
+      title="Why is it so hard to know what changed this month?"
+      description="Independent owners run financial businesses with records spread across spreadsheets, receipts, bank statements, inboxes, and memory. EstateIQ starts by bringing that scattered context into one place."
       size="md"
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

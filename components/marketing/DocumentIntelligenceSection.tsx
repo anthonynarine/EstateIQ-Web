@@ -5,7 +5,7 @@ const documentUses = [
   "Upload receipts",
   "Upload invoices",
   "Upload leases",
-  "Organize supporting documents",
+  "Connect supported documents",
   "Review details before financial records are created",
 ];
 
@@ -14,8 +14,8 @@ export function DocumentIntelligenceSection() {
     <Section
       background="soft"
       eyebrow="Document intelligence"
-      title="Documents become more useful when they are connected to financial context."
-      description="EstateIQ helps organize supporting records around the properties, leases, expenses, and reports they explain. User confirmation remains the boundary before documents become financial records."
+      title="Your documents should not just be stored. They should be understood."
+      description="EstateIQ helps connect supported documents to the properties, leases, expenses, and reports they explain. User confirmation remains the boundary before document context becomes a financial record."
     >
       <div className="grid gap-4 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div className="grid gap-3">
@@ -33,9 +33,9 @@ export function DocumentIntelligenceSection() {
             Evidence supports financial truth. It does not silently replace it.
           </h3>
           <p className="mt-4 text-sm leading-6 text-text-secondary">
-            Bills, receipts, statements, and leases can support records in
-            EstateIQ. Confirmed financial entries stay grounded in user-reviewed
-            data and backend validation.
+            Bills, receipts, statements, and leases can become connected
+            evidence in EstateIQ. Confirmed financial entries stay grounded in
+            user-reviewed data and backend validation.
           </p>
         </Card>
       </div>

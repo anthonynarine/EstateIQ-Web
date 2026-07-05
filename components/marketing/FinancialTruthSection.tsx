@@ -15,7 +15,7 @@ const ledgerFacts = [
     body: "How each payment is applied to charges.",
   },
   {
-    title: "Deterministic balances",
+    title: "Traceable balances",
     body: "Balances derived from ledger records, not manually edited totals.",
   },
 ];
@@ -24,8 +24,8 @@ export function FinancialTruthSection() {
   return (
     <Section
       eyebrow="Financial truth"
-      title="EstateIQ is ledger-first because trust depends on the math."
-      description="Charges, payments, and allocations preserve financial history and make open balances, delinquency, and reporting easier to trust."
+      title="Wondering where your money actually went?"
+      description="Charges, payments, and allocations preserve financial history. That ledger-first model makes open balances, delinquency, and reporting easier to trust."
     >
       <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
         <Card className="p-6" variant="glass">

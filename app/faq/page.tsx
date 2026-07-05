@@ -12,17 +12,17 @@ const faqs = [
   {
     question: "What makes EstateIQ different?",
     answer:
-      "EstateIQ is finance-first. It is built around structured portfolio records, ledger-first accounting, document-supported evidence, deterministic reports, and grounded AI explanations.",
+      "EstateIQ helps owners manage buildings, money records, supported documents, reports, and AI in one connected system. Under the hood, it uses ledger-first accounting, traceable reports, and AI explanations grounded in product records.",
   },
   {
     question: "Why ledger-first accounting?",
     answer:
-      "Ledger-first accounting keeps balances explainable. Charges, payments, and allocations create a record trail instead of relying only on loose paid or unpaid states.",
+      "Because landlords need to know what was charged, what was paid, and what still remains. Ledger-first accounting is the technical model behind that: charges, payments, and allocations create a record trail instead of relying only on loose paid or unpaid states.",
   },
   {
     question: "How does AI work?",
     answer:
-      "EstateIQ AI is positioned as an explanation layer over structured records, reports, and deterministic analyst tools. The LLM explains prepared answers in natural language rather than becoming the source of financial truth.",
+      "EstateIQ AI explains records, reports, and supported documents you manage inside the product. For supported questions, analyst tools prepare structured answers before the LLM explains them in natural language.",
   },
   {
     question: "Does AI modify my financial records?",
@@ -56,23 +56,25 @@ export default function FaqPage() {
     <>
       <ProductHero
         badge="FAQ"
-        description="Straight answers about EstateIQ's product philosophy, ledger-first model, grounded AI, documents, and trust boundaries."
+        description="Straight answers to the questions a landlord would ask before trusting EstateIQ with portfolio records, documents, reports, and AI."
         eyebrow="FAQ"
         previewItems={[
-          "Ledger-first accounting",
-          "Grounded AI",
-          "Document confirmation",
-          "Organization boundaries",
+          { label: "Ledger-first accounting", href: "#frequently-asked-questions" },
+          { label: "Grounded AI", href: "#frequently-asked-questions" },
+          { label: "Document confirmation", href: "#frequently-asked-questions" },
+          { label: "Organization boundaries", href: "#frequently-asked-questions" },
         ]}
         previewTitle="Common questions"
-        title="EstateIQ FAQ."
+        title="Questions you might ask before using EstateIQ."
       />
 
       <ProductSection
         background="soft"
-        description="These answers explain current product positioning without inventing pricing, integrations, or unsupported capabilities."
+        description="These answers stay practical first and technical second. They explain what EstateIQ does today without inventing pricing, integrations, or unsupported capabilities."
         eyebrow="Frequently asked questions"
-        title="Clear answers for small landlords evaluating EstateIQ."
+        id="frequently-asked-questions"
+        tabIndex={-1}
+        title="Clear answers before you bring your records into a new system."
       >
         <div className="grid gap-4">
           {faqs.map((item) => (
@@ -89,7 +91,7 @@ export default function FaqPage() {
       </ProductSection>
 
       <FinalCTASection
-        description="Join the beta path or explore the product overview to understand how EstateIQ connects portfolio records, ledger math, documents, reports, and grounded AI."
+        description="Start an account path or explore the product overview to understand how EstateIQ connects portfolio records, ledger math, supported documents, reports, and AI explanations."
         secondaryHref="/product"
         secondaryLabel="View product"
         title="Have a question that is not answered here?"

@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/site";
 type ProductHeroPreviewItem =
   | string
   | {
+      id?: string;
       label: string;
       href: string;
     };
@@ -66,13 +67,17 @@ export function ProductHero({
             <div className="mt-5 grid gap-3">
               {previewItems.map((item) => {
                 const label = typeof item === "string" ? item : item.label;
+                const key =
+                  typeof item === "string"
+                    ? label
+                    : (item.id ?? `${item.href}:${item.label}`);
 
                 if (typeof item !== "string") {
                   return (
                     <a
                       className="rounded-2xl border border-border-soft bg-surface px-4 py-3 text-sm text-text-secondary transition hover:border-border-strong hover:bg-surface-elevated hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
                       href={item.href}
-                      key={item.href}
+                      key={key}
                     >
                       {label}
                     </a>
@@ -82,7 +87,7 @@ export function ProductHero({
                 return (
                   <div
                     className="rounded-2xl border border-border-soft bg-surface px-4 py-3 text-sm text-text-secondary"
-                    key={label}
+                    key={key}
                   >
                     {label}
                   </div>

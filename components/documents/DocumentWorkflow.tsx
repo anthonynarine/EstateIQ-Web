@@ -3,11 +3,11 @@ import { Card } from "@/components/ui/Card";
 const workflow = [
   {
     title: "Upload",
-    description: "Add receipts, invoices, leases, and supporting files.",
+    description: "Add supported documents such as receipts, invoices, and leases.",
   },
   {
-    title: "Organize",
-    description: "Attach documents to property, lease, expense, or vendor context.",
+    title: "Connect",
+    description: "Connect documents to property, lease, expense, or vendor context.",
   },
   {
     title: "Review",
@@ -19,7 +19,7 @@ const workflow = [
   },
   {
     title: "Connect",
-    description: "Link evidence to expense, lease, or property context.",
+    description: "Preserve connected evidence beside the record it supports.",
   },
 ];
 

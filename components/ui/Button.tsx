@@ -69,6 +69,10 @@ function Spinner() {
   );
 }
 
+function shouldUseNativeAnchor(href: string) {
+  return href.startsWith("#") || /^[a-z][a-z0-9+.-]*:/i.test(href);
+}
+
 export function Button(props: ButtonProps) {
   const {
     children,
@@ -97,6 +101,22 @@ export function Button(props: ButtonProps) {
   );
 
   if (props.href) {
+    if (shouldUseNativeAnchor(props.href)) {
+      return (
+        <a
+          aria-label={props["aria-label"]}
+          aria-disabled={disabled || isLoading ? true : undefined}
+          className={classes}
+          href={props.href}
+          onClick={props.onClick}
+          rel={props.rel}
+          target={props.target}
+        >
+          {content}
+        </a>
+      );
+    }
+
     return (
       <Link
         aria-label={props["aria-label"]}

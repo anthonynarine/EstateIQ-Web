@@ -24,7 +24,7 @@ const documentBenefits = [
   {
     title: "Less receipt hunting",
     description:
-      "Store receipts and files where they can support financial review later.",
+      "Keep receipts and supported documents connected to the records they can help explain later.",
     label: "Evidence",
     tone: "warning" as const,
   },
@@ -56,40 +56,46 @@ export default function DocumentsPage() {
     <>
       <ProductHero
         badge="Document intelligence"
-        description="EstateIQ treats documents as evidence. Receipts, invoices, lease documents, and supporting files become more useful when they are connected to the records they explain."
+        description="Documents are not attachments. EstateIQ treats supported documents as connected evidence that can be reviewed, connected, and explained by AI alongside confirmed records."
         eyebrow="Documents"
         previewItems={[
-          "Upload supporting files",
-          "Organize by context",
-          "Review before confirmation",
-          "Connect to financial records",
+          { label: "Upload supported documents", href: "#document-support" },
+          { label: "Organize by context", href: "#document-support" },
+          { label: "Review before confirmation", href: "#document-workflow" },
+          { label: "Connect to financial records", href: "#document-benefits" },
         ]}
         previewTitle="Evidence connected to records"
-        title="Turn rental paperwork into organized financial context."
+        title="Turn rental paperwork into connected evidence."
       />
 
       <ProductSection
         background="soft"
-        description="Documents can support the financial, legal, tax, and operational life of a rental portfolio."
+        description="Supported documents can provide context for the financial, legal, tax, and operational life of a rental portfolio."
         eyebrow="What documents support"
-        title="Keep important files close to the records they explain."
+        id="document-support"
+        tabIndex={-1}
+        title="Keep important documents connected to the records they explain."
       >
         <DocumentTypeGrid />
       </ProductSection>
 
       <ProductSection
-        description="EstateIQ does not silently turn every document into financial truth. Review and confirmation remain part of the workflow."
+        description="EstateIQ does not silently turn every document into financial truth. Review and confirmation remain part of the workflow, while confirmed records and ledger data remain the source of financial truth."
         eyebrow="From file to record"
-        title="A careful path from uploaded evidence to structured context."
+        id="document-workflow"
+        tabIndex={-1}
+        title="A careful path from supported document to connected evidence."
       >
         <DocumentWorkflow />
       </ProductSection>
 
       <ProductSection
         background="soft"
-        description="Document intelligence is valuable because it supports better records, reporting, and source-backed interpretation."
+        description="Document intelligence is valuable because supported documents become connected evidence for records, reporting, and source-backed AI interpretation."
         eyebrow="Why it matters"
-        title="Documents make financial records easier to understand and review."
+        id="document-benefits"
+        tabIndex={-1}
+        title="Connected evidence makes financial records easier to understand and review."
       >
         <FeatureGrid items={documentBenefits} />
       </ProductSection>

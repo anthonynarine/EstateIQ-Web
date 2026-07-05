@@ -27,7 +27,7 @@ const learningCategories = [
   {
     title: "Documents & Receipts",
     description:
-      "How to keep supporting files connected to the records they explain.",
+      "How supported documents become connected evidence for the records they explain.",
   },
   {
     title: "AI for Landlords",
@@ -56,31 +56,33 @@ export default function LearnPage() {
     <>
       <ProductHero
         badge="Learn Center"
-        description="The Learn Center will organize practical education for landlords who want cleaner records, stronger financial habits, and better portfolio visibility."
+        description="If you have ever wondered where the money went, which records matter, or how to read your rental business more clearly, the Learn Center is where those practical lessons will live."
         eyebrow="Learn"
         previewItems={[
-          "Financial foundations",
-          "Ledger accounting",
-          "AI for landlords",
-          "Reporting and KPIs",
+          { label: "Financial foundations", href: "#learning-categories" },
+          { label: "Ledger accounting", href: "#learning-categories" },
+          { label: "AI for landlords", href: "#learning-categories" },
+          { label: "Reporting and KPIs", href: "#learning-categories" },
         ]}
         previewTitle="Educational content library"
-        title="Learn how to build a healthier rental business."
+        title="Learn how to run a clearer rental business."
       />
 
       <ProductSection
         background="soft"
-        description="These categories define the future editorial structure. Articles are not published yet, so each category clearly shows that content is coming soon."
+        description="These categories match the questions small landlords ask as their records, expenses, documents, and reports become harder to manage by memory."
         eyebrow="Learning categories"
-        title="A landlord education library built around financial clarity."
+        id="learning-categories"
+        tabIndex={-1}
+        title="Start with the topics that make the business easier to understand."
       >
         <LearningCategoryGrid categories={learningCategories} />
       </ProductSection>
 
       <ProductSection
-        description="The Learn Center is separate from product documentation. It is for education first: concepts, habits, and operating judgment."
+        description="The Learn Center is separate from product documentation. It will teach concepts, habits, and operating judgment before pointing back to specific product workflows."
         eyebrow="Editorial foundation"
-        title="Built to grow into a durable public knowledge base."
+        title="Useful education first. Product instructions second."
       >
         <ComingSoonCard
           description="Future Learn content can be organized by category, tags, author, and related product areas without changing this route structure."

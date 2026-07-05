@@ -87,6 +87,26 @@ npm run start
 
 Starts the production server after a successful build.
 
+## Environment Variables
+
+EstateIQ-Web is the public marketing and documentation site. App-related CTAs
+must point to the live EstateIQ application through centralized public
+environment variables:
+
+```text
+NEXT_PUBLIC_APP_URL=https://app.estateiq.com
+NEXT_PUBLIC_APP_REGISTER_URL=https://app.estateiq.com/register
+NEXT_PUBLIC_APP_LOGIN_URL=https://app.estateiq.com/login
+NEXT_PUBLIC_APP_DEMO_URL=https://propertyledger.org/dashboard?org=demo-portfolio
+```
+
+`NEXT_PUBLIC_APP_REGISTER_URL` powers “Start Your Free Account”, “Join the
+beta”, “Get Started”, “Create Account”, “Start Free”, and “Start Trial” CTAs.
+`NEXT_PUBLIC_APP_LOGIN_URL` powers “Login” and “Sign In” CTAs.
+`NEXT_PUBLIC_APP_DEMO_URL` powers “Explore the Live Demo” and other demo CTAs.
+Contact, learn-more, product, and feature-discovery links should remain internal
+website routes unless they explicitly start account creation or demo access.
+
 ## Project Structure
 
 ```text
@@ -181,6 +201,9 @@ Brand and product knowledge documentation used to guide website development.
 - [Marketing Messaging](./docs/Brand/04-marketing-messaging.md)
 - [Page Guidelines](./docs/Brand/05-page-guidelines.md)
 - [Component Guidelines](./docs/Brand/06-component-guidelines.md)
+- [System Visualization Language](./docs/Brand/07-system-visualization-language.md)
+- [Copywriting Progressive Disclosure](./docs/Brand/08-copywriting-progressive-disclosure.md)
+- [Conversational Product Storytelling](./docs/Brand/10-conversational-product-storytelling.md)
 - [Product Overview](./docs/WebsiteKnowledge/01-product-overview.md)
 - [Ideal Customer](./docs/WebsiteKnowledge/02-ideal-customer.md)
 - [Feature Inventory](./docs/WebsiteKnowledge/03-feature-inventory.md)
@@ -273,6 +296,30 @@ Status: Complete.
 
 Includes the first DANA architecture articles, reusable blog article components, shared blog article metadata, and a blog index that lists real published articles. SEO metadata was added for each article route, sitemap coverage is handled through the shared public route configuration, and upcoming DANA articles are shown as coming soon without fabricated content.
 
+Phase 7A: System Visualization Language.
+
+Status: Complete.
+
+Includes the SVL brand/design document, reusable visualization primitives, and the first scoped page refactor on `/features`. The Features page now uses a connected portfolio system map, financial truth flow, document intelligence flow, reports and AI context flow, and reviewed gap capability flow instead of relying on repeated card grids. Future SVL refactors should target Documents, Reports, Ledger, AI Copilot, AI Academy, and blog article visuals.
+
+Phase 7C: Sitewide Language Simplification Pass.
+
+Status: Complete.
+
+Includes the progressive-disclosure copywriting guide and owner-first copy updates across the homepage, Product, Features, Documents, Reports, Ledger, AI Copilot, AI Academy index, Security, FAQ, About, Contact, and Why EstateIQ surfaces. Technical concepts such as ledger-first accounting, grounded AI, analyst tools, organization isolation, and reviewed deterministic capabilities remain present, but they now appear after the practical landlord outcome is clear.
+
+Phase 7D: Conversational Product Storytelling.
+
+Status: Complete.
+
+Includes the conversational storytelling brand guide and a voice refinement pass across public marketing, product, learning, documentation, FAQ, trust, and contact surfaces. Public pages now read more like a knowledgeable person explaining EstateIQ to a small landlord, while technical concepts remain available after the customer problem and practical benefit are clear. Blog articles and deeper AI Academy lessons remain intentionally technical.
+
+Phase 8A: Homepage Excellence.
+
+Status: Complete.
+
+Includes a homepage storytelling refinement, a new SVL hero system map, production demo CTA routing, stronger first-screen positioning, clearer section questions, and reduced reliance on repeated visual card grids in the homepage system story. The homepage now explains EstateIQ as a connected financial operating system for small landlords while preserving the product's ledger-first, connected-document, traceable-reporting, and grounded-AI architecture.
+
 ## Architecture Overview
 
 EstateIQ-Web uses a server-first App Router architecture.
@@ -292,6 +339,7 @@ Pages compose reusable section components. Components are grouped by purpose:
 - `trust` for reusable trust, privacy, engineering principle, and data ownership components.
 - `beta` for early-access and beta messaging components.
 - `cta` for standardized primary, secondary, and final CTA components.
+- `visualizations` for SVL system maps, flow diagrams, layer diagrams, evidence chains, and operating-system visuals.
 
 Client components are used only where interaction requires browser state, such as mobile navigation.
 

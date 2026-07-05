@@ -12,6 +12,9 @@ EstateIQ is the product name. "The Financial Operating System for Small Landlord
 - [04 Marketing Messaging](./04-marketing-messaging.md): approved messaging, value propositions, differentiators, and language constraints.
 - [05 Page Guidelines](./05-page-guidelines.md): recommended page structure and narrative order.
 - [06 Component Guidelines](./06-component-guidelines.md): rules for reusable UI components and layout consistency.
+- [07 System Visualization Language](./07-system-visualization-language.md): rules for system maps, flows, layers, evidence chains, and operating-system diagrams.
+- [08 Copywriting Progressive Disclosure](./08-copywriting-progressive-disclosure.md): rules for owner-first copy that introduces technical architecture only after the practical value is clear.
+- [10 Conversational Product Storytelling](./10-conversational-product-storytelling.md): rules for writing as if EstateIQ is being explained directly to a small landlord.
 
 ## Canonical Brand
 

@@ -49,10 +49,10 @@ export default function FinancialTruthPage() {
         description="Financial truth comes from records, not AI. EstateIQ uses AI to summarize and explain, while ledger math and reports remain deterministic."
         eyebrow="AI Academy"
         previewItems={[
-          "Records before explanations",
-          "Ledger math stays deterministic",
-          "Documents support evidence",
-          "Reports remain traceable",
+          { label: "Records before explanations", href: "#records-before-explanations" },
+          { label: "Ledger math stays deterministic", href: "#ledger-math-truth" },
+          { label: "Documents support evidence", href: "#documents-evidence" },
+          { label: "Reports remain traceable", href: "#reports-derived-views" },
         ]}
         previewTitle="Truth before AI"
         title="Financial truth comes from the record system."
@@ -62,6 +62,8 @@ export default function FinancialTruthPage() {
         background="soft"
         description="AI is useful only when it can point back to structured sources the product already trusts."
         eyebrow="Records before explanations"
+        id="records-before-explanations"
+        tabIndex={-1}
         title="The facts exist before the summary."
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -81,6 +83,8 @@ export default function FinancialTruthPage() {
       <ProductSection
         description="Balances should come from charges, payments, allocations, and deterministic calculation rules."
         eyebrow="Ledger math as truth"
+        id="ledger-math-truth"
+        tabIndex={-1}
         title="The ledger owns balances."
       >
         <PrincipleCallout
@@ -96,13 +100,16 @@ export default function FinancialTruthPage() {
         background="soft"
         description="Documents are important because they support records with evidence, not because they replace structured review."
         eyebrow="Documents as evidence"
-        title="Files help explain the record trail."
+        id="documents-evidence"
+        tabIndex={-1}
+        title="Supported documents help explain the record trail."
       >
         <Card className="p-6 sm:p-8" variant="outline">
           <p className="max-w-3xl text-base leading-7 text-text-secondary">
-            Receipts, invoices, leases, and supporting files can provide the
-            context behind an expense, agreement, or transaction. EstateIQ
-            should keep those documents connected to the records they support.
+            Receipts, invoices, leases, and other supported documents can
+            provide context behind an expense, agreement, or transaction.
+            EstateIQ should keep those documents connected to the records they
+            support.
           </p>
         </Card>
       </ProductSection>
@@ -110,6 +117,8 @@ export default function FinancialTruthPage() {
       <ProductSection
         description="Reports turn records into views landlords can use, while preserving the ability to trace where numbers came from."
         eyebrow="Reports as derived views"
+        id="reports-derived-views"
+        tabIndex={-1}
         title="Reports summarize records without replacing them."
       >
         <div className="grid gap-4 sm:grid-cols-3">

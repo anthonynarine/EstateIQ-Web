@@ -37,10 +37,10 @@ export default function AnalystToolsPage() {
         description="Analyst tools are deterministic backend capabilities that answer structured portfolio questions before the LLM explains the result."
         eyebrow="AI Academy"
         previewItems={[
-          "Question classified into intent",
-          "Intent routes to a registered tool",
-          "Selectors read structured records",
-          "LLM explains structured output",
+          { label: "Question classified into intent", href: "#analyst-system-flow" },
+          { label: "Intent routes to a registered tool", href: "#analyst-tools-do" },
+          { label: "Selectors read structured records", href: "#source-records" },
+          { label: "LLM explains structured output", href: "#explanation-layer" },
         ]}
         previewTitle="Structured question handling"
         title="Analyst tools keep AI answers grounded."
@@ -50,6 +50,8 @@ export default function AnalystToolsPage() {
         background="soft"
         description="The LLM is not the database layer. It receives structured outputs from supported tools and explains them in natural language."
         eyebrow="System flow"
+        id="analyst-system-flow"
+        tabIndex={-1}
         title="A user question moves through deterministic steps."
       >
         <AiSystemFlow
@@ -72,6 +74,8 @@ export default function AnalystToolsPage() {
       <ProductSection
         description="Analyst tools create a controlled bridge between a landlord's question and EstateIQ's financial records."
         eyebrow="What analyst tools do"
+        id="analyst-tools-do"
+        tabIndex={-1}
         title="They turn questions into supported, testable capabilities."
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -87,6 +91,8 @@ export default function AnalystToolsPage() {
         background="soft"
         description="Selectors and services read the same record systems the rest of the product depends on."
         eyebrow="Source records"
+        id="source-records"
+        tabIndex={-1}
         title="Tools read structured financial and portfolio data."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -103,6 +109,8 @@ export default function AnalystToolsPage() {
       <ProductSection
         description="This architecture makes the answer easier to inspect because the model is explaining a prepared result, not searching raw records on its own."
         eyebrow="Explanation layer"
+        id="explanation-layer"
+        tabIndex={-1}
         title="The LLM presents the answer; it does not own the calculation."
       >
         <PrincipleCallout

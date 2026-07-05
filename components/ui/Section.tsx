@@ -46,7 +46,8 @@ export function Section({
       className={cn(
         sizeClasses[size],
         backgroundClasses[background],
-        id && "scroll-mt-28",
+        id &&
+          "scroll-mt-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-brand-cyan",
         className,
       )}
       id={id}

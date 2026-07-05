@@ -68,7 +68,7 @@ const whyItMatters = [
   {
     title: "Financial trust",
     description:
-      "Use deterministic math as the basis for reports and future interpretation.",
+      "Use traceable ledger math as the basis for reports and future interpretation.",
   },
 ];
 
@@ -84,23 +84,25 @@ export default function LedgerPage() {
     <>
       <ProductHero
         badge="Ledger-first accounting"
-        description="EstateIQ calculates balances from charges, payments, and allocations instead of relying on loose paid or unpaid flags."
+        description="Know what is owed, what was paid, and what still remains. EstateIQ calculates balances from charges, payments, and allocations instead of relying on loose paid or unpaid flags."
         eyebrow="Ledger"
         previewItems={[
-          "Charge = what is owed",
-          "Payment = money received",
-          "Allocation = how payment is applied",
-          "Balance = charges minus allocations",
+          { label: "Charge = what is owed", href: "#ledger-model" },
+          { label: "Payment = money received", href: "#ledger-model" },
+          { label: "Allocation = how payment is applied", href: "#visual-model" },
+          { label: "Balance = charges minus allocations", href: "#small-landlord-benefits" },
         ]}
         previewTitle="Every balance should have a source"
-        title="Every balance should have a source."
+        title="Know exactly why a balance exists."
       />
 
       <ProductSection
         background="soft"
-        description="The billing ledger is built from simple, explainable parts. Each part has a specific job."
+        description="Start with simple records: what was charged, what was paid, how money was applied, and what remains. The technical layer is a ledger-first model built from charges, payments, allocations, and derived balances."
         eyebrow="Ledger model"
-        title="Charges, payments, allocations, and derived balances."
+        id="ledger-model"
+        tabIndex={-1}
+        title="Track the parts behind every balance."
       >
         <FeatureGrid items={ledgerParts} />
       </ProductSection>
@@ -108,7 +110,9 @@ export default function LedgerPage() {
       <ProductSection
         description="EstateIQ preserves the relationship between what was owed and how received money was applied."
         eyebrow="Visual model"
-        title="Balances are derived from ledger records."
+        id="visual-model"
+        tabIndex={-1}
+        title="Balances come from recorded activity."
       >
         <LedgerModelDiagram />
       </ProductSection>
@@ -117,7 +121,7 @@ export default function LedgerPage() {
         background="soft"
         description="Small landlords often need more than a checkbox. The ledger model helps explain the situations that make simple balances break down."
         eyebrow="Why it matters"
-        title="Ledger-first accounting creates trust when the records get messy."
+        title="Clear records matter most when payments get messy."
       >
         <FeatureGrid items={whyItMatters} />
       </ProductSection>
@@ -125,6 +129,8 @@ export default function LedgerPage() {
       <ProductSection
         description="The benefit is practical: fewer disconnected notes, clearer balances, and records that can support reporting."
         eyebrow="Small landlord benefits"
+        id="small-landlord-benefits"
+        tabIndex={-1}
         title="Plain-English clarity for everyday portfolio questions."
       >
         <div className="grid gap-3 sm:grid-cols-2">

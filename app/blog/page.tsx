@@ -52,10 +52,18 @@ export default function BlogPage() {
         description="Architecture notes, product thinking, and educational writing about building trustworthy AI-native financial software."
         eyebrow="Blog"
         previewItems={[
-          "DANA architecture series",
-          "AI-native application design",
-          "Deterministic software capabilities",
-          "Financial truth before AI",
+          { label: "DANA architecture series", href: "#dana-series" },
+          {
+            id: "ai-native-application-design",
+            label: "AI-native application design",
+            href: "#published-articles",
+          },
+          {
+            id: "deterministic-software-capabilities",
+            label: "Deterministic software capabilities",
+            href: "#published-articles",
+          },
+          { label: "Financial truth before AI", href: "#blog-categories" },
         ]}
         previewTitle="Published writing"
         title="Writing about financial clarity and trustworthy AI software."
@@ -65,6 +73,8 @@ export default function BlogPage() {
         background="soft"
         description="A technical series about building trustworthy AI-native applications where structured software remains the source of truth and AI becomes the explanation layer."
         eyebrow="DANA Series"
+        id="dana-series"
+        tabIndex={-1}
         title="Architecture writing from building EstateIQ."
       >
         <Card className="p-6 sm:p-8" variant="glass">
@@ -80,6 +90,8 @@ export default function BlogPage() {
       <ProductSection
         description="The first three architecture articles are now published as static pages."
         eyebrow="Published articles"
+        id="published-articles"
+        tabIndex={-1}
         title="Read the first DANA articles."
       >
         <div className="grid gap-4 lg:grid-cols-3">
@@ -111,6 +123,8 @@ export default function BlogPage() {
       <ProductSection
         description="Categories define the editorial map without pretending every category already has content."
         eyebrow="Categories"
+        id="blog-categories"
+        tabIndex={-1}
         title="A focused publishing structure for future writing."
       >
         <ContentCategoryGrid categories={blogCategories} />
