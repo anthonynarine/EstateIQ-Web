@@ -1,12 +1,16 @@
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { Container } from "@/components/ui/Container";
+import type { Metadata } from "next";
+
+import { FinalCTASection } from "@/components/cta/FinalCTASection";
 import { ComparisonTable } from "@/components/product/ComparisonTable";
 import { FeatureGrid } from "@/components/product/FeatureGrid";
 import { FlowDiagram } from "@/components/product/FlowDiagram";
 import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
-import { siteConfig } from "@/lib/site";
+import { FeatureShowcase } from "@/components/showcase/FeatureShowcase";
+import { Card } from "@/components/ui/Card";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("/product");
 
 const audienceItems = [
   "Independent landlords",
@@ -138,6 +142,14 @@ export default function ProductPage() {
 
       <ProductSection
         background="soft"
+        description="This framework gives the site a place for real screenshots later while staying honest today."
+        eyebrow="Product visualization"
+        title="Preview the shape of the operating system."
+      >
+        <FeatureShowcase />
+      </ProductSection>
+
+      <ProductSection
         eyebrow="Product areas"
         title="The operating layer for the records that determine financial truth."
       >
@@ -152,34 +164,7 @@ export default function ProductPage() {
         <ComparisonTable rows={comparisonRows} />
       </ProductSection>
 
-      <section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <Card className="p-6 sm:p-10" variant="glass">
-            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-cyan">
-                  EstateIQ
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
-                  Bring the financial life of your portfolio into one system.
-                </h2>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <Button href={siteConfig.primaryCta.href} size="lg">
-                  {siteConfig.primaryCta.label}
-                </Button>
-                <Button
-                  href={siteConfig.secondaryCta.href}
-                  size="lg"
-                  variant="outline"
-                >
-                  {siteConfig.secondaryCta.label}
-                </Button>
-              </div>
-            </div>
-          </Card>
-        </Container>
-      </section>
+      <FinalCTASection title="Bring the financial life of your portfolio into one system." />
     </>
   );
 }

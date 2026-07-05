@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { AiHero } from "@/components/ai/AiHero";
 import { AnalystWorkflowDiagram } from "@/components/ai/AnalystWorkflowDiagram";
 import { QuestionExamples } from "@/components/ai/QuestionExamples";
@@ -7,11 +9,15 @@ import { ProductSection } from "@/components/product/ProductSection";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
+import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = createPageMetadata("/ai-copilot");
 
 const groundedRules = [
   {
     title: "References structured records",
+    id: "structured-records",
     description:
       "Copilot works from portfolio, lease, ledger, expense, document, and reporting context.",
     label: "Records",
@@ -19,6 +25,7 @@ const groundedRules = [
   },
   {
     title: "Does not invent balances",
+    id: "does-not-invent-balances",
     description:
       "Financial values must come from deterministic records and analyst tools, not model guesses.",
     label: "Deterministic",
@@ -66,6 +73,8 @@ export default function AiCopilotPage() {
       <ProductSection
         description="The system starts with structured financial truth. Analyst tools prepare grounded context before AI explains it."
         eyebrow="How EstateIQ AI works"
+        id="ledger-backed-context"
+        tabIndex={-1}
         title="From portfolio data to source-backed interpretation."
       >
         <AnalystWorkflowDiagram />
@@ -75,6 +84,8 @@ export default function AiCopilotPage() {
         background="soft"
         description="These examples reflect current grounded portfolio, revenue, expense, report, and building analysis directions."
         eyebrow="What you can ask"
+        id="reports-documents"
+        tabIndex={-1}
         title="Ask practical questions about the financial life of the portfolio."
       >
         <QuestionExamples />
@@ -83,6 +94,8 @@ export default function AiCopilotPage() {
       <ProductSection
         description="EstateIQ AI should reinforce trust. It interprets records; it does not replace them."
         eyebrow="Grounded AI"
+        id="grounded-ai-rules"
+        tabIndex={-1}
         title="Financial facts stay deterministic."
       >
         <FeatureGrid items={groundedRules} />

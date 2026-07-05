@@ -1,27 +1,120 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 
-import { Container } from "@/components/ui/Container";
+import { ArticleCard } from "@/components/blog/ArticleCard";
+import { ContentCategoryGrid } from "@/components/content/ContentCategoryGrid";
+import { ContentPlaceholderCard } from "@/components/content/ContentPlaceholderCard";
+import { ProductHero } from "@/components/product/ProductHero";
+import { ProductSection } from "@/components/product/ProductSection";
+import { Card } from "@/components/ui/Card";
+import { danaArticles, upcomingDanaArticles } from "@/lib/blog";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("/blog");
+
+const blogCategories = [
+  {
+    title: "Architecture",
+    description:
+      "Technical writing about trustworthy AI-native application architecture, deterministic software capabilities, and DANA.",
+  },
+  {
+    title: "Product",
+    description:
+      "Future writing about EstateIQ workflows, product thinking, and practical feature education.",
+  },
+  {
+    title: "Finance",
+    description:
+      "Future education on rental financial clarity, ledger discipline, reports, and portfolio operations.",
+  },
+  {
+    title: "Engineering",
+    description:
+      "Future technical writing about product architecture, data modeling, and building trustworthy systems.",
+  },
+  {
+    title: "AI",
+    description:
+      "Future writing about grounded AI, analyst tools, product coverage, and financial explanation layers.",
+  },
+  {
+    title: "Announcements",
+    description:
+      "Future company and product announcements when there is something real to share.",
+  },
+];
 
 export default function BlogPage() {
   return (
-    <Container className="py-20 sm:py-24">
-      <div className="max-w-3xl">
-        <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-cyan">
-          Blog
-        </p>
-        <h1 className="mt-5 text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl">
-          Financial clarity for small real estate portfolios.
-        </h1>
-        <p className="mt-6 text-base leading-7 text-text-secondary sm:text-lg">
-          Editorial content will be added in a later phase.
-        </p>
-        <Link
-          className="mt-8 inline-flex rounded-button text-sm font-medium text-brand-cyan transition hover:text-brand-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-cyan"
-          href="/"
-        >
-          Back home
-        </Link>
-      </div>
-    </Container>
+    <>
+      <ProductHero
+        badge="Blog"
+        description="Architecture notes, product thinking, and educational writing about building trustworthy AI-native financial software."
+        eyebrow="Blog"
+        previewItems={[
+          "DANA architecture series",
+          "AI-native application design",
+          "Deterministic software capabilities",
+          "Financial truth before AI",
+        ]}
+        previewTitle="Published writing"
+        title="Writing about financial clarity and trustworthy AI software."
+      />
+
+      <ProductSection
+        background="soft"
+        description="A technical series about building trustworthy AI-native applications where structured software remains the source of truth and AI becomes the explanation layer."
+        eyebrow="DANA Series"
+        title="Architecture writing from building EstateIQ."
+      >
+        <Card className="p-6 sm:p-8" variant="glass">
+          <p className="max-w-3xl text-base leading-7 text-text-secondary">
+            DANA is the emerging architecture behind EstateIQ&apos;s AI-native
+            product thinking: deterministic records, explicit application
+            capabilities, analyst tools, gap capture, and AI explanations that
+            stay grounded in software truth.
+          </p>
+        </Card>
+      </ProductSection>
+
+      <ProductSection
+        description="The first three architecture articles are now published as static pages."
+        eyebrow="Published articles"
+        title="Read the first DANA articles."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          {danaArticles.map((article) => (
+            <ArticleCard article={article} key={article.slug} />
+          ))}
+        </div>
+      </ProductSection>
+
+      <ProductSection
+        background="soft"
+        description="These are planned DANA topics only. Full articles will be added when they are written."
+        eyebrow="Upcoming"
+        title="Coming soon in the DANA series."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {upcomingDanaArticles.map((title) => (
+            <ContentPlaceholderCard
+              description="This article is planned for the DANA series but has not been published yet."
+              eyebrow="DANA"
+              key={title}
+              meta="Coming soon"
+              title={title}
+            />
+          ))}
+        </div>
+      </ProductSection>
+
+      <ProductSection
+        description="Categories define the editorial map without pretending every category already has content."
+        eyebrow="Categories"
+        title="A focused publishing structure for future writing."
+      >
+        <ContentCategoryGrid categories={blogCategories} />
+      </ProductSection>
+    </>
   );
 }

@@ -9,6 +9,8 @@ type SectionProps = {
   containerClassName?: string;
   eyebrow?: string;
   description?: string;
+  id?: string;
+  tabIndex?: number;
   title?: string;
   background?: "default" | "soft" | "panel" | "grid";
   size?: "sm" | "md" | "lg";
@@ -33,13 +35,22 @@ export function Section({
   containerClassName,
   description,
   eyebrow,
+  id,
+  tabIndex,
   title,
   background = "default",
   size = "md",
 }: SectionProps) {
   return (
     <section
-      className={cn(sizeClasses[size], backgroundClasses[background], className)}
+      className={cn(
+        sizeClasses[size],
+        backgroundClasses[background],
+        id && "scroll-mt-28",
+        className,
+      )}
+      id={id}
+      tabIndex={tabIndex}
     >
       <Container className={containerClassName}>
         {(eyebrow || title || description) && (

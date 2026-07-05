@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
+
+import { FinalCTASection } from "@/components/cta/FinalCTASection";
 import { SecurityHero } from "@/components/security/SecurityHero";
 import { FeatureGrid } from "@/components/product/FeatureGrid";
 import { ProductSection } from "@/components/product/ProductSection";
-import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Container } from "@/components/ui/Container";
-import { siteConfig } from "@/lib/site";
+import { DataOwnership } from "@/components/trust/DataOwnership";
+import { PrivacyHighlights } from "@/components/trust/PrivacyHighlights";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("/security");
 
 const engineeringPrinciples = [
   {
@@ -93,17 +98,20 @@ export default function SecurityPage() {
         eyebrow="Data protection"
         title="Concrete controls, not vague promises."
       >
-        <div className="grid gap-4 sm:grid-cols-2">
-          {dataProtection.map((item) => (
-            <Card className="p-5" key={item.title} variant="outline">
-              <h3 className="text-base font-semibold text-text-primary">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-text-secondary">
-                {item.description}
-              </p>
-            </Card>
-          ))}
+        <div className="grid gap-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {dataProtection.map((item) => (
+              <Card className="p-5" key={item.title} variant="outline">
+                <h3 className="text-base font-semibold text-text-primary">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-text-secondary">
+                  {item.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+          <PrivacyHighlights />
         </div>
       </ProductSection>
 
@@ -113,44 +121,13 @@ export default function SecurityPage() {
         eyebrow="Why trust matters"
         title="Financial clarity is only useful when the records are reliable."
       >
-        <Card className="p-6 sm:p-8" variant="glass">
-          <p className="max-w-3xl text-base leading-7 text-text-secondary">
-            EstateIQ organizes financial truth first: lease records, ledger
-            entries, expenses, documents, reports, and AI interpretation all
-            have clear roles. That separation helps keep the product calm,
-            explainable, and trustworthy.
-          </p>
-        </Card>
+        <DataOwnership />
       </ProductSection>
 
-      <section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <Card className="p-6 sm:p-10" variant="glass">
-            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-cyan">
-                  EstateIQ Trust
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
-                  Build your portfolio records on a clearer foundation.
-                </h2>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <Button href={siteConfig.primaryCta.href} size="lg">
-                  {siteConfig.primaryCta.label}
-                </Button>
-                <Button
-                  href={siteConfig.secondaryCta.href}
-                  size="lg"
-                  variant="outline"
-                >
-                  {siteConfig.secondaryCta.label}
-                </Button>
-              </div>
-            </div>
-          </Card>
-        </Container>
-      </section>
+      <FinalCTASection
+        eyebrow="EstateIQ Trust"
+        title="Build your portfolio records on a clearer foundation."
+      />
     </>
   );
 }

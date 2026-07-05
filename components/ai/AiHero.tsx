@@ -5,6 +5,25 @@ import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/lib/site";
 
 export function AiHero() {
+  const previewLinks = [
+    {
+      label: "References structured records",
+      href: "#structured-records",
+    },
+    {
+      label: "Uses ledger-backed context",
+      href: "#ledger-backed-context",
+    },
+    {
+      label: "Explains reports and documents",
+      href: "#reports-documents",
+    },
+    {
+      label: "Does not invent balances",
+      href: "#does-not-invent-balances",
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28">
       <div className="absolute inset-0 -z-10 bg-radial-violet-glow opacity-75" />
@@ -40,18 +59,14 @@ export function AiHero() {
           <Card className="p-5 sm:p-6" variant="glass">
             <Badge variant="ai">Grounded, deterministic, traceable</Badge>
             <div className="mt-5 grid gap-3">
-              {[
-                "References structured records",
-                "Uses ledger-backed context",
-                "Explains reports and documents",
-                "Does not invent balances",
-              ].map((item) => (
-                <div
-                  className="rounded-2xl border border-brand-violet/20 bg-brand-violet/10 px-4 py-3 text-sm text-text-secondary"
-                  key={item}
+              {previewLinks.map((item) => (
+                <a
+                  className="rounded-2xl border border-brand-violet/20 bg-brand-violet/10 px-4 py-3 text-sm text-text-secondary transition hover:border-brand-violet/40 hover:bg-brand-violet/15 hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-violet"
+                  href={item.href}
+                  key={item.href}
                 >
-                  {item}
-                </div>
+                  {item.label}
+                </a>
               ))}
             </div>
           </Card>

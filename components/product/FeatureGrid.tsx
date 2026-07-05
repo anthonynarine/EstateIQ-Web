@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/Card";
 type FeatureGridItem = {
   title: string;
   description: string;
+  id?: string;
   label?: string;
   tone?: "brand" | "ai" | "success" | "warning" | "neutral";
 };
@@ -16,7 +17,14 @@ export function FeatureGrid({ items }: FeatureGridProps) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
-        <Card className="p-5" interactive key={item.title} variant="glass">
+        <Card
+          className="scroll-mt-28 p-5"
+          id={item.id}
+          interactive
+          key={item.title}
+          tabIndex={item.id ? -1 : undefined}
+          variant="glass"
+        >
           {item.label && (
             <Badge variant={item.tone ?? "neutral"}>{item.label}</Badge>
           )}

@@ -95,8 +95,11 @@ app/
   page.tsx
   product/
   ledger/
+  documents/
+  reports/
   ai-copilot/
   security/
+  why-estateiq/
   ...
 
 components/
@@ -149,6 +152,18 @@ AI Copilot page-specific components.
 `components/security/`
 
 Security page-specific components.
+
+`components/about/`
+
+About page-specific components.
+
+`components/contact/`
+
+Contact page-specific components, including the static beta-interest placeholder.
+
+`components/why/`
+
+Why EstateIQ page-specific components.
 
 `lib/`
 
@@ -222,6 +237,42 @@ Status: Complete.
 
 Includes the AI Copilot marketing page, Security & Trust marketing page, and this repository README.
 
+Phase 3C: Features, Documents, and Reports pages.
+
+Status: Complete.
+
+Includes the capability overview page, document intelligence page, and deterministic reporting page.
+
+Phase 3D: About, Contact, and Why EstateIQ pages.
+
+Status: Complete.
+
+Includes the About page, Contact page, Why EstateIQ philosophy page, and a static beta-interest placeholder. No backend submission flow was added.
+
+Phase 5A: AI Academy.
+
+Status: Complete.
+
+Includes the AI Academy overview, Grounded AI page, Analyst Tools page, Gap Tool page, and Financial Truth page. SEO metadata was added for every AI Academy route, the sitemap route list was updated through shared SEO configuration, and the footer Resources links now include AI Academy.
+
+Phase 5B: Documentation, Learn Center, Blog, and Changelog Foundation.
+
+Status: Complete.
+
+Includes reusable content platform components, a Learn Center, a Documentation hub, a Blog foundation, and a Changelog timeline. SEO metadata was added for `/learn`, `/docs`, `/blog`, and `/changelog`; sitemap coverage is handled through the shared public route configuration; and footer Resources now includes Documentation, Learn, AI Academy, Blog, Changelog, and Security.
+
+Phase 6: Launch Readiness & Product Experience.
+
+Status: Complete.
+
+Includes the FAQ page, product showcase framework, feature walkthrough framework, trust component system, beta messaging components, reusable CTA components, and launch polish across product, features, security, contact, and homepage trust sections. SEO metadata was added for `/faq`, and sitemap coverage is handled through the shared public route configuration.
+
+Phase 6B: DANA Blog Series Foundation.
+
+Status: Complete.
+
+Includes the first DANA architecture articles, reusable blog article components, shared blog article metadata, and a blog index that lists real published articles. SEO metadata was added for each article route, sitemap coverage is handled through the shared public route configuration, and upcoming DANA articles are shown as coming soon without fabricated content.
+
 ## Architecture Overview
 
 EstateIQ-Web uses a server-first App Router architecture.
@@ -233,8 +284,27 @@ Pages compose reusable section components. Components are grouped by purpose:
 - `marketing` for homepage sections.
 - `product` for reusable product-page patterns.
 - `ai` and `security` for page-specific components.
+- `academy` for AI Academy education components.
+- `content` for reusable publishing, documentation, learning, blog, and changelog components.
+- `blog` for article layout, article cards, code diagrams, and series navigation.
+- `showcase` for illustrative product screenshot and dashboard preview frameworks.
+- `tour` for reusable product walkthrough components.
+- `trust` for reusable trust, privacy, engineering principle, and data ownership components.
+- `beta` for early-access and beta messaging components.
+- `cta` for standardized primary, secondary, and final CTA components.
 
 Client components are used only where interaction requires browser state, such as mobile navigation.
+
+## Content Architecture
+
+EstateIQ now has four public publishing surfaces:
+
+- Learn: educational content for landlords, organized around financial foundations, ledger accounting, operations, documents, AI, reporting, tax preparation, and portfolio growth.
+- Documentation: product and technical documentation hub for getting started, product guides, financial system notes, AI Academy paths, security, architecture, and release notes.
+- Blog: editorial surface for future product updates, finance education, engineering notes, AI writing, and announcements.
+- Changelog: transparent release history for completed website and product education milestones.
+
+These surfaces are intentionally index-first. They are ready for future MDX content, search, tags, RSS, author pages, release filtering, versioned documentation, tutorials, demos, architecture articles, API documentation, and case studies without restructuring the public routes.
 
 ## Design System Overview
 
@@ -261,26 +331,54 @@ Current public routes:
 - `/product`
 - `/features`
 - `/ledger`
+- `/documents`
+- `/reports`
 - `/ai-copilot`
+- `/ai-academy`
+- `/ai-academy/grounded-ai`
+- `/ai-academy/analyst-tools`
+- `/ai-academy/gap-tool`
+- `/ai-academy/financial-truth`
+- `/learn`
 - `/docs`
 - `/blog`
+- `/blog/why-ai-wrappers-arent-enough`
+- `/blog/biggest-mistake-building-ai-native-application`
+- `/blog/ai-should-explain-your-software`
+- `/changelog`
 - `/about`
 - `/security`
 - `/contact`
+- `/faq`
+- `/why-estateiq`
 
 Built pages:
 
 - Homepage.
 - Product.
 - Ledger.
+- Features.
+- Documents.
+- Reports.
 - AI Copilot.
+- AI Academy.
+- Grounded AI.
+- Analyst Tools.
+- Gap Tool.
+- Financial Truth.
+- Learn Center.
+- Documentation.
+- Blog.
+- DANA architecture articles.
+- Changelog.
 - Security.
+- About.
+- Contact.
+- FAQ.
+- Why EstateIQ.
 
 Placeholder pages:
 
-- Features.
-- Docs.
-- Blog.
 - About.
 - Contact.
 
@@ -302,10 +400,6 @@ AI should always be described as grounded, deterministic, traceable, and source-
 
 Near-term website work:
 
-- Phase 3C: Features, Documents, and Reports pages.
-- Phase 3D: About and Contact pages.
-- Phase 3E: Docs and Blog foundations.
-- Phase 4: SEO metadata, sitemap, robots, structured content, and conversion polish.
 - Phase 5: Visual QA, accessibility QA, content review, and launch hardening.
 
 Future website work should continue to use `docs/Brand/` and `docs/WebsiteKnowledge/` as the source of truth.

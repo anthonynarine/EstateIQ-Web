@@ -4,13 +4,20 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/lib/site";
 
+type ProductHeroPreviewItem =
+  | string
+  | {
+      label: string;
+      href: string;
+    };
+
 type ProductHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
   badge?: string;
   previewTitle: string;
-  previewItems: string[];
+  previewItems: ProductHeroPreviewItem[];
 };
 
 export function ProductHero({
@@ -57,14 +64,30 @@ export function ProductHero({
               {previewTitle}
             </h2>
             <div className="mt-5 grid gap-3">
-              {previewItems.map((item) => (
-                <div
-                  className="rounded-2xl border border-border-soft bg-surface px-4 py-3 text-sm text-text-secondary"
-                  key={item}
-                >
-                  {item}
-                </div>
-              ))}
+              {previewItems.map((item) => {
+                const label = typeof item === "string" ? item : item.label;
+
+                if (typeof item !== "string") {
+                  return (
+                    <a
+                      className="rounded-2xl border border-border-soft bg-surface px-4 py-3 text-sm text-text-secondary transition hover:border-border-strong hover:bg-surface-elevated hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
+                      href={item.href}
+                      key={item.href}
+                    >
+                      {label}
+                    </a>
+                  );
+                }
+
+                return (
+                  <div
+                    className="rounded-2xl border border-border-soft bg-surface px-4 py-3 text-sm text-text-secondary"
+                    key={label}
+                  >
+                    {label}
+                  </div>
+                );
+              })}
             </div>
           </Card>
         </div>

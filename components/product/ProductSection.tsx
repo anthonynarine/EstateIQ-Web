@@ -8,6 +8,8 @@ type ProductSectionProps = {
   title: string;
   description?: string;
   background?: "default" | "soft" | "panel" | "grid";
+  id?: string;
+  tabIndex?: number;
 };
 
 export function ProductSection({
@@ -16,12 +18,16 @@ export function ProductSection({
   title,
   description,
   background = "default",
+  id,
+  tabIndex,
 }: ProductSectionProps) {
   return (
     <Section
       background={background}
       description={description}
       eyebrow={eyebrow}
+      id={id}
+      tabIndex={tabIndex}
       title={title}
     >
       {children}

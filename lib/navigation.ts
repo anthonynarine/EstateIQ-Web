@@ -31,14 +31,19 @@ export const footerNavigation: NavigationGroup[] = [
       { label: "Product", href: "/product" },
       { label: "Features", href: "/features" },
       { label: "Ledger", href: "/ledger" },
+      { label: "Documents", href: "/documents" },
+      { label: "Reports", href: "/reports" },
       { label: "AI Copilot", href: "/ai-copilot" },
     ],
   },
   {
     title: "Resources",
     items: [
-      { label: "Docs", href: "/docs" },
+      { label: "Documentation", href: "/docs" },
+      { label: "Learn", href: "/learn" },
+      { label: "AI Academy", href: "/ai-academy" },
       { label: "Blog", href: "/blog" },
+      { label: "Changelog", href: "/changelog" },
       { label: "Security", href: "/security" },
     ],
   },
@@ -47,6 +52,8 @@ export const footerNavigation: NavigationGroup[] = [
     items: [
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Why EstateIQ", href: "/why-estateiq" },
     ],
   },
   {

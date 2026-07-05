@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { AiCopilotSection } from "@/components/marketing/AiCopilotSection";
 import { DesignedForLandlordsSection } from "@/components/marketing/DesignedForLandlordsSection";
 import { DocumentIntelligenceSection } from "@/components/marketing/DocumentIntelligenceSection";
@@ -9,6 +11,9 @@ import { ProblemSection } from "@/components/marketing/ProblemSection";
 import { ProductPillarsSection } from "@/components/marketing/ProductPillarsSection";
 import { TrustSection } from "@/components/marketing/TrustSection";
 import { WhyEstateIQSection } from "@/components/marketing/WhyEstateIQSection";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("/");
 
 export default function Home() {
   return (

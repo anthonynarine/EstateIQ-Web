@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
@@ -5,7 +7,10 @@ import { FeatureGrid } from "@/components/product/FeatureGrid";
 import { LedgerModelDiagram } from "@/components/product/LedgerModelDiagram";
 import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
+import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = createPageMetadata("/ledger");
 
 const ledgerParts = [
   {
