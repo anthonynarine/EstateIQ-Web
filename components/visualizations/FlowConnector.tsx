@@ -7,18 +7,9 @@ type FlowConnectorProps = {
   variant?: "solid" | "dotted" | "glow";
 };
 
-const toneClasses = {
-  brand: "border-brand-cyan text-brand-cyan",
-  success: "border-brand-emerald text-brand-emerald",
-  ai: "border-brand-violet text-brand-violet",
-  warning: "border-brand-amber text-brand-amber",
-  neutral: "border-border-strong text-text-muted",
-};
-
 export function FlowConnector({
   className,
   direction = "horizontal",
-  tone = "brand",
   variant = "solid",
 }: FlowConnectorProps) {
   const isVertical = direction === "vertical";
@@ -34,24 +25,21 @@ export function FlowConnector({
     >
       <span
         className={cn(
-          "relative block",
+          "relative block border-white/20",
           isVertical ? "h-6 border-l" : "w-full border-t",
           variant === "dotted" && "border-dotted",
-          variant === "glow" && "shadow-glow-violet",
-          toneClasses[tone],
+          variant === "glow" && "shadow-[0_0_6px_rgba(167,139,250,0.4)]",
         )}
       >
         <span
           className={cn(
-            "absolute size-2 rotate-45 border-r border-t",
+            "absolute size-2 rotate-45 border-r border-t border-white/20",
             isVertical
               ? "-bottom-0.5 left-1/2 -translate-x-1/2 translate-y-px rotate-[135deg]"
               : "right-0 top-1/2 -translate-x-px -translate-y-1/2 rotate-45",
-            toneClasses[tone],
           )}
         />
       </span>
     </div>
   );
 }
-

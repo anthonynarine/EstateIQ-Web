@@ -57,11 +57,7 @@ export function ConnectedSystemMap() {
       title="One place for the rental business to make sense."
       tone="brand"
     >
-      <ol className="relative grid gap-3 md:grid-cols-3">
-        <span
-          aria-hidden="true"
-          className="absolute left-6 top-6 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-brand-cyan/50 via-brand-emerald/45 to-brand-violet/50 md:left-1/2 md:top-1/2 md:block md:h-px md:w-[calc(100%-3rem)] md:-translate-x-1/2 md:-translate-y-1/2"
-        />
+      <ol className="grid gap-3 md:grid-cols-3">
         {systemNodes.map((node, index) => (
           <li className="relative" key={node.title}>
             <SystemNode

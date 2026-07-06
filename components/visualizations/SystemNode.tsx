@@ -20,13 +20,22 @@ type SystemNodeProps = {
   tone?: SystemNodeTone;
 };
 
-const toneClasses = {
-  brand: "border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan",
-  success: "border-brand-emerald/30 bg-brand-emerald/10 text-brand-emerald",
-  ai: "border-brand-violet/30 bg-brand-violet/10 text-brand-violet",
-  warning: "border-brand-amber/30 bg-brand-amber/10 text-brand-amber",
-  danger: "border-brand-rose/30 bg-brand-rose/10 text-brand-rose",
-  neutral: "border-border-soft bg-surface text-text-secondary",
+const toneBorderBg: Record<SystemNodeTone, string> = {
+  brand:   "border-brand-cyan/30   bg-brand-cyan/[0.08]",
+  success: "border-brand-emerald/35 bg-brand-emerald/[0.08]",
+  ai:      "border-brand-violet/30  bg-brand-violet/[0.08]",
+  warning: "border-brand-amber/30   bg-brand-amber/[0.08]",
+  danger:  "border-brand-rose/30    bg-brand-rose/[0.08]",
+  neutral: "border-border           bg-surface",
+};
+
+const toneText: Record<SystemNodeTone, string> = {
+  brand:   "text-brand-cyan",
+  success: "text-brand-emerald",
+  ai:      "text-brand-violet",
+  warning: "text-brand-amber",
+  danger:  "text-brand-rose",
+  neutral: "text-text-secondary",
 };
 
 export function SystemNode({
@@ -38,29 +47,37 @@ export function SystemNode({
   title,
   tone = "neutral",
 }: SystemNodeProps) {
+  const label = eyebrow ?? (index ? String(index) : undefined);
+
   return (
     <div
       className={cn(
-        "relative h-full rounded-2xl border bg-background-app-panel/80 p-4 shadow-card-soft",
-        "transition duration-200 hover:border-border-strong hover:bg-surface-elevated",
+        "relative h-full rounded-2xl border px-4 py-4",
+        toneBorderBg[tone],
         className,
       )}
     >
-      <div className="flex items-center justify-between gap-3">
-        <span
+      {label && (
+        <p
           className={cn(
-            "inline-flex min-h-7 items-center rounded-button border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em]",
-            toneClasses[tone],
+            "font-mono text-[10px] font-semibold uppercase tracking-[0.12em]",
+            toneText[tone],
           )}
         >
-          {eyebrow ?? (index ? String(index).padStart(2, "0") : "Node")}
-        </span>
-      </div>
-      <h4 className="mt-4 text-base font-semibold text-text-primary">
+          {label}
+        </p>
+      )}
+      <h4
+        className={cn(
+          "text-sm font-semibold",
+          label ? "mt-2" : "mt-0",
+          toneText[tone],
+        )}
+      >
         {title}
       </h4>
       {description && (
-        <p className="mt-2 text-sm leading-6 text-text-secondary">
+        <p className="mt-1.5 text-xs leading-5 text-text-muted">
           {description}
         </p>
       )}
@@ -68,4 +85,3 @@ export function SystemNode({
     </div>
   );
 }
-

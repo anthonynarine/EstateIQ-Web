@@ -12,7 +12,7 @@ export type NavigationGroup = {
 };
 
 export const mainNavigation: NavigationItem[] = [
-  { label: "Product", href: "/product" },
+  { label: "Product", href: "/#pillars" },
   { label: "Features", href: "/features" },
   { label: "Ledger", href: "/ledger" },
   { label: "AI Copilot", href: "/ai-copilot" },
@@ -30,7 +30,7 @@ export const footerNavigation: NavigationGroup[] = [
   {
     title: "Product",
     items: [
-      { label: "Product", href: "/product" },
+      { label: "Product", href: "/" },
       { label: "Features", href: "/features" },
       { label: "Ledger", href: "/ledger" },
       { label: "Documents", href: "/documents" },
