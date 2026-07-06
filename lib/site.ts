@@ -9,8 +9,7 @@ const registerUrl =
   process.env.NEXT_PUBLIC_APP_REGISTER_URL ?? appRoute("/register");
 const loginUrl = process.env.NEXT_PUBLIC_APP_LOGIN_URL ?? appRoute("/login");
 const demoUrl =
-  process.env.NEXT_PUBLIC_APP_DEMO_URL ??
-  "https://propertyledger.org/dashboard?org=demo-portfolio";
+  process.env.NEXT_PUBLIC_APP_DEMO_URL ?? appRoute("/demo");
 
 export const siteConfig = {
   name: "EstateIQ",
