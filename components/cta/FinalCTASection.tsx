@@ -23,7 +23,7 @@ export function FinalCTASection({
   title = "Ready to run your rental business from one clearer system?",
 }: FinalCTASectionProps) {
   return (
-    <section className="py-16 sm:py-20 lg:py-24">
+    <section className="scroll-mt-20 py-16 sm:py-20 lg:py-24" id="get-started">
       <Container>
         <Card className="overflow-hidden p-6 sm:p-10" variant="glass">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">

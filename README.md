@@ -94,16 +94,16 @@ must point to the live EstateIQ application through centralized public
 environment variables:
 
 ```text
-NEXT_PUBLIC_APP_URL=https://app.estateiq.com
-NEXT_PUBLIC_APP_REGISTER_URL=https://app.estateiq.com/register
-NEXT_PUBLIC_APP_LOGIN_URL=https://app.estateiq.com/login
+NEXT_PUBLIC_APP_URL=https://propertyledger.org
+NEXT_PUBLIC_APP_REGISTER_URL=https://propertyledger.org/register
+NEXT_PUBLIC_APP_LOGIN_URL=https://propertyledger.org/login
 NEXT_PUBLIC_APP_DEMO_URL=https://propertyledger.org/dashboard?org=demo-portfolio
 ```
 
-`NEXT_PUBLIC_APP_REGISTER_URL` powers “Start Your Free Account”, “Join the
-beta”, “Get Started”, “Create Account”, “Start Free”, and “Start Trial” CTAs.
+`NEXT_PUBLIC_APP_REGISTER_URL` powers “Get Started”, “Join the beta”,
+“Create Account”, “Start Free”, and “Start Trial” CTAs.
 `NEXT_PUBLIC_APP_LOGIN_URL` powers “Login” and “Sign In” CTAs.
-`NEXT_PUBLIC_APP_DEMO_URL` powers “Explore the Live Demo” and other demo CTAs.
+`NEXT_PUBLIC_APP_DEMO_URL` powers “See how it works” and other demo CTAs.
 Contact, learn-more, product, and feature-discovery links should remain internal
 website routes unless they explicitly start account creation or demo access.
 

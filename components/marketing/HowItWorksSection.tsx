@@ -1,48 +1,30 @@
 import { Section } from "@/components/ui/Section";
-import { FlowDiagram } from "@/components/visualizations/FlowDiagram";
-
-const steps = [
-  {
-    title: "Portfolio",
-    description: "Buildings, units, leases, and rent context.",
-    tone: "brand" as const,
-  },
-  {
-    title: "Financial records",
-    description: "Charges, payments, allocations, and expenses.",
-    tone: "success" as const,
-  },
-  {
-    title: "Connected documents",
-    description: "Supported evidence reviewed beside the records it explains.",
-    tone: "ai" as const,
-  },
-  {
-    title: "Reports",
-    description: "Traceable views of performance and attention areas.",
-    tone: "brand" as const,
-  },
-  {
-    title: "Grounded AI",
-    description: "Plain-English explanations based on EstateIQ records.",
-    tone: "ai" as const,
-  },
-];
+import { SystemFlowSvg } from "@/components/visualizations/SystemFlowSvg";
 
 export function HowItWorksSection() {
   return (
     <Section
-      eyebrow="How EstateIQ works"
-      title="How does it all fit together?"
-      description="EstateIQ starts with the portfolio, connects the records that explain the money, then turns those records into reports and AI explanations you can trust."
+      description="One structure, from the property down to the answer your AI gives you. Nothing floats on its own."
+      eyebrow="How it connects"
+      id="how-it-works"
+      title="Every number traces back to a real record."
     >
-      <FlowDiagram
-        aria-label="EstateIQ homepage flow from portfolio records to grounded AI"
-        description="Each layer gives the next one better context."
-        steps={steps}
-        title="Portfolio records become reports, explanations, and better decisions."
-        tone="brand"
-      />
+      {/*
+       * overflow-x-auto on the outer div lets the diagram scroll
+       * horizontally on small screens instead of collapsing to
+       * illegibility. min-w keeps the SVG text readable at all sizes.
+       */}
+      <div className="overflow-x-auto">
+        <div className="min-w-[680px]">
+          <div className="relative rounded-2xl border border-border bg-gradient-to-b from-background-app-panel to-background-app-soft px-8 py-10">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-2xl bg-dot-grid opacity-[0.06]"
+            />
+            <SystemFlowSvg />
+          </div>
+        </div>
+      </div>
     </Section>
   );
 }

@@ -1,5 +1,5 @@
 const appUrl =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://app.estateiq.com";
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://propertyledger.org";
 
 function appRoute(path: string) {
   return new URL(path, appUrl).toString();
@@ -23,15 +23,15 @@ export const siteConfig = {
   loginUrl,
   demoUrl,
   primaryCta: {
-    label: "Start Your Free Account",
+    label: "Get Started",
     href: registerUrl,
   },
   secondaryCta: {
-    label: "Explore the Live Demo",
+    label: "See how it works",
     href: demoUrl,
   },
   demoCta: {
-    label: "Explore the Live Demo",
+    label: "See how it works",
     href: demoUrl,
   },
   login: {

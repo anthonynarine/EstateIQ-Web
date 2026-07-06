@@ -1,43 +1,41 @@
-import { cn } from "@/lib/cn";
+"use client";
 
 const flow = [
   {
     title: "Portfolio",
     description: "Buildings, units, leases, and ownership context.",
-    tone: "brand" as const,
+    sectionId: "how-it-works",
   },
   {
     title: "Financial records",
     description: "Charges, payments, allocations, and expenses.",
-    tone: "success" as const,
+    sectionId: "ledger",
   },
   {
     title: "Connected documents",
     description: "Supported evidence like leases, receipts, invoices, and statements.",
-    tone: "ai" as const,
+    sectionId: "documents",
   },
   {
     title: "Reports",
     description: "Traceable views of cash flow, balances, and attention areas.",
-    tone: "brand" as const,
+    sectionId: "pillars",
   },
   {
     title: "Grounded AI",
     description: "Plain-English explanations based on EstateIQ records.",
-    tone: "ai" as const,
+    sectionId: "ai-copilot",
   },
   {
     title: "Better decisions",
     description: "Less searching, more confidence about what changed.",
-    tone: "success" as const,
+    sectionId: "get-started",
   },
 ];
 
-const toneClasses = {
-  brand: "border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan",
-  success: "border-brand-emerald/30 bg-brand-emerald/10 text-brand-emerald",
-  ai: "border-brand-violet/30 bg-brand-violet/10 text-brand-violet",
-};
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 export function HomepageSystemMap() {
   return (
@@ -64,14 +62,13 @@ export function HomepageSystemMap() {
 
         <ol className="mt-6 grid gap-3">
           {flow.map((item, index) => (
-            <li className="relative grid gap-3" key={item.title}>
-              <div className="grid grid-cols-[auto_1fr] gap-3 rounded-2xl border border-border-soft bg-background-app-panel/80 p-3 transition duration-200 hover:border-border-strong hover:bg-surface-elevated">
-                <span
-                  className={cn(
-                    "flex size-8 items-center justify-center rounded-button border text-xs font-semibold",
-                    toneClasses[item.tone],
-                  )}
-                >
+            <li key={item.title}>
+              <button
+                className="grid w-full grid-cols-[auto_1fr] gap-3 rounded-2xl border border-border-soft bg-background-app-panel/80 p-3 text-left transition duration-200 hover:border-brand-cyan/20 hover:bg-surface-elevated"
+                onClick={() => scrollTo(item.sectionId)}
+                type="button"
+              >
+                <span className="flex size-8 items-center justify-center rounded-full border border-brand-cyan/30 bg-white/[0.03] font-mono text-xs text-brand-cyan">
                   {index + 1}
                 </span>
                 <div>
@@ -82,13 +79,7 @@ export function HomepageSystemMap() {
                     {item.description}
                   </p>
                 </div>
-              </div>
-              {index < flow.length - 1 && (
-                <span
-                  aria-hidden="true"
-                  className="mx-4 h-4 w-px bg-gradient-to-b from-brand-cyan/60 to-brand-violet/60 motion-safe:animate-pulse motion-reduce:animate-none"
-                />
-              )}
+              </button>
             </li>
           ))}
         </ol>

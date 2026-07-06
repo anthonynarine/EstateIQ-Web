@@ -15,6 +15,8 @@ EstateIQ is the product name. "The Financial Operating System for Small Landlord
 - [07 System Visualization Language](./07-system-visualization-language.md): rules for system maps, flows, layers, evidence chains, and operating-system diagrams.
 - [08 Copywriting Progressive Disclosure](./08-copywriting-progressive-disclosure.md): rules for owner-first copy that introduces technical architecture only after the practical value is clear.
 - [10 Conversational Product Storytelling](./10-conversational-product-storytelling.md): rules for writing as if EstateIQ is being explained directly to a small landlord.
+- [11 Emotional Experience Framework](./11-emotional-experience-framework.md): the emotional sequence visitors move through, the subconscious questions each page must answer, and the page-by-page emotional design targets.
+- [12 Website Psychology Manifesto](./12-website-psychology-manifesto.md): how humans make decisions, how trust is earned, how understanding is built, and how EstateIQ should make people feel at every stage of their experience.
 
 ## Canonical Brand
 

@@ -6,8 +6,8 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border-soft bg-background-app-panel/70">
-      <Container className="py-12 sm:py-16 lg:py-20">
+    <footer>
+      <Container className="border-t border-border-soft py-12 sm:py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1.6fr] lg:gap-16">
           <div className="max-w-md">
             <Link

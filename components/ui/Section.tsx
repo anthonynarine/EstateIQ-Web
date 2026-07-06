@@ -18,8 +18,8 @@ type SectionProps = {
 
 const backgroundClasses = {
   default: "",
-  soft: "bg-background-app-soft/55",
-  panel: "bg-background-app-panel",
+  soft: "rounded-panel bg-background-app-soft/55",
+  panel: "rounded-panel bg-background-app-panel",
   grid: "hero-grid",
 };
 

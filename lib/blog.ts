@@ -55,8 +55,9 @@ export const danaArticles = [
     status: "Published",
   },
   {
-    title: "Introducing DANA",
-    subtitle: "How an AI architecture emerged while building EstateIQ.",
+    title: "Meet DANA.",
+    subtitle:
+      "The intelligence layer behind EstateIQ — built on verified records, not assumptions.",
     category: "Architecture",
     series: "DANA",
     readingTime: "5 min read",
@@ -76,7 +77,7 @@ export const danaArticles = [
     status: "Published",
   },
   {
-    title: "The Capability Layer: Where Application Intelligence Lives",
+    title: "The Capability Layer",
     subtitle:
       "Why modern AI-native applications should organize around capabilities instead of prompts.",
     category: "Architecture",

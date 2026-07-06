@@ -46,7 +46,7 @@ export function FlowConnector({
             "absolute size-2 rotate-45 border-r border-t",
             isVertical
               ? "-bottom-0.5 left-1/2 -translate-x-1/2 translate-y-px rotate-[135deg]"
-              : "-right-0.5 top-1/2 -translate-y-1/2 rotate-45",
+              : "right-0 top-1/2 -translate-x-px -translate-y-1/2 rotate-45",
             toneClasses[tone],
           )}
         />

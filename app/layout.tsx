@@ -28,11 +28,13 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="app-shell flex min-h-full flex-col">
+      <body className="app-shell">
         <StructuredData data={structuredData} />
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        <div className="mx-auto flex min-h-[100dvh] w-full max-w-[1280px] flex-col overflow-hidden rounded-3xl">
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

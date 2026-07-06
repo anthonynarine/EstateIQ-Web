@@ -13,15 +13,14 @@ export function HeroSection() {
       <Container>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-center">
           <div className="max-w-3xl">
-            <Badge variant="brand">Financial OS for small landlords</Badge>
+            <Badge variant="brand">For independent landlords · 1–50 units</Badge>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
-              Run your rental business on software that understands it.
+              Run your rental portfolio on software that understands it.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg">
-              EstateIQ brings your buildings, money records, supported
-              documents, reports, and AI together in one operating system. From
-              monthly cash flow to mortgage statements, everything works
-              together so you spend less time searching and more time deciding.
+              EstateIQ is the financial operating system built for small
+              landlords — ledger-backed records, connected documents, and AI
+              that only answers from your own data.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={siteConfig.primaryCta.href} size="lg">

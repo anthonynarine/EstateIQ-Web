@@ -14,6 +14,7 @@ export function DocumentIntelligenceSection() {
     <Section
       background="soft"
       eyebrow="Document intelligence"
+      id="documents"
       title="Your documents should not just be stored. They should be understood."
       description="EstateIQ helps connect supported documents to the properties, leases, expenses, and reports they explain. User confirmation remains the boundary before document context becomes a financial record."
     >

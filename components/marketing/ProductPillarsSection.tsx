@@ -40,6 +40,7 @@ export function ProductPillarsSection() {
     <Section
       background="soft"
       eyebrow="Product pillars"
+      id="pillars"
       title="What can you actually manage in EstateIQ?"
       description="The product is organized around the work small landlords already do: managing properties, recording money, connecting evidence, reading reports, and asking better questions."
     >
