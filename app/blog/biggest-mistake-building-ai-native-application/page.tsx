@@ -1,3 +1,12 @@
+// # Filename: src/app/blog/biggest-mistake-building-ai-native-application/page.tsx
+//
+// Summary:
+// This page renders the DANA/EstateIQ blog article about the biggest architecture
+// mistake discovered while building an AI-native application. It explains why
+// deterministic business truth should live in the application, while the
+// language model acts as an explanation layer on top of verified records,
+// permissions, validations, and business rules.
+
 import type { Metadata } from "next";
 
 import { ArticleLayout } from "@/components/blog/ArticleLayout";
@@ -21,22 +30,26 @@ export default function BiggestMistakeBuildingAiNativeApplicationPage() {
           EstateIQ.
         </em>
       </p>
+
       <p>
-        When I started building EstateIQ, I thought the AI would become the
-        center of the application.
+        When I first started building EstateIQ with large language models, I
+        didn&apos;t have a set architecture in mind.
       </p>
+      <p>
+        I wasn&apos;t trying to invent a framework. I was trying to build a real
+        product, solve real product problems, and understand where AI actually
+        belonged inside business software.
+      </p>
+      <p>At first, the natural instinct was to put the AI in the center.</p>
       <p>It seemed obvious.</p>
       <p>The user would ask a question.</p>
       <p>The AI would understand the request.</p>
       <p>The AI would retrieve the data.</p>
       <p>The AI would generate the answer.</p>
-      <p>
-        If you&apos;ve built with large language models, you&apos;ve probably had
-        the same instinct. It&apos;s a natural way to think about conversational
-        software.
-      </p>
-      <p>For a while, I did too.</p>
-      <p>Then the application started growing.</p>
+      <p>It felt simple.</p>
+      <p>It felt powerful.</p>
+      <p>For a while, I thought that was the architecture.</p>
+      <p>Then EstateIQ started growing.</p>
 
       <h2>EstateIQ became smarter</h2>
       <p>
@@ -63,10 +76,12 @@ export default function BiggestMistakeBuildingAiNativeApplicationPage() {
 
       <h2>I was duplicating business logic</h2>
       <p>
-        Without realizing it, I had started creating two systems.
+        Without realizing it, I had started creating two systems for the same
+        product.
       </p>
       <p>One system lived in Python.</p>
       <p>The other was slowly creeping into prompts.</p>
+      <p>That is a dangerous place for business software to end up.</p>
       <p>Imagine changing the rules for calculating delinquent rent.</p>
       <p>Where should that change happen?</p>
       <p>In the service layer?</p>
@@ -78,13 +93,17 @@ export default function BiggestMistakeBuildingAiNativeApplicationPage() {
       </p>
       <p>Business rules should have one home.</p>
       <p>Not two.</p>
+      <p>
+        The application should own the rule. The AI should explain the result of
+        the rule.
+      </p>
 
       <h2>The architecture was backwards</h2>
       <p>
         The more I worked on EstateIQ, the more I realized I had accidentally
         put the wrong component at the center.
       </p>
-      <p>My mental model looked like this:</p>
+      <p>My early mental model looked like this:</p>
       <CodeDiagram>{`User
    ↓
 AI
@@ -97,11 +116,12 @@ Application`}</CodeDiagram>
       <p>The application already knew how to enforce permissions.</p>
       <p>The application already knew how to generate reports.</p>
       <p>The AI didn&apos;t need to rediscover that knowledge.</p>
+      <p>It needed a safe way to use it.</p>
 
       <h2>Flipping the architecture</h2>
-      <p>Eventually I inverted the entire system.</p>
+      <p>Eventually, I inverted the system.</p>
       <p>Instead of asking the AI to understand the application...</p>
-      <p>I asked the application to understand itself.</p>
+      <p>I asked the application to expose what it already understood.</p>
       <p>The architecture became:</p>
       <CodeDiagram>{`User
    ↓
@@ -109,11 +129,14 @@ Application
    ↓
 Business Logic
    ↓
-AI`}</CodeDiagram>
-      <p>That single decision simplified almost everything.</p>
+Verified Result
+   ↓
+AI Explanation`}</CodeDiagram>
+      <p>That single change simplified almost everything.</p>
       <p>Business logic stayed in code.</p>
       <p>Calculations stayed deterministic.</p>
       <p>Permissions stayed explicit.</p>
+      <p>Records stayed traceable.</p>
       <p>The AI became responsible for something it does exceptionally well:</p>
       <p>Helping people understand complex information.</p>
 
@@ -138,7 +161,7 @@ AI`}</CodeDiagram>
       <blockquote>&quot;Does the application already know this?&quot;</blockquote>
       <p>If the answer was yes, the AI could explain it.</p>
       <p>
-        If the answer was no, then the application-not the model-needed a new
+        If the answer was no, then the application, not the model, needed a new
         capability.
       </p>
 
@@ -146,6 +169,7 @@ AI`}</CodeDiagram>
       <p>One unexpected benefit was that the system became easier to test.</p>
       <p>Every financial calculation remained deterministic.</p>
       <p>Every business rule remained version-controlled.</p>
+      <p>Every permission check remained explicit.</p>
       <p>Every report could be traced back to underlying records.</p>
       <p>
         The conversational experience improved because it was built on top of
@@ -154,6 +178,24 @@ AI`}</CodeDiagram>
       <p>The AI wasn&apos;t replacing the application.</p>
       <p>
         It was exposing the application&apos;s capabilities through conversation.
+      </p>
+
+      <h2>The lesson</h2>
+      <p>
+        The biggest mistake I made was thinking the AI should be the center of
+        the product.
+      </p>
+      <p>It shouldn&apos;t.</p>
+      <p>The application should be the center.</p>
+      <p>The system of record should be the center.</p>
+      <p>The business logic should be the center.</p>
+      <p>
+        AI belongs beside those things, helping users ask better questions,
+        understand verified answers, and move through the product faster.
+      </p>
+      <p>
+        That is the architecture that emerged naturally while building EstateIQ:
+        the application owns the truth, and the AI explains it.
       </p>
 
       <h2>The next problem</h2>

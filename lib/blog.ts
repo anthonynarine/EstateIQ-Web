@@ -55,9 +55,9 @@ export const danaArticles = [
     status: "Published",
   },
   {
-    title: "Meet DANA.",
+    title: "Meet DANA: Deterministic AI-Native Architecture",
     subtitle:
-      "The intelligence layer behind EstateIQ — built on verified records, not assumptions.",
+      " The architecture behind EstateIQ’s intelligence layer — built on verified records, deterministic business logic, and answers the system can trust.",
     category: "Architecture",
     series: "DANA",
     readingTime: "5 min read",

@@ -18,8 +18,8 @@ export default function IntroducingDanaPage() {
       </p>
       <p>I was trying to solve a practical problem.</p>
       <p>
-        How do you build an AI-native financial application that people can
-        actually trust?
+        How do you build an AI-native financial application that can be
+        trusted?
       </p>
       <p>At first, I assumed the answer was better prompts.</p>
       <p>Then I thought it was better language models.</p>

@@ -35,8 +35,7 @@ export default function WhyAiWrappersArentEnoughPage() {
         remarkably capable.
       </p>
       <p>
-        But while building <strong>EstateIQ</strong>, an AI-native Financial
-        Operating System for small landlords, I discovered something that
+        But while building <strong>EstateIQ</strong>, I discovered something that
         fundamentally changed how I think about AI architecture.
       </p>
       <p>
@@ -71,8 +70,21 @@ Answer`}</CodeDiagram>
         Those systems already contain structured information, business rules,
         permissions, validations, and years of accumulated domain knowledge.
       </p>
-      <p>A language model doesn&apos;t replace those things.</p>
-      <p>It sits beside them.</p>
+      <p>
+        They contain <strong>truth</strong>.
+      </p>
+      <p>
+        And truth should never be guessed, invented, or assumed by AI.
+      </p>
+      <p>
+        That is the danger of bolting AI onto business software after the fact:
+        the model can sound right without being grounded in what is actually
+        true.
+      </p>
+      <p>
+        A language model doesn&apos;t replace the system of record.
+      </p>
+      <p>It sits beside it.</p>
 
       <h2>The question that changed everything</h2>
       <p>

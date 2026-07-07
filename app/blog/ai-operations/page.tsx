@@ -49,7 +49,7 @@ export default function AiOperationsPage() {
       <p>It needs coverage metrics.</p>
       <p>
         It needs a way to understand what the system can answer, what it cannot
-        answer, and where it is improving.
+        answer, and where it is improving a sourcde of truth. 
       </p>
       <p>That operational layer became part of DANA.</p>
 

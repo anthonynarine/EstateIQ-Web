@@ -16,7 +16,7 @@ export default function AiShouldExplainYourSoftwarePage() {
     <ArticleLayout article={article} {...navigation}>
       <p>
         <em>
-          The most important architectural decision we made while building
+          The most important architectural decision I made while building
           EstateIQ.
         </em>
       </p>
