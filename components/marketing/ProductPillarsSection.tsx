@@ -1,39 +1,149 @@
-import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
+import { cn } from "@/lib/cn";
 import { Section } from "@/components/ui/Section";
 
-const pillars = [
+type Tone = "brand" | "success" | "warning";
+
+// ── Data ──────────────────────────────────────────────────────────────────────
+
+const structureTier = [
   {
-    title: "Manage your portfolio",
-    body: "Structure buildings, units, tenants, and leases so every record has a clear home.",
-    variant: "brand" as const,
+    label: "Buildings",
+    description: "Portfolio structure, addresses, and ownership context.",
+    tone: "brand" as Tone,
   },
   {
-    title: "Know what is owed",
-    body: "Track charges, payments, and allocations so balances stay tied to real activity.",
-    variant: "success" as const,
+    label: "Units",
+    description: "Individual rentable spaces connected to each property.",
+    tone: "brand" as Tone,
   },
   {
-    title: "Understand your spending",
-    body: "Capture operating spend with category, vendor, property, unit, lease, and document context.",
-    variant: "neutral" as const,
-  },
-  {
-    title: "Turn documents into evidence",
-    body: "Organize supported documents around the records they explain and review context before it affects financial records.",
-    variant: "warning" as const,
-  },
-  {
-    title: "Trust your reports",
-    body: "See expected rent, collected cash, expenses, net cash flow, occupancy, and attention areas from recorded activity.",
-    variant: "brand" as const,
-  },
-  {
-    title: "Ask plain-English questions",
-    body: "Use AI to explain recorded activity, reports, and supported documents without turning AI into the financial record.",
-    variant: "ai" as const,
+    label: "Leases",
+    description: "Tenant agreements that define rent schedules and occupancy.",
+    tone: "brand" as Tone,
+    detail: "occupancy · rent terms",
   },
 ];
+
+const ledgerNode = {
+  label: "Ledger",
+  description:
+    "Every charge and payment recorded. The balance is always derived — never stored as a flag.",
+  tone: "success" as Tone,
+  detail: "charges · payments · allocations",
+};
+
+const financialSiblings = [
+  {
+    label: "Revenue",
+    description:
+      "Expected rent, collected amounts, outstanding balances, and collection rate — derived from ledger allocations.",
+    tone: "success" as Tone,
+    detail: "expected · collected · rate",
+  },
+  {
+    label: "Expenses",
+    description: "Operating costs with vendor, category, and property context.",
+    tone: "warning" as Tone,
+    detail: "operating costs · vendor",
+  },
+];
+
+const reportsNode = {
+  label: "Reports",
+  description:
+    "NOI, cash flow, occupancy, and delinquency — derived from the entire financial stack.",
+  tone: "brand" as Tone,
+  detail: "NOI · cash flow · occupancy",
+};
+
+// ── Style maps ────────────────────────────────────────────────────────────────
+
+const dotClasses: Record<Tone | "ai", string> = {
+  brand: "bg-brand-cyan shadow-[0_0_6px_rgba(34,211,238,0.65)]",
+  success: "bg-brand-emerald shadow-[0_0_6px_rgba(52,211,153,0.65)]",
+  ai: "bg-brand-violet shadow-[0_0_6px_rgba(167,139,250,0.65)]",
+  warning: "bg-brand-amber shadow-[0_0_6px_rgba(251,191,36,0.65)]",
+};
+
+const labelClasses: Record<Tone, string> = {
+  brand: "text-brand-cyan",
+  success: "text-brand-emerald",
+  warning: "text-brand-amber",
+};
+
+// ── Sub-components ────────────────────────────────────────────────────────────
+
+function TierRow({
+  description,
+  detail,
+  label,
+  tone,
+}: {
+  description: string;
+  detail?: string;
+  label: string;
+  tone: Tone;
+}) {
+  return (
+    <div className="flex items-start gap-3 px-4 py-3.5">
+      <div
+        className={cn(
+          "mt-[5px] size-2.5 shrink-0 rounded-full",
+          dotClasses[tone],
+        )}
+      />
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+          <span className={cn("text-sm font-semibold", labelClasses[tone])}>
+            {label}
+          </span>
+          {detail && (
+            <span className="font-mono text-[10px] tracking-wide text-text-faint">
+              {detail}
+            </span>
+          )}
+        </div>
+        <p className="mt-1 text-xs leading-5 text-text-secondary">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function FlowArrow() {
+  return (
+    <div aria-hidden="true" className="flex justify-center py-1">
+      <svg
+        className="text-border-strong"
+        fill="none"
+        height="18"
+        viewBox="0 0 12 18"
+        width="12"
+      >
+        <line
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="1.5"
+          x1="6"
+          x2="6"
+          y1="0"
+          y2="12"
+        />
+        <polyline
+          fill="none"
+          points="2,9 6,14 10,9"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
+        />
+      </svg>
+    </div>
+  );
+}
+
+// ── Component ─────────────────────────────────────────────────────────────────
 
 export function ProductPillarsSection() {
   return (
@@ -41,18 +151,163 @@ export function ProductPillarsSection() {
       background="soft"
       eyebrow="Product pillars"
       id="pillars"
-      title="What can you actually manage in EstateIQ?"
-      description="The product is organized around the work small landlords already do: managing properties, recording money, connecting evidence, reading reports, and asking better questions."
+      title="One place for your rental business to make sense."
+      description="EstateIQ is organized around the records small landlords actually manage — with AI and document intelligence built on top to explain everything inside it."
     >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {pillars.map((pillar) => (
-          <Card className="p-5" interactive key={pillar.title} variant="glass">
-            <Badge variant={pillar.variant}>{pillar.title}</Badge>
-            <p className="mt-4 text-sm leading-6 text-text-secondary">
-              {pillar.body}
+      <div className="relative overflow-hidden rounded-2xl border border-border bg-background-app-panel/80 p-6 shadow-card-soft sm:p-8 lg:grid lg:grid-cols-[3fr_1px_2fr]">
+
+        {/* Dot-grid texture */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-2xl bg-dot-grid opacity-[0.05]"
+        />
+
+        {/* ── Three-tier tower ── */}
+        <div className="relative flex flex-col lg:pr-8">
+
+          {/* Tier 1 — Structure */}
+          <div className="overflow-hidden rounded-xl border border-border-soft">
+            <div className="border-b border-border-soft bg-background-app-panel/60 px-4 py-2">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-faint">
+                Structure
+              </p>
+            </div>
+            {structureTier.map((node, i) => (
+              <div
+                className={cn(i > 0 && "border-t border-border-soft")}
+                key={node.label}
+              >
+                <TierRow {...node} />
+              </div>
+            ))}
+          </div>
+
+          <FlowArrow />
+
+          {/* Tier 2 — Financial Core */}
+          <div className="overflow-hidden rounded-xl border border-brand-emerald/30 bg-brand-emerald/[0.04] shadow-[0_0_28px_rgba(52,211,153,0.1)]">
+            <div className="border-b border-brand-emerald/20 bg-brand-emerald/[0.08] px-4 py-2">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-emerald/70">
+                Financial core
+              </p>
+            </div>
+            {/* Ledger — full width */}
+            <div className="border-b border-brand-emerald/15">
+              <TierRow {...ledgerNode} />
+            </div>
+            {/* Revenue + Expenses — side by side */}
+            <div className="grid grid-cols-2 divide-x divide-brand-emerald/15">
+              {financialSiblings.map((node) => (
+                <TierRow key={node.label} {...node} />
+              ))}
+            </div>
+          </div>
+
+          <FlowArrow />
+
+          {/* Tier 3 — Output */}
+          <div className="overflow-hidden rounded-xl border border-border-soft">
+            <div className="border-b border-border-soft bg-background-app-panel/60 px-4 py-2">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-faint">
+                Output
+              </p>
+            </div>
+            <TierRow {...reportsNode} />
+          </div>
+
+        </div>
+
+        {/* ── Divider ── */}
+        <div
+          aria-hidden="true"
+          className="relative mx-0 my-8 h-px bg-border-soft lg:mx-0 lg:my-0 lg:h-auto lg:w-px"
+        />
+
+        {/* ── Intelligence layer ── */}
+        <div className="relative flex flex-col gap-4 lg:pl-8">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-faint">
+            Intelligence layer
+          </p>
+
+          {/* AI Copilot */}
+          <div className="relative overflow-hidden rounded-2xl border border-brand-violet/25 bg-brand-violet/[0.06] p-5">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-radial-violet-glow opacity-25"
+            />
+            <div className="relative">
+              <div className="flex items-center gap-2">
+                <div
+                  className={cn(
+                    "size-[9px] shrink-0 rounded-full",
+                    dotClasses.ai,
+                  )}
+                />
+                <p className="text-sm font-semibold text-brand-violet">
+                  AI Copilot
+                </p>
+              </div>
+              <p className="mt-0.5 font-mono text-[10px] text-text-faint">
+                reads from the entire stack
+              </p>
+              <p className="mt-3 text-xs leading-[1.65] text-text-secondary">
+                Ask plain-English questions about your portfolio. Answers come
+                from your ledger, revenue, expenses, and documents — not
+                assumptions.
+              </p>
+              <div className="mt-3.5 flex flex-col gap-1.5">
+                {[
+                  "What's my NOI this quarter?",
+                  "Which tenants have outstanding balances?",
+                ].map((q) => (
+                  <div
+                    className="rounded-lg border border-brand-violet/15 bg-brand-violet/[0.06] px-3 py-2"
+                    key={q}
+                  >
+                    <p className="text-[11px] leading-snug text-text-secondary">
+                      &ldquo;{q}&rdquo;
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Document Intelligence */}
+          <div className="relative overflow-hidden rounded-2xl border border-brand-amber/25 bg-brand-amber/[0.05] p-5">
+            <div className="flex items-center gap-2">
+              <div
+                className={cn(
+                  "size-[9px] shrink-0 rounded-full",
+                  dotClasses.warning,
+                )}
+              />
+              <p className="text-sm font-semibold text-brand-amber">
+                Document Intelligence
+              </p>
+            </div>
+            <p className="mt-0.5 font-mono text-[10px] text-text-faint">
+              connects to leases · expenses · buildings
             </p>
-          </Card>
-        ))}
+            <p className="mt-3 text-xs leading-[1.65] text-text-secondary">
+              Receipts, invoices, leases, and statements become connected
+              evidence after your review — context that explains records without
+              replacing them.
+            </p>
+            <div className="mt-3.5 flex flex-wrap gap-1.5">
+              {["Leases", "Receipts", "Invoices", "Statements"].map((doc) => (
+                <span
+                  className="rounded-md border border-brand-amber/20 bg-brand-amber/[0.07] px-2.5 py-1 font-mono text-[10px] font-medium text-brand-amber/80"
+                  key={doc}
+                >
+                  {doc}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </Section>
   );

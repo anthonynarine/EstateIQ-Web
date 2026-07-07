@@ -1,15 +1,15 @@
 const appUrl =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://propertyledger.org";
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://estateiq.me";
 
 function appRoute(path: string) {
   return new URL(path, appUrl).toString();
 }
 
 const registerUrl =
-  process.env.NEXT_PUBLIC_APP_REGISTER_URL ?? appRoute("/register");
-const loginUrl = process.env.NEXT_PUBLIC_APP_LOGIN_URL ?? appRoute("/login");
+  process.env.NEXT_PUBLIC_APP_REGISTER_URL ?? "/contact";
+const loginUrl = process.env.NEXT_PUBLIC_APP_LOGIN_URL ?? "/contact";
 const demoUrl =
-  process.env.NEXT_PUBLIC_APP_DEMO_URL ?? appRoute("/demo");
+  process.env.NEXT_PUBLIC_APP_DEMO_URL ?? "/features";
 
 export const siteConfig = {
   name: "EstateIQ",

@@ -1,49 +1,57 @@
 import type { Metadata } from "next";
 
-import { AiHero } from "@/components/ai/AiHero";
-import { AnalystWorkflowDiagram } from "@/components/ai/AnalystWorkflowDiagram";
-import { QuestionExamples } from "@/components/ai/QuestionExamples";
+import { FinalCTASection } from "@/components/cta/FinalCTASection";
 import { ComparisonTable } from "@/components/product/ComparisonTable";
 import { FeatureGrid } from "@/components/product/FeatureGrid";
+import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { Container } from "@/components/ui/Container";
+import { FlowDiagram } from "@/components/visualizations/FlowDiagram";
 import { createPageMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata("/ai-copilot");
 
-const groundedRules = [
+const questionExamples = [
   {
-    title: "Answers from your EstateIQ records",
-    id: "structured-records",
+    title: "Why did expenses increase this month?",
     description:
-      "Copilot works from portfolio, lease, ledger, expense, supported document, and reporting context.",
-    label: "Records",
+      "Compares current expense records to prior periods and explains the difference by category and vendor.",
+    label: "Expenses",
+    tone: "warning" as const,
+  },
+  {
+    title: "Which buildings are underperforming?",
+    description:
+      "Reviews NOI, occupancy, and collection rate across your portfolio to identify lagging properties.",
+    label: "Portfolio",
+    tone: "brand" as const,
+  },
+  {
+    title: "Summarize this month's portfolio.",
+    description:
+      "Pulls revenue collected, outstanding balances, vacancy, and expense totals into a plain-English summary.",
+    label: "Summary",
     tone: "ai" as const,
   },
   {
-    title: "Does not invent balances",
-    id: "does-not-invent-balances",
+    title: "How much rent is outstanding?",
     description:
-      "Financial values must come from recorded activity and analyst tools, not model guesses.",
-    label: "Deterministic",
+      "Derives unpaid charges from ledger allocations and lists tenants with open balances.",
+    label: "Ledger",
     tone: "success" as const,
   },
   {
-    title: "Does not modify financial data",
+    title: "What's the NOI for Maple Court?",
     description:
-      "AI explains information. Financial records remain owned by the application workflows.",
-    label: "Read-only",
-    tone: "neutral" as const,
+      "Calculates net operating income from revenue and expense records tied to that building.",
+    label: "Reports",
+    tone: "brand" as const,
   },
   {
-    title: "Designed to be explainable",
+    title: "Which tenants have paid late more than once?",
     description:
-      "The product emphasizes source-backed context, confidence, and answers you can trace.",
-    label: "Traceable",
-    tone: "brand" as const,
+      "Reviews payment timing across lease history to surface patterns in late payment behavior.",
+    label: "Tenants",
+    tone: "neutral" as const,
   },
 ];
 
@@ -68,76 +76,93 @@ const comparisonRows = [
 export default function AiCopilotPage() {
   return (
     <>
-      <AiHero />
-
-      <ProductSection
-        description="First, EstateIQ finds the relevant records and reports. Then analyst tools prepare the answer before AI explains it in plain language."
-        eyebrow="How EstateIQ AI works"
-        id="ledger-backed-context"
-        tabIndex={-1}
-        title="From your portfolio question to an answer you can trace."
-      >
-        <AnalystWorkflowDiagram />
-      </ProductSection>
+      <ProductHero
+        badge="Grounded in your records"
+        description="Ask questions in plain English about your portfolio, reports, and supported documents. EstateIQ Copilot explains the information you manage inside the product without replacing the records that prove it."
+        eyebrow="AI Copilot"
+        previewItems={[
+          { label: "How it works", href: "#how-it-works" },
+          { label: "What you can ask", href: "#what-you-can-ask" },
+          { label: "Why grounding matters", href: "#why-grounding-matters" },
+        ]}
+        previewTitle="AI grounded in EstateIQ data"
+        title="AI that explains your portfolio, not generic internet answers."
+      />
 
       <ProductSection
         background="soft"
-        description="These examples show the kind of portfolio, revenue, expense, report, and building questions EstateIQ is designed to explain from product data."
-        eyebrow="What you can ask"
-        id="reports-documents"
+        description="Every answer passes through deterministic analyst tools before AI explains it — the model never invents the numbers."
+        eyebrow="How it works"
+        id="how-it-works"
         tabIndex={-1}
-        title="Ask practical questions about the financial life of the portfolio."
+        title="From your question to an answer you can trace."
       >
-        <QuestionExamples />
+        <FlowDiagram
+          aria-label="AI Copilot workflow from portfolio data to plain-English answer"
+          description="EstateIQ finds the relevant records, analyst tools prepare the answer, then AI explains it in plain language."
+          steps={[
+            {
+              title: "Portfolio data",
+              description: "Buildings, units, leases, and ownership context.",
+              tone: "brand",
+            },
+            {
+              title: "Ledger",
+              description: "Charges, payments, allocations, and derived balances.",
+              tone: "success",
+            },
+            {
+              title: "Documents",
+              description: "Supported evidence such as receipts, invoices, and leases.",
+              tone: "warning",
+            },
+            {
+              title: "Reports",
+              description: "Traceable summaries of financial performance.",
+              tone: "brand",
+            },
+            {
+              title: "Analyst tools",
+              description: "Deterministic selectors prepare the answer before AI sees it.",
+              tone: "success",
+            },
+            {
+              title: "AI Copilot",
+              description: "Explains the prepared answer in plain English.",
+              tone: "ai",
+            },
+          ]}
+          title="The model explains. It does not decide."
+          tone="ai"
+        />
       </ProductSection>
 
       <ProductSection
-        description="Grounded AI means the answer starts from EstateIQ records, reports, and supported documents instead of generic internet knowledge."
-        eyebrow="Grounded AI"
-        id="grounded-ai-rules"
+        description="These are the kinds of questions EstateIQ is built to answer — from your records, not from assumptions."
+        eyebrow="What you can ask"
+        id="what-you-can-ask"
         tabIndex={-1}
-        title="The facts stay in the records."
+        title="Ask practical questions about the financial life of the portfolio."
       >
-        <FeatureGrid items={groundedRules} />
+        <FeatureGrid items={questionExamples} />
       </ProductSection>
 
       <ProductSection
         background="soft"
         description="The difference is not louder AI. The difference is that the product knows where the answer should come from."
         eyebrow="Why grounding matters"
+        id="why-grounding-matters"
+        tabIndex={-1}
         title="EstateIQ AI explains your software. It does not wander away from it."
       >
         <ComparisonTable rows={comparisonRows} />
       </ProductSection>
 
-      <section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <Card className="p-6 sm:p-10" variant="glass">
-            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-violet">
-                  EstateIQ AI Copilot
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
-                  Ask better questions about verified portfolio data.
-                </h2>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <Button href={siteConfig.primaryCta.href} size="lg">
-                  {siteConfig.primaryCta.label}
-                </Button>
-                <Button
-                  href={siteConfig.secondaryCta.href}
-                  size="lg"
-                  variant="outline"
-                >
-                  {siteConfig.secondaryCta.label}
-                </Button>
-              </div>
-            </div>
-          </Card>
-        </Container>
-      </section>
+      <FinalCTASection
+        description="Ask better questions about your portfolio records, ledger data, supported documents, and reports — with answers grounded in what EstateIQ actually knows."
+        eyebrow="EstateIQ AI Copilot"
+        title="Ask better questions about verified portfolio data."
+      />
     </>
   );
 }

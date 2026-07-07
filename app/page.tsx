@@ -7,7 +7,6 @@ import { FinancialTruthSection } from "@/components/marketing/FinancialTruthSect
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { HowItWorksSection } from "@/components/marketing/HowItWorksSection";
 import { ProblemSection } from "@/components/marketing/ProblemSection";
-import { ProductPillarsSection } from "@/components/marketing/ProductPillarsSection";
 import { TrustSection } from "@/components/marketing/TrustSection";
 import { ComparisonTable } from "@/components/product/ComparisonTable";
 import { Section } from "@/components/ui/Section";
@@ -38,7 +37,6 @@ export default function Home() {
       <HeroSection />
       <ProblemSection />
       <HowItWorksSection />
-      <ProductPillarsSection />
       <FinancialTruthSection />
       <DocumentIntelligenceSection />
       <AiCopilotSection />

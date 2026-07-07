@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site";
 function BrandMark() {
   return (
     <span className="flex size-9 items-center justify-center rounded-2xl border border-brand-cyan/25 bg-brand-cyan/10 text-sm font-semibold text-brand-cyan shadow-glow-cyan">
-      EI
+      E
     </span>
   );
 }

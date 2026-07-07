@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { ComingSoonCard } from "@/components/content/ComingSoonCard";
 import { DocumentationSectionGrid } from "@/components/content/DocumentationSectionGrid";
 import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
@@ -81,17 +80,6 @@ export default function DocsPage() {
         <DocumentationSectionGrid sections={documentationSections} />
       </ProductSection>
 
-      <ProductSection
-        description="No product guides are being fabricated here. The structure is ready so future documentation can be added clearly as the product grows."
-        eyebrow="Documentation foundation"
-        title="The help center can grow without becoming a maze."
-      >
-        <ComingSoonCard
-          description="Future documentation can be powered by MDX, grouped by section, filtered by product area, and expanded into technical references without restructuring the public docs hub."
-          eyebrow="Scalable structure"
-          title="Documentation content coming soon."
-        />
-      </ProductSection>
     </>
   );
 }

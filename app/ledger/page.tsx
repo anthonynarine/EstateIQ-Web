@@ -1,82 +1,57 @@
 import type { Metadata } from "next";
 
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { Container } from "@/components/ui/Container";
+import { FinalCTASection } from "@/components/cta/FinalCTASection";
 import { FeatureGrid } from "@/components/product/FeatureGrid";
-import { LedgerModelDiagram } from "@/components/product/LedgerModelDiagram";
 import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
+import { FlowDiagram } from "@/components/visualizations/FlowDiagram";
 import { createPageMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata("/ledger");
-
-const ledgerParts = [
-  {
-    title: "Charge",
-    description: "What is owed under a lease, such as rent or a fee.",
-    label: "Obligation",
-    tone: "brand" as const,
-  },
-  {
-    title: "Payment",
-    description: "Money received and recorded by the owner.",
-    label: "Received",
-    tone: "success" as const,
-  },
-  {
-    title: "Allocation",
-    description: "How a payment is applied to one or more charges.",
-    label: "Applied",
-    tone: "neutral" as const,
-  },
-  {
-    title: "Balance",
-    description: "The amount derived from charges minus allocations.",
-    label: "Derived",
-    tone: "warning" as const,
-  },
-];
 
 const whyItMatters = [
   {
     title: "Partial payments",
     description:
-      "Understand how much was received and which charges still have remaining balances.",
+      "See exactly how much was received and which charges still carry a remaining balance.",
+    label: "Partial",
+    tone: "warning" as const,
   },
   {
     title: "Overdue balances",
     description:
-      "Trace open balances back to the charges and allocations that created them.",
-  },
-  {
-    title: "Delinquency",
-    description:
-      "Support delinquency reporting from ledger records instead of manual notes.",
+      "Trace any open balance back to the exact charges and allocations that created it.",
+    label: "Overdue",
+    tone: "warning" as const,
   },
   {
     title: "Tenant history",
     description:
-      "Preserve the financial story attached to a lease over time.",
+      "The financial story attached to a lease is preserved over time — not reset on each payment.",
+    label: "History",
+    tone: "neutral" as const,
+  },
+  {
+    title: "Cleaner reporting",
+    description:
+      "Well-structured ledger entries make year-end reporting and expense tracking more reliable.",
+    label: "Reporting",
+    tone: "brand" as const,
   },
   {
     title: "Auditability",
     description:
-      "Keep financial records explainable when questions come up later.",
+      "Every balance is explainable when questions come up — no manual tallies to reconstruct.",
+    label: "Audit",
+    tone: "success" as const,
   },
   {
-    title: "Financial trust",
+    title: "Delinquency support",
     description:
-      "Use traceable ledger math as the basis for reports and future interpretation.",
+      "Delinquency reporting comes from ledger records, not manual notes or toggled flags.",
+    label: "Delinquency",
+    tone: "success" as const,
   },
-];
-
-const benefits = [
-  "You can see who owes what.",
-  "You can understand why a balance exists.",
-  "You can avoid spreadsheet confusion.",
-  "You can prepare cleaner records for taxes and reporting.",
 ];
 
 export default function LedgerPage() {
@@ -89,8 +64,8 @@ export default function LedgerPage() {
         previewItems={[
           { label: "Charge = what is owed", href: "#ledger-model" },
           { label: "Payment = money received", href: "#ledger-model" },
-          { label: "Allocation = how payment is applied", href: "#visual-model" },
-          { label: "Balance = charges minus allocations", href: "#small-landlord-benefits" },
+          { label: "Allocation = how payment is applied", href: "#ledger-model" },
+          { label: "Balance = charges minus allocations", href: "#why-it-matters" },
         ]}
         previewTitle="Every balance should have a source"
         title="Know exactly why a balance exists."
@@ -98,78 +73,57 @@ export default function LedgerPage() {
 
       <ProductSection
         background="soft"
-        description="Start with simple records: what was charged, what was paid, how money was applied, and what remains. The technical layer is a ledger-first model built from charges, payments, allocations, and derived balances."
+        description="Every balance is the result of charges, payments, and how those payments were allocated — not a flag that gets toggled."
         eyebrow="Ledger model"
         id="ledger-model"
         tabIndex={-1}
-        title="Track the parts behind every balance."
-      >
-        <FeatureGrid items={ledgerParts} />
-      </ProductSection>
-
-      <ProductSection
-        description="EstateIQ preserves the relationship between what was owed and how received money was applied."
-        eyebrow="Visual model"
-        id="visual-model"
-        tabIndex={-1}
         title="Balances come from recorded activity."
       >
-        <LedgerModelDiagram />
+        <FlowDiagram
+          aria-label="Ledger flow from charge through payment and allocation to derived balance"
+          description="From the first charge through to a calculated balance — every step is recorded and traceable."
+          steps={[
+            {
+              title: "Charge",
+              description: "What is owed under a lease.",
+              tone: "success",
+            },
+            {
+              title: "Payment",
+              description: "Money received and recorded.",
+              tone: "success",
+            },
+            {
+              title: "Allocation",
+              description: "How the payment is applied to charges.",
+              tone: "success",
+            },
+            {
+              title: "Derived balance",
+              description: "Calculated from charges minus allocations.",
+              tone: "brand",
+            },
+          ]}
+          title="From charge to balance — every step is recorded."
+          tone="success"
+        />
       </ProductSection>
 
       <ProductSection
-        background="soft"
-        description="Small landlords often need more than a checkbox. The ledger model helps explain the situations that make simple balances break down."
+        description="Small landlords often need more than a checkbox. The ledger model handles the situations that make simple balances break down."
         eyebrow="Why it matters"
+        id="why-it-matters"
+        tabIndex={-1}
         title="Clear records matter most when payments get messy."
       >
         <FeatureGrid items={whyItMatters} />
       </ProductSection>
 
-      <ProductSection
-        description="The benefit is practical: fewer disconnected notes, clearer balances, and records that can support reporting."
-        eyebrow="Small landlord benefits"
-        id="small-landlord-benefits"
-        tabIndex={-1}
-        title="Plain-English clarity for everyday portfolio questions."
-      >
-        <div className="grid gap-3 sm:grid-cols-2">
-          {benefits.map((benefit) => (
-            <Card className="p-5" key={benefit} variant="outline">
-              <p className="text-sm font-medium text-text-primary">{benefit}</p>
-            </Card>
-          ))}
-        </div>
-      </ProductSection>
-
-      <section className="py-16 sm:py-20 lg:py-24">
-        <Container>
-          <Card className="p-6 sm:p-10" variant="glass">
-            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-              <div>
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-cyan">
-                  EstateIQ Ledger
-                </p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
-                  Track what was charged, paid, and applied.
-                </h2>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <Button href={siteConfig.primaryCta.href} size="lg">
-                  {siteConfig.primaryCta.label}
-                </Button>
-                <Button
-                  href={siteConfig.secondaryCta.href}
-                  size="lg"
-                  variant="outline"
-                >
-                  {siteConfig.secondaryCta.label}
-                </Button>
-              </div>
-            </div>
-          </Card>
-        </Container>
-      </section>
+      <FinalCTASection
+        description="Bring charges, payments, allocations, and derived balances into one place where every number has a source."
+        eyebrow="EstateIQ Ledger"
+        title="Track what was charged, paid, and applied."
+      />
     </>
   );
 }

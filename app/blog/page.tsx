@@ -1,69 +1,28 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { ArticleCard } from "@/components/blog/ArticleCard";
-import { ContentCategoryGrid } from "@/components/content/ContentCategoryGrid";
-import { ContentPlaceholderCard } from "@/components/content/ContentPlaceholderCard";
 import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
-import { Card } from "@/components/ui/Card";
-import { danaArticles, upcomingDanaArticles } from "@/lib/blog";
+import { danaArticles } from "@/lib/blog";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata("/blog");
 
-const blogCategories = [
-  {
-    title: "Architecture",
-    description:
-      "Technical writing about trustworthy AI-native application architecture, deterministic software capabilities, and DANA.",
-  },
-  {
-    title: "Product",
-    description:
-      "Future writing about EstateIQ workflows, product thinking, and practical feature education.",
-  },
-  {
-    title: "Finance",
-    description:
-      "Future education on rental financial clarity, ledger discipline, reports, and portfolio operations.",
-  },
-  {
-    title: "Engineering",
-    description:
-      "Future technical writing about product architecture, data modeling, and building trustworthy systems.",
-  },
-  {
-    title: "AI",
-    description:
-      "Future writing about grounded AI, analyst tools, product coverage, and financial explanation layers.",
-  },
-  {
-    title: "Announcements",
-    description:
-      "Future company and product announcements when there is something real to share.",
-  },
-];
+const [featured, ...rest] = danaArticles;
 
 export default function BlogPage() {
   return (
     <>
       <ProductHero
-        badge="Blog"
-        description="Architecture notes, product thinking, and educational writing about building trustworthy AI-native financial software."
+        badge="DANA Series"
+        description="Architecture notes and product thinking about building trustworthy AI-native financial software — deterministic records, explicit capabilities, and AI that stays grounded in what the software actually knows."
         eyebrow="Blog"
         previewItems={[
-          { label: "DANA architecture series", href: "#dana-series" },
-          {
-            id: "ai-native-application-design",
-            label: "AI-native application design",
-            href: "#published-articles",
-          },
-          {
-            id: "deterministic-software-capabilities",
-            label: "Deterministic software capabilities",
-            href: "#published-articles",
-          },
-          { label: "Financial truth before AI", href: "#blog-categories" },
+          { label: "Why AI wrappers aren't enough", href: "#published-articles" },
+          { label: "The six layers of DANA", href: "#published-articles" },
+          { label: "The capability layer", href: "#published-articles" },
+          { label: "AI operations in production", href: "#published-articles" },
         ]}
         previewTitle="Published writing"
         title="Writing about financial clarity and trustworthy AI software."
@@ -72,62 +31,36 @@ export default function BlogPage() {
       <ProductSection
         background="soft"
         description="A technical series about building trustworthy AI-native applications where structured software remains the source of truth and AI becomes the explanation layer."
-        eyebrow="DANA Series"
-        id="dana-series"
-        tabIndex={-1}
-        title="Architecture writing from building EstateIQ."
-      >
-        <Card className="p-6 sm:p-8" variant="glass">
-          <p className="max-w-3xl text-base leading-7 text-text-secondary">
-            DANA is the emerging architecture behind EstateIQ&apos;s AI-native
-            product thinking: deterministic records, explicit application
-            capabilities, analyst tools, gap capture, and AI explanations that
-            stay grounded in software truth.
-          </p>
-        </Card>
-      </ProductSection>
-
-      <ProductSection
-        description="The first three architecture articles are now published as static pages."
         eyebrow="Published articles"
         id="published-articles"
         tabIndex={-1}
-        title="Read the first DANA articles."
+        title="Architecture writing from building EstateIQ."
       >
-        <div className="grid gap-4 lg:grid-cols-3">
-          {danaArticles.map((article) => (
-            <ArticleCard article={article} key={article.slug} />
-          ))}
-        </div>
-      </ProductSection>
+        <div className="flex flex-col gap-4">
+          {/* Featured first article */}
+          <ArticleCard article={featured} index={0} featured />
 
-      <ProductSection
-        background="soft"
-        description="These are planned DANA topics only. Full articles will be added when they are written."
-        eyebrow="Upcoming"
-        title="Coming soon in the DANA series."
-      >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {upcomingDanaArticles.map((title) => (
-            <ContentPlaceholderCard
-              description="This article is planned for the DANA series but has not been published yet."
-              eyebrow="DANA"
-              key={title}
-              meta="Coming soon"
-              title={title}
-            />
-          ))}
-        </div>
-      </ProductSection>
+          {/* Remaining articles */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((article, i) => (
+              <ArticleCard article={article} index={i + 1} key={article.slug} />
+            ))}
+          </div>
 
-      <ProductSection
-        description="Categories define the editorial map without pretending every category already has content."
-        eyebrow="Categories"
-        id="blog-categories"
-        tabIndex={-1}
-        title="A focused publishing structure for future writing."
-      >
-        <ContentCategoryGrid categories={blogCategories} />
+          {/* Author credit */}
+          <p className="pt-2 text-sm text-text-muted">
+            Written by{" "}
+            <Link
+              className="font-medium text-text-secondary transition hover:text-brand-violet"
+              href="https://www.linkedin.com/in/anthony-narine-9ab567245/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Anthony Narine
+            </Link>
+            {" "}— founder of EstateIQ
+          </p>
+        </div>
       </ProductSection>
     </>
   );

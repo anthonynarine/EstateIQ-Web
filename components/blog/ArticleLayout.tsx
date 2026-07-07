@@ -21,7 +21,8 @@ export function ArticleLayout({
 }: ArticleLayoutProps) {
   return (
     <>
-      <article className="py-16 sm:py-20 lg:py-24">
+      <article className="relative py-16 sm:py-20 lg:py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-radial-violet-glow opacity-30" />
         <Container>
           <div className="mx-auto max-w-3xl">
             <ArticleHeader article={article} />
