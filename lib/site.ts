@@ -38,20 +38,16 @@ export const siteConfig = {
     href: loginUrl,
   },
   email: "hello@estateiq.com",
-  githubUrl: "https://github.com/estateiq",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://estateiq.com",
+  githubUrl: "https://github.com/anthonynarine",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://estateiq.me",
   socialLinks: [
     {
       label: "GitHub",
-      href: "https://github.com/estateiq",
+      href: "https://github.com/anthonynarine",
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/company/estateiq",
-    },
-    {
-      label: "X",
-      href: "https://x.com/estateiq",
+      href: "https://www.linkedin.com/in/anthony-narine-9ab567245/",
     },
   ],
   copyright: `© ${new Date().getFullYear()} EstateIQ. All rights reserved.`,

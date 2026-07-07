@@ -61,8 +61,6 @@ export const footerNavigation: NavigationGroup[] = [
   {
     title: "Legal",
     items: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
       { label: "Security", href: "/security" },
     ],
   },
