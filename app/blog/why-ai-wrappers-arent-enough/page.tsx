@@ -21,20 +21,20 @@ export default function WhyAiWrappersArentEnoughPage() {
           applications.
         </em>
       </p>
-      <p>Over the past few years, software has changed dramatically.</p>
       <p>
-        Large language models have made it possible to add conversational
-        interfaces to almost any application. Features that once required months
-        of engineering can now be prototyped in a weekend. Ask a question, send
-        a prompt to an LLM, and return an answer.
+        Early in building EstateIQ, I demoed it to a landlord who managed about
+        twelve units in Florida. He asked a simple question: how much rent is
+        overdue right now?
       </p>
-      <p>For many products, that&apos;s enough.</p>
+      <p>The AI gave him a number.</p>
+      <p>It was wrong by about four thousand dollars.</p>
       <p>
-        If you&apos;re summarizing documents, brainstorming ideas, translating
-        text, or helping users write better emails, modern language models are
-        remarkably capable.
+        I caught it before he noticed. But the fact that I had to catch it —
+        that there was nothing in the system preventing a confidently wrong
+        financial answer — stayed with me for a long time.
       </p>
       <p>
+<<<<<<< Updated upstream
         But while building <strong>EstateIQ</strong>, I discovered something that
         fundamentally changed how I think about AI architecture.
       </p>
@@ -43,6 +43,9 @@ export default function WhyAiWrappersArentEnoughPage() {
           The moment correctness matters, the architecture matters more than the
           model.
         </strong>
+=======
+        That moment is what this series is really about.
+>>>>>>> Stashed changes
       </p>
 
       <h2>The illusion of intelligence</h2>
@@ -55,6 +58,10 @@ Answer`}</CodeDiagram>
       <p>It&apos;s simple.</p>
       <p>It&apos;s fast.</p>
       <p>And it produces an impressive demo.</p>
+      <p>
+        I&apos;ve talked to a lot of developers building AI features. Almost all
+        of them start here. I did too. The demo felt like the product.
+      </p>
       <p>
         The problem is that real business software isn&apos;t built around
         conversations.
@@ -96,8 +103,10 @@ Answer`}</CodeDiagram>
       <p>Who should answer that question?</p>
       <p>Should the language model calculate the answer?</p>
       <p>Or should the application?</p>
-      <p>At first, that distinction didn&apos;t seem important.</p>
-      <p>Then I realized it changes everything.</p>
+      <p>
+        At first, that distinction didn&apos;t seem important. Then I realized
+        it changes everything.
+      </p>
       <p>The application already knows:</p>
       <ul>
         <li>which leases are active</li>
@@ -164,8 +173,14 @@ AI Explanation`}</CodeDiagram>
         something real.
       </p>
       <p>
-        In high-trust domains like finance, healthcare, insurance, and legal
-        services, correctness matters more than creativity.
+        I&apos;ve shown EstateIQ to a lot of landlords at this point. The ones
+        who trust it most are never the ones most impressed by the AI. They&apos;re
+        impressed by the fact that the numbers match their bank statements. That
+        the balance they see in the app matches the check they deposited.
+      </p>
+      <p>
+        In high-trust domains — finance, healthcare, insurance, legal — correctness
+        matters more than creativity.
       </p>
       <p>People don&apos;t need an answer that sounds convincing.</p>
       <p>They need an answer they can rely on.</p>
@@ -199,7 +214,7 @@ AI Explanation`}</CodeDiagram>
       </p>
       <p>
         In the next article, I&apos;ll share the biggest architectural mistake I
-        made while building EstateIQ-and how correcting it completely changed
+        made while building EstateIQ — and how correcting it completely changed
         the way I think about AI-native applications.
       </p>
     </ArticleLayout>
