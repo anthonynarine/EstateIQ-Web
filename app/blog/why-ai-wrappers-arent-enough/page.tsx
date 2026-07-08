@@ -34,7 +34,6 @@ export default function WhyAiWrappersArentEnoughPage() {
         financial answer — stayed with me for a long time.
       </p>
       <p>
-<<<<<<< Updated upstream
         But while building <strong>EstateIQ</strong>, I discovered something that
         fundamentally changed how I think about AI architecture.
       </p>
@@ -43,9 +42,6 @@ export default function WhyAiWrappersArentEnoughPage() {
           The moment correctness matters, the architecture matters more than the
           model.
         </strong>
-=======
-        That moment is what this series is really about.
->>>>>>> Stashed changes
       </p>
 
       <h2>The illusion of intelligence</h2>
