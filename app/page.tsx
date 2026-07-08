@@ -16,18 +16,24 @@ export const metadata: Metadata = createPageMetadata("/");
 
 const comparisonRows = [
   {
-    oldWay: "Rent tracking that depends on loose paid or unpaid states.",
-    estateIq: "Ledger records built from charges, payments, and allocations.",
+    oldWay: "AI bolted onto disconnected rent, expense, document, and report screens.",
+    estateIq:
+      "AI built into one operating layer where records, documents, reports, and answers stay connected.",
   },
   {
-    oldWay: "Generic property management workflows that treat finance as a side feature.",
+    oldWay: "Chat answers that sound confident but cannot trace where the number came from.",
     estateIq:
-      "A finance-first system centered on what the portfolio earns, spends, and owes.",
+      "Responses grounded in ledger records, supported documents, and report outputs the owner can inspect.",
   },
   {
-    oldWay: "AI answers that are not grounded in source records.",
+    oldWay: "Automation that tries to turn guesses into accounting records.",
     estateIq:
-      "AI explains confirmed records, supported documents, and reports instead of becoming the financial record.",
+      "Review-first workflows where AI prepares context, and confirmed records remain the financial truth.",
+  },
+  {
+    oldWay: "Property software where AI is a side panel watching from the outside.",
+    estateIq:
+      "An AI-native financial operating system where the product structure gives AI something reliable to explain.",
   },
 ];
 
@@ -42,11 +48,15 @@ export default function Home() {
       <AiCopilotSection />
       <Section
         eyebrow="Why it is different"
-        title="AI is useful because the records come first."
-        description="EstateIQ starts with the owner problem: scattered tools make it impossible to trust the answer. Records, reports, and AI stay connected by design."
+        title="EstateIQ is AI-native because the system gives AI real financial context."
+        description="The goal is not to make AI sound smarter than the records. EstateIQ keeps the ledger, documents, reports, and Copilot connected so AI can explain the business without becoming the source of truth."
         id="why-different"
       >
-        <ComparisonTable rows={comparisonRows} />
+        <ComparisonTable
+          leftHeader="AI add-on pattern"
+          rightHeader="EstateIQ AI-native approach"
+          rows={comparisonRows}
+        />
       </Section>
       <TrustSection />
       <FinalCTASection />

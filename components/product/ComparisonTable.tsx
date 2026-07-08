@@ -6,15 +6,21 @@ type ComparisonRow = {
 };
 
 type ComparisonTableProps = {
+  leftHeader?: string;
+  rightHeader?: string;
   rows: ComparisonRow[];
 };
 
-export function ComparisonTable({ rows }: ComparisonTableProps) {
+export function ComparisonTable({
+  leftHeader = "Common pattern",
+  rightHeader = "EstateIQ approach",
+  rows,
+}: ComparisonTableProps) {
   return (
     <Card className="overflow-hidden" variant="glass">
       <div className="grid grid-cols-2 border-b border-border-soft bg-surface-elevated px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-text-muted">
-        <span>Common pattern</span>
-        <span>EstateIQ approach</span>
+        <span>{leftHeader}</span>
+        <span>{rightHeader}</span>
       </div>
       <div className="divide-y divide-border-soft">
         {rows.map((row) => (
