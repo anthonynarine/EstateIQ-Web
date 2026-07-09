@@ -1,5 +1,24 @@
 @AGENTS.md
 
+# Project Context
+
+EstateIQ-Web is the **marketing/landing site** for estateiq.me. It is a Next.js SSR site that links visitors to the Vite/React app. It has no API routes and does not talk to the Django backend.
+
+## Dev Commands
+
+```bash
+# From D:\react-django\EstateIQ-Web\
+npm run dev        # http://localhost:3000
+npm run build
+npm run lint
+```
+
+## Known Fixes
+
+**Hydration mismatch (2026-07-08):** `app/layout.tsx` body has `suppressHydrationWarning` to suppress false positives caused by browser extensions adding attributes to `<body>` after SSR. Do not remove it.
+
+---
+
 # Trust Fix Checklist
 
 These tasks were identified to improve site trustworthiness on estateiq.me.

@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="app-shell">
+      <body className="app-shell" suppressHydrationWarning>
         <StructuredData data={structuredData} />
         <div className="mx-auto flex min-h-[100dvh] w-full max-w-[1280px] flex-col overflow-hidden rounded-3xl">
           <SiteHeader />
