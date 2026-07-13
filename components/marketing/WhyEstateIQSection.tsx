@@ -34,8 +34,8 @@ export function WhyEstateIQSection() {
               Built for small portfolios
             </h3>
             <p className="mt-3 text-sm leading-6 text-text-secondary">
-              Independent owners get enterprise-grade financial intelligence
-              without enterprise property software complexity.
+              Independent owners get connected financial intelligence
+              without legacy property software complexity.
             </p>
           </div>
         </div>

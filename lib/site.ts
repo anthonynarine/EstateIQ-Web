@@ -37,7 +37,8 @@ export const siteConfig = {
     label: "Login",
     href: loginUrl,
   },
-  email: "hello@estateiq.com",
+  email: "hello@estateiq.me",
+  securityEmail: "security@estateiq.me",
   githubUrl: "https://github.com/anthonynarine",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://estateiq.me",
   socialLinks: [

@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 
-import { BetaBanner } from "@/components/beta/BetaBanner";
-import { BetaCallout } from "@/components/beta/BetaCallout";
-import { EarlyAccessCard } from "@/components/beta/EarlyAccessCard";
-import { BetaInterestPlaceholder } from "@/components/contact/BetaInterestPlaceholder";
-import { ContactIntentGrid } from "@/components/contact/ContactIntentGrid";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
 import { Card } from "@/components/ui/Card";
@@ -17,88 +13,79 @@ export default function ContactPage() {
   return (
     <>
       <ProductHero
-        badge="Beta interest"
-        description="EstateIQ is building one place for independent landlords to manage portfolio records, money, documents, reports, and grounded AI. Use this page to understand the current contact path and beta-interest status."
+        badge="Talk to EstateIQ"
+        description="Have a product question, want to see EstateIQ in action, or need to discuss security? Send a note and reach the right conversation directly."
         eyebrow="Contact"
         previewItems={[
-          { label: "Join the beta", href: siteConfig.registerUrl },
-          { label: "Ask a product question", href: "#contact-intents" },
-          { label: "Request a demo", href: siteConfig.demoUrl },
-          { label: "Security or trust questions", href: "#trust-note" },
+          { label: "Ask a product question", href: "#send-a-message" },
+          { label: "Request a demo", href: "#send-a-message" },
+          { label: "Explore early access", href: "#send-a-message" },
+          {
+            label: "Security or trust question",
+            href: `mailto:${siteConfig.securityEmail}`,
+          },
         ]}
-        previewTitle="Contact paths"
-        title="Start a conversation about running your rental business with more clarity."
+        previewTitle="How can we help?"
+        title="Let’s talk about your portfolio."
       />
 
       <ProductSection
         background="soft"
-        description="Choose the intent that best matches why you are reaching out."
-        eyebrow="Contact intents"
-        id="contact-intents"
+        description="Tell us what you are trying to solve. No generic sales queue and no pretend submission flow."
+        eyebrow="Send a message"
+        id="send-a-message"
         tabIndex={-1}
-        title="Choose the path that matches what you need."
+        title="Start the conversation."
       >
-        <div className="grid gap-4">
-          <BetaBanner />
-          <ContactIntentGrid />
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.65fr)] lg:items-start">
+          <Card className="p-5 sm:p-7" variant="glass">
+            <ContactForm />
+          </Card>
+
+          <div className="grid gap-4">
+            <Card className="p-6" variant="outline">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-cyan">
+                General inquiries
+              </p>
+              <h3 className="mt-4 text-lg font-semibold text-text-primary">
+                Prefer email?
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-text-secondary">
+                Product questions, demos, early access, partnerships, and press.
+              </p>
+              <a
+                className="mt-4 inline-flex text-sm font-medium text-brand-cyan transition hover:text-brand-cyan-300"
+                href={`mailto:${siteConfig.email}`}
+              >
+                {siteConfig.email}
+              </a>
+            </Card>
+
+            <Card className="p-6" variant="outline">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-violet">
+                Security &amp; trust
+              </p>
+              <h3 className="mt-4 text-lg font-semibold text-text-primary">
+                A dedicated security path.
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-text-secondary">
+                Ask directly about access, documents, data boundaries, or AI.
+              </p>
+              <a
+                className="mt-4 inline-flex text-sm font-medium text-brand-violet transition hover:text-brand-violet-300"
+                href={`mailto:${siteConfig.securityEmail}`}
+              >
+                {siteConfig.securityEmail}
+              </a>
+            </Card>
+
+            <p className="px-2 text-xs leading-5 text-text-muted">
+              EstateIQ will use your details only to respond to your inquiry.
+              Please do not send tenant records, financial documents, or account
+              credentials through this form.
+            </p>
+          </div>
         </div>
-      </ProductSection>
-
-      <ProductSection
-        description="The beta path should be direct about what exists now and how early feedback will be used."
-        eyebrow="Beta program"
-        id="beta-program"
-        tabIndex={-1}
-        title="Early users help shape the workflows that matter most."
-      >
-        <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-          <BetaCallout />
-          <EarlyAccessCard />
-        </div>
-      </ProductSection>
-
-      <ProductSection
-        background="soft"
-        description="The beta-interest form is intentionally static until a real backend flow is connected."
-        eyebrow="Beta interest placeholder"
-        title="No fake submissions. No pretend workflow."
-      >
-        <BetaInterestPlaceholder />
-      </ProductSection>
-
-      <ProductSection
-        description="Until the beta flow is connected, the clearest path is direct email."
-        eyebrow="What happens next"
-        title="Beta intake will be connected in a later phase."
-      >
-        <Card className="p-6 sm:p-8" variant="glass">
-          <p className="max-w-3xl text-base leading-7 text-text-secondary">
-            If you want to reach EstateIQ now, email{" "}
-            <a
-              className="font-medium text-brand-cyan transition hover:text-brand-cyan-300 focus-visible:rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-cyan"
-              href={`mailto:${siteConfig.email}`}
-            >
-              {siteConfig.email}
-            </a>
-            . Future work can connect a proper beta-interest workflow when the
-            backend endpoint and review process are defined.
-          </p>
-        </Card>
-      </ProductSection>
-
-      <ProductSection
-        description="EstateIQ handles financial records, connected evidence, and AI explanation. Contact and beta workflows should preserve that same trust standard."
-        eyebrow="Trust note"
-        id="trust-note"
-        tabIndex={-1}
-        title="The contact experience should be as honest as the product."
-      >
-        <Card className="p-6 sm:p-8" variant="outline">
-          <p className="max-w-3xl text-base leading-7 text-text-secondary">
-            This page does not collect or submit data yet. It avoids fake
-            success states and makes the current limitation visible.
-          </p>
-        </Card>
       </ProductSection>
     </>
   );

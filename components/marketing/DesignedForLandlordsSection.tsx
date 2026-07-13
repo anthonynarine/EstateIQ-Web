@@ -13,7 +13,7 @@ export function DesignedForLandlordsSection() {
     <Section
       background="soft"
       eyebrow="Designed for small landlords"
-      title="Enterprise-grade financial intelligence for the portfolio you actually own."
+      title="Next-generation financial intelligence for the portfolio you actually own."
       description="EstateIQ is built for owners who need clear records, reporting, documents, and AI without adopting a heavy institutional platform."
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -88,7 +88,7 @@ export default function AboutPage() {
         eyebrow="Built for small landlords"
         id="small-landlords"
         tabIndex={-1}
-        title="Enterprise-grade financial intelligence without enterprise complexity."
+        title="Modern financial intelligence without legacy software complexity."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[

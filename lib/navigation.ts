@@ -13,11 +13,9 @@ export type NavigationGroup = {
 
 export const mainNavigation: NavigationItem[] = [
   { label: "Features", href: "/features" },
-  { label: "Ledger", href: "/ledger" },
-  { label: "AI Copilot", href: "/ai-copilot" },
+  { label: "Security", href: "/security" },
   { label: "Docs", href: "/docs" },
   { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
 ];
 
 export const ctaNavigation: NavigationItem[] = [
@@ -29,23 +27,17 @@ export const footerNavigation: NavigationGroup[] = [
   {
     title: "Product",
     items: [
-      { label: "Product", href: "/" },
+      { label: "Overview", href: "/" },
       { label: "Features", href: "/features" },
-      { label: "Ledger", href: "/ledger" },
-      { label: "Documents", href: "/documents" },
-      { label: "Reports", href: "/reports" },
-      { label: "AI Copilot", href: "/ai-copilot" },
+      { label: "Security", href: "/security" },
     ],
   },
   {
     title: "Resources",
     items: [
       { label: "Documentation", href: "/docs" },
-      { label: "Learn", href: "/learn" },
       { label: "AI Academy", href: "/ai-academy" },
       { label: "Blog", href: "/blog" },
-      { label: "Changelog", href: "/changelog" },
-      { label: "Security", href: "/security" },
     ],
   },
   {
@@ -54,13 +46,6 @@ export const footerNavigation: NavigationGroup[] = [
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
       { label: "FAQ", href: "/faq" },
-      { label: "Why EstateIQ", href: "/why-estateiq" },
-    ],
-  },
-  {
-    title: "Legal",
-    items: [
-      { label: "Security", href: "/security" },
     ],
   },
 ];

@@ -16,31 +16,29 @@ export function SiteFooter() {
               aria-label={`${siteConfig.name} home`}
             >
               <span className="flex size-9 items-center justify-center rounded-2xl border border-brand-cyan/25 bg-brand-cyan/10 text-sm font-semibold text-brand-cyan shadow-glow-cyan">
-                EI
+                E
               </span>
               <span className="text-sm font-semibold tracking-tight text-text-primary">
                 {siteConfig.name}
               </span>
             </Link>
             <p className="mt-5 text-sm leading-6 text-text-secondary">
-              EstateIQ helps independent landlords understand what their
-              portfolio earns, spends, and owes through deterministic records,
-              document intelligence, and AI-powered insights grounded in
-              verified financial data.
+              EstateIQ connects your portfolio, financial records, documents,
+              reports, and AI so you can understand the business without
+              digging through spreadsheets and folders.
             </p>
-
-            <div className="mt-8 rounded-card border border-border-soft bg-surface p-4">
-              <p className="text-sm font-medium text-text-primary">
-                Stay informed
-              </p>
-              <p className="mt-2 text-sm leading-6 text-text-muted">
-                Newsletter signup will be connected in a later phase. No form is
-                active in Phase 1.
-              </p>
-            </div>
+            <p className="mt-6 text-xs font-medium uppercase tracking-[0.16em] text-text-muted">
+              Built for independent owners
+            </p>
+            <a
+              className="mt-3 inline-flex text-sm text-brand-cyan transition hover:text-brand-cyan-300 focus-visible:rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-cyan"
+              href={`mailto:${siteConfig.email}`}
+            >
+              {siteConfig.email}
+            </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {footerNavigation.map((group) => (
               <nav aria-label={group.title} key={group.title}>
                 <h2 className="text-sm font-semibold text-text-primary">
