@@ -12,7 +12,6 @@ export type NavigationGroup = {
 };
 
 export const mainNavigation: NavigationItem[] = [
-  { label: "Product", href: "/#pillars" },
   { label: "Features", href: "/features" },
   { label: "Ledger", href: "/ledger" },
   { label: "AI Copilot", href: "/ai-copilot" },

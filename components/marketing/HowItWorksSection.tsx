@@ -4,10 +4,10 @@ import { SystemFlowSvg } from "@/components/visualizations/SystemFlowSvg";
 export function HowItWorksSection() {
   return (
     <Section
-      description="One structure, from the property down to the answer your AI gives you. Nothing floats on its own."
-      eyebrow="How it connects"
+      description="EstateIQ connects every layer of your rental business—from the properties you manage to the money you earn and spend."
+      eyebrow="A system built to solve it"
       id="how-it-works"
-      title="Every number traces back to a real record."
+      title="Everything works together, so nothing gets lost."
     >
       <div className="overflow-x-auto">
         <div className="min-w-[680px]">
@@ -18,7 +18,7 @@ export function HowItWorksSection() {
             />
             <SystemFlowSvg />
             <p className="relative mt-6 text-center text-sm leading-6 text-text-secondary">
-              Reports and AI are downstream. The ledger stays upstream.
+              Your records create the reports. AI helps you understand them.
             </p>
           </div>
         </div>

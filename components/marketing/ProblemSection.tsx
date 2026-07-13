@@ -3,24 +3,16 @@ import { ChaosToLedger } from "@/components/visualizations/ChaosToLedger";
 
 const problems = [
   {
-    headline: "Cash flow is hard to reconcile.",
-    body: "The spreadsheet formula that used to work quietly stopped, and nobody noticed for two months.",
+    headline: "The full picture is hard to see.",
+    body: "Rent, expenses, balances, and documents are scattered across tools and folders.",
   },
   {
-    headline: "Open balances get lost.",
-    body: "A tenant paid part of March. Did they ever pay the rest? Where would that even be written down?",
+    headline: "Important details get missed.",
+    body: "Partial payments and open balances are easy to lose when records depend on manual updates.",
   },
   {
-    headline: "Receipts live in a phone folder.",
-    body: "Disconnected from the expense they belong to, until tax season makes you go find them.",
-  },
-  {
-    headline: "Tax readiness arrives too late.",
-    body: "The scramble starts in March, not because the numbers are wrong — because nobody could see them clearly before then.",
-  },
-  {
-    headline: "AI feels risky here.",
-    body: "You've seen AI make things up. Financial records are the last place you want a confident guess.",
+    headline: "Answers take too much work.",
+    body: "Even a simple question can mean checking a spreadsheet, bank activity, and a folder of receipts.",
   },
 ];
 
@@ -28,7 +20,7 @@ export function ProblemSection() {
   return (
     <Section
       eyebrow="The problem"
-      title="Your financial records live in five different places, and none of them talk to each other."
+      title="Managing rentals should not mean piecing the truth together."
       size="md"
     >
       <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-16">

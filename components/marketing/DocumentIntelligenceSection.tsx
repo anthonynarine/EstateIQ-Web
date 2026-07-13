@@ -8,7 +8,7 @@ const engineSteps = [
     tone: "cyan",
   },
   {
-    label: "Extract",
+    label: "AI extract",
     detail: "Amount, vendor, date, property",
     tone: "violet",
   },
@@ -41,11 +41,8 @@ const toneClasses = {
 export function DocumentIntelligenceSection() {
   return (
     <Section
-      background="soft"
-      eyebrow="Document intelligence"
+      className="document-intelligence-section"
       id="documents"
-      title="Turn receipts and invoices into records you can trust."
-      description="EstateIQ reads supported documents, prepares the important details, and keeps you in control before anything touches your books."
     >
       <div className="overflow-hidden rounded-card border border-border bg-gradient-to-b from-background-app-panel to-background-app-soft p-5 shadow-card-soft sm:p-6 lg:p-8">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(360px,1fr)] lg:items-center">
@@ -66,18 +63,16 @@ export function DocumentIntelligenceSection() {
 
           <div className="relative grid gap-4 sm:grid-cols-[minmax(180px,0.58fr)_1fr] sm:items-stretch">
             <div className="pointer-events-none absolute inset-0 bg-dot-grid opacity-[0.06]" />
-            <div className="document-simple-packet" aria-hidden="true" />
-
             <div className="relative grid gap-3">
               {engineSteps.map((step, index) => (
                 <div className="relative" key={step.label}>
                   {index < engineSteps.length - 1 && (
                     <div className="absolute left-[1.375rem] top-12 h-full w-px bg-border-soft" />
                   )}
-                  <div className="relative z-10 grid grid-cols-[2.75rem_1fr] gap-3 rounded-2xl border border-border-soft bg-background-app/80 p-3">
+                  <div className="document-step relative z-10 grid grid-cols-[2.75rem_1fr] gap-3 rounded-2xl border border-border-soft bg-background-app/80 p-3">
                     <span
                       className={cn(
-                        "flex h-11 w-11 items-center justify-center rounded-full border text-sm font-bold",
+                        "document-step-number relative flex h-11 w-11 items-center justify-center rounded-full border text-sm font-bold",
                         toneClasses[step.tone as keyof typeof toneClasses],
                       )}
                     >
@@ -96,7 +91,7 @@ export function DocumentIntelligenceSection() {
               ))}
             </div>
 
-            <div className="relative rounded-2xl border border-brand-amber/25 bg-brand-amber/5 p-4">
+            <div className="relative rounded-2xl border border-border bg-background-app/75 p-4">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-amber">
@@ -106,7 +101,7 @@ export function DocumentIntelligenceSection() {
                     Review before it becomes accounting.
                   </h4>
                 </div>
-                <span className="w-fit rounded-full border border-brand-amber/30 bg-brand-amber/10 px-3 py-1 text-xs font-semibold text-brand-amber">
+                <span className="w-fit shrink-0 whitespace-nowrap rounded-full border border-brand-amber/35 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-brand-amber">
                   Needs approval
                 </span>
               </div>

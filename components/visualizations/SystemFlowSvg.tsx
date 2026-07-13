@@ -8,7 +8,7 @@
 export function SystemFlowSvg() {
   return (
     <svg
-      aria-label="EstateIQ system flow: Organization connects to Building and Unit, then Lease, then Ledger, then branching to Reports and AI Copilot"
+      aria-label="EstateIQ connects your rental business to properties, leases, money, reports, and an AI assistant"
       fill="none"
       role="img"
       style={{ fontFamily: "var(--font-mono, ui-monospace, monospace)" }}
@@ -84,18 +84,27 @@ export function SystemFlowSvg() {
         fontWeight="600"
         textAnchor="middle"
         x="64"
-        y="132"
+        y="124"
       >
-        Org
+        Your business
       </text>
       <text
         fill="#71717A"
         fontSize="10"
         textAnchor="middle"
         x="64"
-        y="150"
+        y="145"
       >
-        workspace
+        one connected
+      </text>
+      <text
+        fill="#71717A"
+        fontSize="10"
+        textAnchor="middle"
+        x="64"
+        y="159"
+      >
+        place
       </text>
 
       <rect
@@ -116,7 +125,7 @@ export function SystemFlowSvg() {
         x="294"
         y="124"
       >
-        Building
+        Properties
       </text>
       <text
         fill="#67E8F9"
@@ -126,7 +135,7 @@ export function SystemFlowSvg() {
         x="294"
         y="141"
       >
-        + Unit
+        + units
       </text>
       <text
         fill="#71717A"
@@ -135,7 +144,7 @@ export function SystemFlowSvg() {
         x="294"
         y="158"
       >
-        property structure
+        what you manage
       </text>
 
       <rect
@@ -154,18 +163,27 @@ export function SystemFlowSvg() {
         fontWeight="600"
         textAnchor="middle"
         x="534"
-        y="132"
+        y="124"
       >
-        Lease
+        Leases
       </text>
       <text
         fill="#71717A"
         fontSize="10"
         textAnchor="middle"
         x="534"
-        y="150"
+        y="143"
       >
-        occupancy · rent
+        who rents
+      </text>
+      <text
+        fill="#71717A"
+        fontSize="10"
+        textAnchor="middle"
+        x="534"
+        y="158"
+      >
+        what is owed
       </text>
 
       <rect
@@ -187,7 +205,7 @@ export function SystemFlowSvg() {
         x="774"
         y="120"
       >
-        Ledger
+        Money
       </text>
       <text
         fill="#71717A"
@@ -196,7 +214,7 @@ export function SystemFlowSvg() {
         x="774"
         y="139"
       >
-        charge · payment
+        revenue · expenses
       </text>
       <text
         fill="#71717A"
@@ -205,7 +223,7 @@ export function SystemFlowSvg() {
         x="774"
         y="155"
       >
-        -&gt; allocation
+        payments · balances
       </text>
 
       <rect
@@ -235,7 +253,7 @@ export function SystemFlowSvg() {
         x="988"
         y="68"
       >
-        derived · read-only
+        clear financial view
       </text>
 
       <rect
@@ -256,7 +274,7 @@ export function SystemFlowSvg() {
         x="988"
         y="191"
       >
-        AI Copilot
+        AI assistant
       </text>
       <text
         fill="#71717A"
@@ -265,7 +283,7 @@ export function SystemFlowSvg() {
         x="988"
         y="208"
       >
-        explains · doesn&apos;t invent
+        answers from your records
       </text>
     </svg>
   );
