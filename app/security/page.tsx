@@ -26,7 +26,22 @@ const trustPrinciples = [
     number: "03",
     title: "Financial history stays traceable",
     description:
-      "Ledger entries, expenses, reports, and supporting documents preserve the context behind the number on screen.",
+      "Balances come from charges, payments, and allocations. Related financial writes use database transactions so they succeed or roll back together.",
+  },
+];
+
+const sessionControls = [
+  {
+    value: "10 minutes",
+    label: "Default production access-token lifetime",
+  },
+  {
+    value: "Rotating",
+    label: "Refresh tokens are replaced after use",
+  },
+  {
+    value: "Blacklisted",
+    label: "Invalidated refresh tokens are rejected",
   },
 ];
 
@@ -35,21 +50,21 @@ const protectedWorkflows = [
     eyebrow: "Documents",
     title: "Files are not treated like public links.",
     description:
-      "EstateIQ is designed to serve stored documents through permission-checked flows and keep source files connected to the records they support.",
+      "Production uploads use private S3-compatible storage. Downloads are permission-checked, and generated links expire after five minutes by default.",
   },
   {
     eyebrow: "EstateIQ AI",
     title: "AI explains records. It does not replace them.",
     description:
-      "AI answers are grounded in accessible portfolio data and documents. The ledger and confirmed records remain the financial source of truth.",
+      "The AI layer is read-only against financial records. Deterministic tools prepare accessible portfolio facts before AI explains them in plain language.",
   },
 ];
 
 const documentedControls = [
-  "Organization-scoped records",
-  "Permission-aware access",
-  "Protected document delivery",
-  "Defined AI boundaries",
+  "Short-lived, rotating sessions",
+  "Organization-scoped access",
+  "Five-minute signed document links",
+  "Read-only AI against financial records",
 ];
 
 const unsupportedClaims = [
@@ -104,6 +119,22 @@ export default function SecurityPage() {
             <span>Documents</span>
           </div>
         </Card>
+
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          {sessionControls.map((control) => (
+            <div
+              className="rounded-2xl border border-border-soft bg-surface/60 px-5 py-4"
+              key={control.label}
+            >
+              <p className="font-mono text-sm font-semibold text-brand-cyan">
+                {control.value}
+              </p>
+              <p className="mt-2 text-xs leading-5 text-text-muted">
+                {control.label}
+              </p>
+            </div>
+          ))}
+        </div>
       </ProductSection>
 
       <ProductSection
@@ -132,11 +163,13 @@ export default function SecurityPage() {
                   Subscription billing
                 </p>
                 <h3 className="mt-3 text-lg font-semibold text-text-primary">
-                  Payment details stay with the payment provider.
+                  Billing events are verified before they change access.
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-text-secondary">
-                  Checkout and account billing management use Stripe-hosted
-                  flows rather than a homegrown card-entry experience.
+                  Stripe hosts checkout and billing management. EstateIQ
+                  validates each webhook signature before accepting a
+                  subscription change, and card data does not pass through the
+                  EstateIQ application.
                 </p>
               </div>
               <span className="w-fit shrink-0 rounded-full border border-brand-emerald/25 bg-brand-emerald/10 px-4 py-2 text-xs font-medium text-brand-emerald">
