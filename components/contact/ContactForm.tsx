@@ -56,17 +56,10 @@ export function ContactForm() {
   return (
     <form
       data-netlify="true"
-      data-netlify-honeypot="bot-field"
       name="contact"
       onSubmit={handleSubmit}
     >
       <input name="form-name" type="hidden" value="contact" />
-      <p className="absolute -m-px size-px overflow-hidden border-0 p-0 [clip:rect(0,0,0,0)]">
-        <label>
-          Do not fill this out if you are human:
-          <input autoComplete="off" name="bot-field" tabIndex={-1} />
-        </label>
-      </p>
 
       {status === "success" && (
         <div
