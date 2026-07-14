@@ -34,13 +34,15 @@ export function ContactForm() {
     });
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: body.toString(),
       });
 
-      if (!response.ok) {
+      const responseText = await response.text();
+
+      if (!response.ok || !/thank you/i.test(responseText)) {
         throw new Error("Contact form submission failed.");
       }
 
