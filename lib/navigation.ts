@@ -13,9 +13,11 @@ export type NavigationGroup = {
 
 export const mainNavigation: NavigationItem[] = [
   { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Security", href: "/security" },
   { label: "Docs", href: "/docs" },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact#send-a-message" },
 ];
 
 export const ctaNavigation: NavigationItem[] = [

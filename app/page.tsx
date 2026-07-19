@@ -5,8 +5,10 @@ import { AiDifferenceDiagram } from "@/components/marketing/AiDifferenceDiagram"
 import { DocumentIntelligenceSection } from "@/components/marketing/DocumentIntelligenceSection";
 import { FinalCTASection } from "@/components/marketing/FinalCTASection";
 import { FinancialTruthSection } from "@/components/marketing/FinancialTruthSection";
+import { GettingStartedSection } from "@/components/marketing/GettingStartedSection";
 import { HeroSection } from "@/components/marketing/HeroSection";
 import { HowItWorksSection } from "@/components/marketing/HowItWorksSection";
+import { PricingSection } from "@/components/marketing/PricingSection";
 import { ProblemSection } from "@/components/marketing/ProblemSection";
 import { TrustSection } from "@/components/marketing/TrustSection";
 import { Section } from "@/components/ui/Section";
@@ -32,6 +34,8 @@ export default function Home() {
         <AiDifferenceDiagram />
       </Section>
       <TrustSection />
+      <PricingSection />
+      <GettingStartedSection />
       <FinalCTASection />
     </main>
   );

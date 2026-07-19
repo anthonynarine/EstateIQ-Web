@@ -15,6 +15,13 @@ export const metadata: Metadata = createPageMetadata("/ai-academy");
 
 const topics = [
   {
+    title: "Dana User Guide",
+    description:
+      "What Dana is, what she can help with, where her boundaries are, and how to ask better portfolio questions.",
+    href: "/ai-academy/dana",
+    label: "User guide",
+  },
+  {
     title: "Grounded AI",
     description:
       "Why EstateIQ answers from the records you manage instead of unsupported assumptions.",
@@ -72,6 +79,7 @@ export default function AiAcademyPage() {
         previewItems={[
           { label: "Answers come from records", href: "#ai-difference" },
           { label: "Tools prepare the answer", href: "#ai-stack" },
+          { label: "Dana user guide", href: "#academy-topics" },
           { label: "AI explains the result", href: "#core-principle" },
           { label: "Gaps help the team improve coverage", href: "#academy-topics" },
         ]}

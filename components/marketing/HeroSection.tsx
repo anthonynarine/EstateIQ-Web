@@ -15,7 +15,7 @@ export function HeroSection() {
           <div className="max-w-3xl">
             <Badge variant="brand">For independent landlords · Up to 50 units</Badge>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
-              One clear view of your entire rental business.
+              An AI-powered operating system for small landlords.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-text-secondary sm:text-lg">
               EstateIQ connects your properties, rent, revenue, expenses,

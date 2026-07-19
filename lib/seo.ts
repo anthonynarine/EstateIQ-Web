@@ -82,6 +82,14 @@ export const publicRoutes = [
     priority: 0.75,
   },
   {
+    path: "/ai-academy/dana",
+    title: "Dana User Guide",
+    description:
+      "Learn what Dana can help with, how EstateIQ grounds her answers in portfolio records, and which actions remain outside the AI assistant.",
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
     path: "/ai-academy/grounded-ai",
     title: "Grounded AI",
     description:
