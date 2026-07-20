@@ -12,6 +12,7 @@ export type NavigationGroup = {
 };
 
 export const mainNavigation: NavigationItem[] = [
+  { label: "Who It's For", href: "/who-its-for" },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Security", href: "/security" },
@@ -31,6 +32,7 @@ export const footerNavigation: NavigationGroup[] = [
     items: [
       { label: "Overview", href: "/" },
       { label: "Features", href: "/features" },
+      { label: "Who It's For", href: "/who-its-for" },
       { label: "Security", href: "/security" },
     ],
   },

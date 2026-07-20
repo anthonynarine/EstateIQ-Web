@@ -31,7 +31,7 @@ const plans: PricingPlan[] = [
   {
     name: "Starter",
     price: "$19",
-    priceNote: "$15.83/mo billed annually",
+    priceNote: "30-day free trial, then $15.83/mo billed annually",
     tagline:
       "An everyday AI copilot for portfolios that are starting to grow.",
     features: [
@@ -45,7 +45,7 @@ const plans: PricingPlan[] = [
   {
     name: "Pro",
     price: "$49",
-    priceNote: "$40.83/mo billed annually",
+    priceNote: "30-day free trial, then $40.83/mo billed annually",
     tagline: "Full AI power for landlords running a real portfolio.",
     features: [
       "50 AI questions a day",
@@ -60,10 +60,10 @@ const plans: PricingPlan[] = [
 export function PricingSection() {
   return (
     <Section
-      description="No processing fees, no per-unit charges hiding in the fine print. Every plan runs on the same deterministic ledger — you're paying for more AI headroom, not a different product."
+      description="No processing fees, no per-unit charges hiding in the fine print. Start free, or try a paid plan for 30 days. Every plan runs on the same deterministic ledger — you're paying for more AI headroom, not a different product."
       eyebrow="Pricing"
       id="pricing"
-      title="Start free. Upgrade when the AI earns it."
+      title="Start free. Try more AI power for 30 days."
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {plans.map((plan) => (

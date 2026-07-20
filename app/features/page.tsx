@@ -4,6 +4,8 @@ import { FinalCTASection } from "@/components/cta/FinalCTASection";
 import { ConnectedSystemDiagram } from "@/components/features/ConnectedSystemDiagram";
 import { ProductHero } from "@/components/product/ProductHero";
 import { ProductSection } from "@/components/product/ProductSection";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { DocumentIntelligenceFlow } from "@/components/visualizations/DocumentIntelligenceFlow";
 import { FinancialTruthFlow } from "@/components/visualizations/FinancialTruthFlow";
 import { GapToolStory } from "@/components/visualizations/GapToolStory";
@@ -81,6 +83,32 @@ export default function FeaturesPage() {
         title="When EstateIQ doesn’t know, it doesn’t pretend."
       >
         <GapToolStory />
+      </ProductSection>
+
+      <ProductSection
+        description="EstateIQ is built for small rental portfolios, but the same asset-first foundation can also help individual homeowners and small portfolio owners understand what is happening across the property they own."
+        eyebrow="Use cases"
+        title="Different owners. Same need for clearer asset visibility."
+      >
+        <Card className="p-6 sm:p-8" variant="glass">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <h3 className="text-2xl font-semibold tracking-tight text-text-primary">
+                See who EstateIQ is built for
+              </h3>
+              <p className="mt-4 max-w-3xl text-sm leading-6 text-text-secondary sm:text-base">
+                Explore how the same system supports individual homeowners,
+                independent landlords, and small portfolio owners without
+                changing the core promise: financial records, document
+                organization, reports, issue visibility, and AI help in one
+                place.
+              </p>
+            </div>
+            <Button href="/who-its-for" size="lg" variant="outline">
+              Who it&apos;s for
+            </Button>
+          </div>
+        </Card>
       </ProductSection>
 
       <FinalCTASection

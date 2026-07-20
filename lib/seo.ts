@@ -16,6 +16,13 @@ export type PublicRoute = {
 
 export const siteUrl = new URL(siteConfig.siteUrl);
 
+const socialImage = {
+  url: absoluteUrl("/opengraph-image"),
+  width: 1200,
+  height: 630,
+  alt: "EstateIQ financial operating system for property owners",
+};
+
 export const publicRoutes = [
   {
     path: "/",
@@ -40,6 +47,14 @@ export const publicRoutes = [
       "Explore EstateIQ features for portfolio organization, lease records, ledger accounting, expenses, documents, deterministic reports, and grounded AI.",
     changeFrequency: "monthly",
     priority: 0.85,
+  },
+  {
+    path: "/who-its-for",
+    title: "Who It's For",
+    description:
+      "See how EstateIQ supports individual homeowners, independent landlords, and small portfolio owners who need clearer asset visibility, records, documents, reports, and AI help.",
+    changeFrequency: "monthly",
+    priority: 0.75,
   },
   {
     path: "/ledger",
@@ -308,11 +323,13 @@ export function createPageMetadata(path: PublicRoutePath): Metadata {
       siteName: siteConfig.name,
       type: "website",
       locale: "en_US",
+      images: [socialImage],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: path === "/" ? route.title : `${route.title} | ${siteConfig.name}`,
       description: route.description,
+      images: [socialImage],
     },
   };
 }
@@ -338,11 +355,13 @@ export const globalMetadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
+    images: [socialImage],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "EstateIQ | Financial Operating System for Small Landlords",
     description: siteConfig.description,
+    images: [socialImage],
   },
   robots: {
     index: true,
